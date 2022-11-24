@@ -1,0 +1,10 @@
+# essential libraries
+library(downloadthis)
+library(ggdist)
+library(distributional)
+library(reticulate)
+library(visdat)
+library(knitr)
+library(tidyverse)
+library(patchwork)
+theme_set(theme_bw())

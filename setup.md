@@ -16,7 +16,6 @@ If you are attending one of our workshops, we will provide a training environmen
 If you want to setup your own computer to run the analysis demonstrated on this course, you can follow the instructions below.
 :::
 
-<!--
 ## R and RStudio
 
 ::: {.tabset group="os"}
@@ -26,7 +25,6 @@ If you want to setup your own computer to run the analysis demonstrated on this 
 Download and install all these using default options:
 
 - [R](https://cran.r-project.org/bin/windows/base/release.html)
-- [RTools](https://cran.r-project.org/bin/windows/Rtools/)
 - [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
 
 ### Mac OS
@@ -42,7 +40,7 @@ Download and install all these using default options:
 - Download the [RStudio](https://www.rstudio.com/products/rstudio/download/#download) installer for your distribution and install it using your package manager.
 
 :::
--->
+
 
 
 <!--

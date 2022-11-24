@@ -1,0 +1,248 @@
+---
+title: "Finding patterns"
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| results: hide
+source(file = "setup-files/setup.R")
+```
+
+```{python}
+#| echo: false
+#| message: false
+import shutup;shutup.please()
+exec(open('setup-files/setup.py').read())
+```
+
+```{r}
+#| eval: false
+#| echo: false
+# some data cleaning on the original 'messy' data set
+# to create an easy, clean data set to work with
+gapminder <- read_csv("data/gapminder2010_socioeconomic.csv")
+gapminder %>% 
+  mutate(life_expectancy_female = as.numeric(life_expectancy_female)) %>% 
+  mutate(life_expectancy_male = replace(life_expectancy_male, which(life_expectancy_male == -999), NA)) %>% 
+  mutate(main_religion = str_to_lower(main_religion),
+         main_religion = str_squish(main_religion)) %>%
+  drop_na() %>% 
+  write_csv(file = "data/gapminder_clean.csv")
+```
+
+::: {.callout-tip}
+## Learning outcomes
+
+**Questions**
+
+-
+-
+
+**Objectives**
+
+-
+-
+-
+:::
+
+## Libraries and functions
+
+::: {.callout-note collapse="true"}
+## Click to expand
+
+::: {.panel-tabset group="language"}
+## R
+
+### Libraries
+
+```{r}
+#| eval: false
+library(tidyverse)
+library(visdat)
+```
+
+### Functions
+
+## Python
+
+### Libraries
+### Functions
+:::
+:::
+
+## Finding patterns
+
+When we set off to gather or explore data, we generally have a research question that we're interested in. We then design an experiment to test this question - in that case our data helps us to find an answer.
+
+Quite often we gather a lot more data than we directly need to answer our research question. As such, it's often very useful to explore our data and look for patterns.
+
+By doing this we can get insight into any trends that might exist in the data, or distributions across the data. We can also look for correlation between different variables (things we've measured) or make comparisons between different groups.
+
+### Loading data
+
+The first step to exploring our data is of course loading it in the first place.
+
+::: {.panel-tabset group="language"}
+## R
+```{r}
+gapminder <- read_csv("data/gapminder_clean.csv")
+```
+
+## Python
+:::
+
+The `gapminder` data set that we've loaded has 13 different variables, with observations for over 150 different countries in the year 2010.
+
+### Data structure
+
+Sometimes we're dealing with rather large data sets, whereas other times it might be small. A good starting point of any analysis/exploration is to get a broad overview of how our data is structured.
+
+::: {.panel-tabset group="language"}
+## R
+
+In R we can use a package called `visdat` to visualise the structure of our data. If you haven't installed it yet, please run the following code in the console:
+
+```{r}
+#| eval: false
+install.packages("visdat")
+```
+
+We can then visualise our data structure with the `vis_dat()` function:
+
+```{r}
+#| warning: false
+vis_dat(gapminder)
+```
+
+Looking at the y-axis, we can see that there are over 150 observations in this data set. The data are organised and coloured by type, with the column names (our variables) at the top.
+
+From this we can see that we have several character or text variables (e.g. `country`, `world_region`). There are also several numerical variables, such as `year` and `children_per_woman`.
+
+There is one variable which contains logical data (`TRUE/FALSE`), called `is_oecd`.
+
+## Python
+:::
+
+There is a wealth of data there! To illustrate how we can use different visualisations to look at the same variable, we're going to focus on `life_expectancy` in different contexts.
+
+Let's start off with a simple scatter plot that looks at `life_expectancy` against `income_per_person`:
+
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+ggplot(data = gapminder,
+       aes(x = income_per_person,
+           y = life_expectancy)) +
+  geom_point()
+```
+
+## Python
+:::
+
+It seems that as the income per person increases, so does the life expectancy. We can also see that the life expectancy kind of plateaus - which is not very surprising, since it can't go on indefinitely!
+
+Looking at this plot, it's quite striking how there is quite a range of life expectancy values at the really low income countries. There is information on different world regions in the data (`world_region`). Perhaps there are certain world regions that have particularly low income levels?
+
+This is something we can easily check.
+
+::: {.panel-tabset group="language"}
+## R
+
+We simply adjust the previous plot by colouring our data by `world_region`:
+
+```{r}
+ggplot(data = gapminder,
+       aes(x = income_per_person,
+           y = life_expectancy,
+           colour = world_region)) +
+  geom_point()
+```
+
+## Python
+:::
+
+Looking at this plot it appears that most of the low-income countries are in sub-Saharan Africa.
+
+### Distributions
+
+We've looked at some patterns in our data, using the `life_expectancy` variable as an example.
+
+We might want to understand this variable a bit better, so we need to look at it a bit more closely. A way of doing this is to see how life expectancy is distributed. We already noticed that life expectancy levels off, but perhaps there is more in these data than we already know.
+
+An easy way to get a sense of how your data are distributed is to create a box plot:
+
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+ggplot(data = gapminder,
+       aes(y = life_expectancy)) +
+  geom_boxplot()
+```
+
+
+## Python
+:::
+
+Another way is to create a histogram, where we slice our data into intervals (for example, in 5 year chunks e.g. 35-40 years, 40-45 years etc) and count how many observations fall into each interval.
+
+::: {.panel-tabset group="language"}
+## R
+
+We can do this quite straightforwardly by using `geom_histogram()`:
+
+```{r}
+ggplot(data = gapminder,
+       aes(x = life_expectancy)) +
+  geom_histogram()
+```
+
+When you run this bit of code it gives you some information:
+
+```
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
+
+What this means is that it chopped our data into 30 chunks/intervals and done the counting based on that. This might not be what we want and we can change this by changing the `bins` argument or using `binwidth`. The difference between the two is that with, for example, `bins = 10` we're saying "chop the data into 10 equal chunks" whereas with `binwidth = 10` we're saying "chop the data into chunks of 10 years each".
+
+To illustrate that histograms can vary heavily depending on the bin size, look at the following plots:
+
+```{r}
+ggplot(data = gapminder,
+       aes(x = life_expectancy)) +
+  geom_histogram(bins = 5) +
+  labs(title = "bins = 5")
+
+ggplot(data = gapminder,
+       aes(x = life_expectancy)) +
+  geom_histogram(bins = 15) +
+  labs(title = "bins = 15")
+```
+
+## Python
+:::
+
+However we slice the data, the largest number of countries with similar life expectancy seem to be in the 70-80 year range.
+
+There is also one country where life expectancy is very low and if I'd see a plot like this I would definitely want to investigate that further!
+
+
+## Exercise
+
+::: {.callout-tip collapse="true"}
+## Answer
+::: {.panel-tabset group="language"}
+## R
+## Python
+:::
+:::
+
+## Key points
+
+::: {.callout-note}
+-
+-
+-
+:::

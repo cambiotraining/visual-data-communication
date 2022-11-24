@@ -1,0 +1,157 @@
+---
+title: "Data distributions"
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| results: hide
+source(file = "setup-files/setup.R")
+```
+
+```{python}
+#| echo: false
+#| message: false
+import shutup;shutup.please()
+exec(open('setup-files/setup.py').read())
+```
+
+::: {.callout-tip}
+## Learning outcomes
+
+**Questions**
+
+-
+-
+
+**Objectives**
+
+-
+-
+-
+:::
+
+## Libraries and functions
+
+::: {.callout-note collapse="true"}
+## Click to expand
+
+::: {.panel-tabset group="language"}
+## R
+
+### Libraries
+
+```{r}
+#| eval: false
+library(tidyverse)
+library(visdat)
+```
+
+### Functions
+
+## Python
+
+### Libraries
+### Functions
+:::
+:::
+
+## Data distributions
+
+We've looked at some patterns in our data, using the `life_expectancy` variable as an example.
+
+We might want to understand this variable a bit better, so we need to look at it a bit more closely. A way of doing this is to see how life expectancy is distributed. We already noticed that life expectancy levels off, but perhaps there is more in these data than we already know.
+
+
+### Loading data
+
+If you haven't done so yet, please load the data as follows:
+
+::: {.panel-tabset group="language"}
+## R
+```{r}
+gapminder <- read_csv("data/gapminder_clean.csv")
+```
+
+## Python
+:::
+
+### Boxplots
+
+An easy way to get a sense of how your data are distributed is to create a box plot:
+
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+ggplot(data = gapminder,
+       aes(y = life_expectancy)) +
+  geom_boxplot()
+```
+
+
+## Python
+:::
+
+### Histograms
+
+Another way is to create a histogram, where we slice our data into intervals (for example, in 5 year chunks e.g. 35-40 years, 40-45 years etc) and count how many observations fall into each interval.
+
+::: {.panel-tabset group="language"}
+## R
+
+We can do this quite straightforwardly by using `geom_histogram()`:
+
+```{r}
+ggplot(data = gapminder,
+       aes(x = life_expectancy)) +
+  geom_histogram()
+```
+
+When you run this bit of code it gives you some information:
+
+```
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
+
+What this means is that it chopped our data into 30 chunks/intervals and done the counting based on that. This might not be what we want and we can change this by changing the `bins` argument or using `binwidth`. The difference between the two is that with, for example, `bins = 10` we're saying "chop the data into 10 equal chunks" whereas with `binwidth = 10` we're saying "chop the data into chunks of 10 years each".
+
+To illustrate that histograms can vary heavily depending on the bin size, look at the following plots:
+
+```{r}
+ggplot(data = gapminder,
+       aes(x = life_expectancy)) +
+  geom_histogram(bins = 5) +
+  labs(title = "bins = 5")
+
+ggplot(data = gapminder,
+       aes(x = life_expectancy)) +
+  geom_histogram(bins = 15) +
+  labs(title = "bins = 15")
+```
+
+## Python
+:::
+
+However we slice the data, the largest number of countries with similar life expectancy seem to be in the 70-80 year range.
+
+There is also one country where life expectancy is very low and if I'd see a plot like this I would definitely want to investigate that further!
+
+
+## Exercise
+
+::: {.callout-tip collapse="true"}
+## Answer
+::: {.panel-tabset group="language"}
+## R
+## Python
+:::
+:::
+
+## Key points
+
+::: {.callout-note}
+-
+-
+-
+:::
