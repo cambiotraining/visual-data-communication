@@ -49,7 +49,7 @@ exec(open('setup-files/setup.py').read())
 :::
 :::
 
-## Ranking data
+## Purpose and aim
 
 Depending on the message we want to get across with our visualisation, we might want to order or rank our data.
 

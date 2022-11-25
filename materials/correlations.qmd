@@ -49,7 +49,7 @@ library(visdat)
 :::
 :::
 
-## Finding correlations
+## Purpose and aim
 
 When we set off to gather or explore data, we generally have a research question that we're interested in. We then design an experiment to test this question - in that case our data helps us to find an answer.
 
