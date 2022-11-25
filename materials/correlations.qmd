@@ -1,0 +1,328 @@
+---
+title: "Correlations"
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| results: hide
+source(file = "setup-files/setup.R")
+```
+
+```{python}
+#| echo: false
+#| message: false
+import shutup;shutup.please()
+exec(open('setup-files/setup.py').read())
+```
+
+::: {.callout-tip}
+## Learning outcomes
+
+- Be able to find correlations within data
+- Know how to visualise and interpret correlations
+
+:::
+
+## Libraries and functions
+
+::: {.callout-note collapse="true"}
+## Click to expand
+
+::: {.panel-tabset group="language"}
+## R
+
+### Libraries
+
+```{r}
+#| eval: false
+library(tidyverse)
+library(visdat)
+```
+
+### Functions
+
+## Python
+
+### Libraries
+### Functions
+:::
+:::
+
+## Finding correlations
+
+When we set off to gather or explore data, we generally have a research question that we're interested in. We then design an experiment to test this question - in that case our data helps us to find an answer.
+
+Quite often we gather a lot more data than we directly need to answer our research question. As such, it's often very useful to explore our data and look for patterns or correlations.
+
+## Loading data
+
+The first step to exploring our data is of course loading it in the first place.
+
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+#| message: false
+gapminder <- read_csv("data/gapminder_clean.csv")
+```
+
+## Python
+:::
+
+The `gapminder` data set that we've loaded has 13 different variables, with observations for over 150 different countries in the year 2010.
+
+## Correlating variables
+
+To illustrate how we can use correlate variables to one another, we're going to focus on `life_expectancy` in different contexts.
+
+Let's start off with a simple scatter plot that looks at `life_expectancy` against `income_per_person`:
+
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+ggplot(data = gapminder,
+       aes(x = income_per_person,
+           y = life_expectancy)) +
+  geom_point()
+```
+
+## Python
+:::
+
+It seems that as the income per person increases, so does the life expectancy. We can also see that the life expectancy kind of plateaus - which is not very surprising, since it can't go on indefinitely!
+
+Looking at this plot, it's quite striking how there is quite a range of life expectancy values at the really low income countries. We know that there is information on different world regions in the data (`world_region`). Perhaps there are certain world regions that have particularly low income levels?
+
+This is something we can easily check.
+
+::: {.panel-tabset group="language"}
+## R
+
+We simply adjust the previous plot by colouring our data by `world_region`:
+
+```{r}
+ggplot(data = gapminder,
+       aes(x = income_per_person,
+           y = life_expectancy,
+           colour = world_region)) +
+  geom_point()
+```
+
+## Python
+:::
+
+Looking at this plot it appears that most of the low-income countries are in sub-Saharan Africa.
+
+We could explore this _even_ further by, for example, adding information on the population size to the plot:
+
+::: {.panel-tabset group="language"}
+## R
+
+We can adjust the previous plot by adding size to our plot, based on `population`:
+
+```{r}
+ggplot(data = gapminder,
+       aes(x = income_per_person,
+           y = life_expectancy,
+           colour = world_region,
+           size = population)) +
+  geom_point()
+```
+
+## Python
+:::
+
+::: {.callout-important}
+It's easy to add too much information to a single plot. In the example above, we're actually plotting four different variables in a single plot:
+
+* `income_per_person` on the x-axis
+* `life_expectancy` on the y-axis
+* `world_region` as colour
+* `population` as size
+
+Whether this helps convey whatever message you have is not exactly clear. We'll talk more about the purpose of a plot and the audience in the next section.
+:::
+
+### Exercises
+
+::: {.callout-note icon=false}
+## Income levels across main religions
+
+**Level:** {{< fa solid star >}} {{< fa regular star >}} {{< fa regular star >}}
+
+Plot life expectancy vs income per person for the main religions.
+
+Can you see any trends?
+
+::: {.callout-tip collapse="true"}
+## Answer
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+ggplot(data = gapminder,
+       aes(x = income_per_person,
+           y = life_expectancy,
+           colour = main_religion)) +
+  geom_point()
+```
+
+## Python
+:::
+
+There are no clear trends in these data, apart from that the data are very spread out!
+
+What we _can_ see in the plot is that the country with the highest income per person is a Muslim country, and the second-highest income country is Christian.
+:::
+:::
+
+::: {.callout-note icon=false}
+## Income extremes
+
+**Level:** {{< fa solid star >}} {{< fa solid star >}} {{< fa regular star >}}
+
+Try the following:
+
+1. Find the 5 highest income countries
+2. Find the 5 lowest income countries
+3. Create a box plot with those data points
+
+Hint: it might be easiest to save the results in two separate objects.
+
+::: {.callout-tip collapse="true"}
+## Answer
+::: {.panel-tabset group="language"}
+## R
+
+First, we get the 5 highest income countries:
+
+```{r}
+top5_income <- gapminder %>% 
+  arrange(desc(income_per_person)) %>% 
+  slice(1:5)
+```
+
+Next, we get the 5 lowest income countries:
+
+```{r}
+bottom5_income <- gapminder %>% 
+  arrange(income_per_person) %>% 
+  slice(1:5)
+```
+
+Lastly, we can plot this as follows:
+
+```{r}
+ggplot(data = top5_income,
+       aes(x = "top 5", y = income_per_person)) +
+  geom_boxplot() +
+  # create new box using the bottom 5 data
+  geom_boxplot(data = bottom5_income,
+               aes(x = "bottom 5", y = income_per_person))
+```
+
+## Python
+:::
+:::
+:::
+
+## Visualising correlations
+
+A standard method of looking for correlations is to use a correlation matrix. These are often generated by using Pearson's r - a measure of correlation. If you're interested in finding out more, see [Core statistics 3: correlations](https://cambiotraining.github.io/corestats/materials/cs3_practical_correlations.html).
+
+This is not a statistics course, but what we're doing here is focussing on how we can visualise such a matrix. A matrix is simply a data frame with just numerical values. The reason why we can't use the _entire_ gapminder data set is because we can't calculate correlations between groups. After all, it wouldn't make sense to explore if world region is correlated with main religion, for example!
+
+Because we're only able to calculate correlations between numerical variables, we first need pull out only those columns that are numeric. We're also not interested in the `year` variable, because we know there is only one value in that one anyway (the year 2010),
+
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+gapminder %>% 
+  select(where(is.numeric)) %>% 
+  select(-year)
+```
+
+## Python
+:::
+
+After this, we can calculate the correlation matrix.
+
+::: {.panel-tabset group="language"}
+## R
+
+One of the ways we can do this is by using the `cor()` function:
+
+```{r}
+gapminder %>% 
+  select(where(is.numeric)) %>% 
+  select(-year) %>% 
+  cor(method = "pearson")
+```
+## Python
+:::
+
+This is of course a hideously large table, which is almost impossible to interpret. But that's the point! It's much easier to use a visual representation of these data. Well, once the data are in the right format, that is.
+
+Don't worry if the data wrangling is a bit overwhelming, at this stage it's not essential that you understand that bit of code - but more that you're able to see how we can visualise these data.
+
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+gapminder_cor <- gapminder %>% 
+  select(where(is.numeric)) %>% 
+  select(-year) %>% 
+  cor(method = "pearson") %>% 
+  as_tibble(rownames = "var1") %>% 
+  pivot_longer(cols = -var1,
+               names_to = "var2",
+               values_to = "pearson_cor") %>% 
+  mutate(pearson_cor = round(pearson_cor, digits = 3)) %>% 
+  drop_na()
+```
+
+This gives us a table with the following format:
+
+```{r}
+head(gapminder_cor)
+```
+
+We can then plot the correlation matrix, plotting `var1` on the x-axis and `var2` on the y-axis. To aid visualisation, we're using the `geom_tile()` geometry, which creates a tile plot. The colour of each tile depends on the value of the correlation coefficient (`pearson_cor`). Together, this creates a heatmap of the data, where the values are depicted by colour.
+
+```{r}
+ggplot(data = gapminder_cor,
+       aes(x = var1, y = var2, fill = pearson_cor)) +
+  geom_tile()
+```
+
+Annoyingly, the x-axis labels are a bit obscured, so improve readability we rotate them 45 degrees. This is not entirely intuitive, but a quick Google search using the phrase ["rotate text label ggplot"](https://stackoverflow.com/questions/1330989/rotating-and-spacing-axis-labels-in-ggplot2) brings us to an answer on Stackoverflow that we can easily adapt.
+
+```{r}
+ggplot(data = gapminder_cor,
+       aes(x = var1, y = var2, fill = pearson_cor)) +
+  geom_tile() +
+  theme(axis.text.x = element_text(angle = 45, hjust=1))
+```
+
+## Python
+:::
+
+The variables across the diagonals are perfectly correlated (with a correlation coefficient of 1). This makes sense because, for example, `child_mortality` would be perfectly correlated with... itself!
+
+Other notable things are that the male/female life expectancy variables are quite highly correlated with overall life expectancy.
+
+The correlation between life expectancy and income (which we explored previously using the scatter plot) is also reasonably strong and positive.
+
+Several variables are negatively correlated with one another, such as child mortality and life expectancy. This sad example makes sense, because if the child mortality rate in a country is high, it's not inconceivable that this has an effect on the overall life expectancy in that country.
+
+## Key points
+
+::: {.callout-note}
+
+- We can find correlations by calculating correlation coefficients
+- Scatter plots allow us to visualise correlations between two variables
+- Tile plots or heatmaps are useful to visualise large numbers of correlations
+:::

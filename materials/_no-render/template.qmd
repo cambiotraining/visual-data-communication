@@ -54,13 +54,21 @@ exec(open('setup-files/setup.py').read())
 :::
 :::
 
-## Exercise
+### Exercises
+
+::: {.callout-note icon=false}
+## Exercise title
+
+**Level:** {{< fa solid star >}} {{< fa regular star >}} {{< fa regular star >}}
+
+Description
 
 ::: {.callout-tip collapse="true"}
 ## Answer
 ::: {.panel-tabset group="language"}
 ## R
 ## Python
+:::
 :::
 :::
 

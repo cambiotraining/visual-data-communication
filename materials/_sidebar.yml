@@ -4,9 +4,10 @@ website:
       contents:
         - materials.md
         # Only edit from this line down
+        - section: "Data communication"
         - section: "Quick guide to programming"
-        - section: "Data exploration"
+        - section: "Chart types"
           contents:
             - materials/data-distributions.qmd
-            - materials/finding-patterns.qmd
-        - section: "Data communication"
+            - materials/correlations.qmd
+            - materials/ranking.qmd
