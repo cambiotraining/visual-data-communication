@@ -7,6 +7,6 @@ website:
         - section: "Quick guide to programming"
         - section: "Data exploration"
           contents:
-            - materials/finding-patterns.qmd
             - materials/data-distributions.qmd
+            - materials/finding-patterns.qmd
         - section: "Data communication"

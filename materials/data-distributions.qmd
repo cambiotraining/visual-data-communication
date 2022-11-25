@@ -19,16 +19,10 @@ exec(open('setup-files/setup.py').read())
 ::: {.callout-tip}
 ## Learning outcomes
 
-**Questions**
+- Understand why we explore data distributions
+- Be able to visualise the structure of data
+- Use gained insight to explore further questions
 
--
--
-
-**Objectives**
-
--
--
--
 :::
 
 ## Libraries and functions
@@ -56,46 +50,157 @@ library(visdat)
 :::
 :::
 
-## Data distributions
+## Gapminder data set
 
-We've looked at some patterns in our data, using the `life_expectancy` variable as an example.
+The `gapminder` data set has 13 different variables, with observations for over 150 different countries in the year 2010.
 
-We might want to understand this variable a bit better, so we need to look at it a bit more closely. A way of doing this is to see how life expectancy is distributed. We already noticed that life expectancy levels off, but perhaps there is more in these data than we already know.
+Sometimes we're dealing with rather large data sets, whereas other times it might be small. A good starting point of any analysis/exploration is to get a broad overview of how our data is structured.
 
-
-### Loading data
+## Loading data
 
 If you haven't done so yet, please load the data as follows:
 
 ::: {.panel-tabset group="language"}
 ## R
+
 ```{r}
+#| message: false
 gapminder <- read_csv("data/gapminder_clean.csv")
 ```
 
 ## Python
 :::
 
-### Boxplots
+## Data structure
 
-An easy way to get a sense of how your data are distributed is to create a box plot:
+There are different ways to gain insight into the structure of your data. You can do this numerically or visually.
+
+::: {.panel-tabset group="language"}
+## R
+
+In R we can use a package called `visdat` to visualise the structure of our data. If you haven't installed it yet, please run the following code in the console:
+
+```{r}
+#| eval: false
+install.packages("visdat")
+```
+
+We can then visualise our data structure with the `vis_dat()` function:
+
+```{r}
+#| warning: false
+vis_dat(gapminder)
+```
+
+Looking at the y-axis, we can see that there are over 150 observations in this data set. The data are organised and coloured by type, with the column names (our variables) at the top.
+
+From this we can see that we have several character or text variables (e.g. `country`, `world_region`). There are also several numerical variables, such as `year` and `children_per_woman`.
+
+There is one variable which contains logical data (`TRUE/FALSE`), called `is_oecd`.
+
+## Python
+:::
+
+There is a wealth of data there! So where do we go from here? In this case we're going to use one of the variables as an example. We'll use `life_expectancy` to illustrate how you can get more insight into how certain parts of your data are distributed.
+
+## Box plots
+
+An easy way to get a sense of the data distribution is to create a box plot. For the `life_expectancy` variable we can do this as follows:
 
 ::: {.panel-tabset group="language"}
 ## R
 
 ```{r}
 ggplot(data = gapminder,
-       aes(y = life_expectancy)) +
+       aes(x = 1,
+           y = life_expectancy)) +
   geom_boxplot()
 ```
 
+Since we are plotting only one variable, we're defining the `x` value as 1, but it doesn't actually have any numerical meaning.
+
+Box plots give you some summary statistics, so therefore it's often useful to plot them together with the actual data. We can do this quite easily by adding another layer to the plot that contains the data points. We're also adding some transparency (`alpha = 0.4` - which is 40% opacity) so we can still see the box plots themselves. We're also defining the `width = 0.1` so that the data points are not spread out over the entire width of the box plot, but are constrained a bit more.
+
+```{r}
+ggplot(data = gapminder,
+       aes(x = 1,
+           y = life_expectancy)) +
+  geom_boxplot() +
+  geom_jitter(alpha = 0.4, width = 0.1)
+```
 
 ## Python
 :::
 
-### Histograms
+### Exercise: Income box plot
 
-Another way is to create a histogram, where we slice our data into intervals (for example, in 5 year chunks e.g. 35-40 years, 40-45 years etc) and count how many observations fall into each interval.
+**Level:** {{< fa solid star >}} {{< fa regular star >}} {{< fa regular star >}}
+
+Create a box plot that displays the `income_per_person`. Overlay the data points on top of the plot. What can you see?
+
+::: {.callout-tip collapse="true"}
+## Answer
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+ggplot(data = gapminder,
+       aes(x = 1,
+           y = income_per_person)) +
+  geom_boxplot() +
+  geom_jitter(alpha = 0.4, width = 0.1)
+```
+
+## Python
+:::
+
+Income per person across the different countries is not equally spread. We can see this in the location of the median (the horizontal black line in the box plot), which is not centered inside the box.
+
+Looking at the actual data makes this even more obvious: a small set of countries have a rather high level of income, with one country standing out above the rest.
+:::
+
+### Exercise: High income countries
+
+**Level:** {{< fa solid star >}} {{< fa solid star >}} {{< fa regular star >}}
+
+The spread of income per person is not equal and it would be useful to explore this a bit more. Try and find answers to the following questions:
+
+1. How does income per person vary across the different world regions?
+2. What is the country with the highest income per person?
+
+::: {.callout-tip collapse="true"}
+## Answer
+::: {.panel-tabset group="language"}
+## R
+
+To see if income per person varies across the world regions, we can group the data based on `world_region`. We adjust the previous box plot as follows:
+
+```{r}
+ggplot(data = gapminder,
+       aes(x = world_region,
+           y = income_per_person)) +
+  geom_boxplot() +
+  geom_jitter(alpha = 0.4, width = 0.1)
+```
+
+To find the country with the highest level of income, we need to filter our data. We need to do this in descending order, so we're combining the `arrange()` function with the `desc()` helper function.
+
+```{r}
+gapminder %>% 
+  arrange(desc(income_per_person))
+```
+
+## Python
+:::
+
+1. Income per person varies markedly across the different world regions, with low income levels in South Asia and sub-Saharan Africa. Another notable thing is that income in the Middle East/North Africa region has a huge spread.
+
+2. The country with the highest income per person (in 2010) is `r gapminder %>% arrange(desc(income_per_person)) %>% slice(1) %>% pull(country)`, with an income of `r round(gapminder %>% arrange(desc(income_per_person)) %>% slice(1) %>% pull(income_per_person) / 1000)` thousand dollars per person.
+:::
+
+## Histograms
+
+Another way to look at how data is distributed is to create a histogram. Here we slice our data into intervals (for example, in 5 year chunks e.g. 35-40 years, 40-45 years etc) and count how many observations fall into each interval. This gives us a frequency for the number of observations into each interval group.
 
 ::: {.panel-tabset group="language"}
 ## R
@@ -133,25 +238,42 @@ ggplot(data = gapminder,
 ## Python
 :::
 
+This means that our interpretation can also change, depending on the number of bins we've specified. So we need to be aware of this when we're using histograms!
+
 However we slice the data, the largest number of countries with similar life expectancy seem to be in the 70-80 year range.
 
 There is also one country where life expectancy is very low and if I'd see a plot like this I would definitely want to investigate that further!
 
+### Exercise: Lowest life expectancy
 
-## Exercise
+**Level:** {{< fa solid star >}} {{< fa regular star >}} {{< fa regular star >}}
+
+Find the country that has the lowest life expectancy.
 
 ::: {.callout-tip collapse="true"}
 ## Answer
 ::: {.panel-tabset group="language"}
 ## R
+
+We can arrange the data by `life_expectancy` in ascending order, using the `arrange()` function:
+
+```{r}
+gapminder %>% 
+  arrange(life_expectancy)
+```
+
 ## Python
 :::
+
+The country with the lowest life expectancy is `r gapminder %>% arrange(life_expectancy) %>% slice(1) %>% pull(country)`. The year 2010 was particularly bad for them, since there was a [catastrophic earthquake](https://en.wikipedia.org/wiki/2010_Haiti_earthquake), that may very well have had an effect on the life expectancy in the country that year.
+
 :::
 
 ## Key points
 
 ::: {.callout-note}
--
--
--
+
+- Data distributions allows us to understand the structure of our data better
+- Box plots give us summary statistics
+- Histograms displays the frequency of observations
 :::

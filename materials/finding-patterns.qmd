@@ -34,16 +34,8 @@ gapminder %>%
 ::: {.callout-tip}
 ## Learning outcomes
 
-**Questions**
+-  
 
--
--
-
-**Objectives**
-
--
--
--
 :::
 
 ## Libraries and functions
@@ -85,7 +77,9 @@ The first step to exploring our data is of course loading it in the first place.
 
 ::: {.panel-tabset group="language"}
 ## R
+
 ```{r}
+#| message: false
 gapminder <- read_csv("data/gapminder_clean.csv")
 ```
 
@@ -94,37 +88,9 @@ gapminder <- read_csv("data/gapminder_clean.csv")
 
 The `gapminder` data set that we've loaded has 13 different variables, with observations for over 150 different countries in the year 2010.
 
-### Data structure
+### Data exploration
 
-Sometimes we're dealing with rather large data sets, whereas other times it might be small. A good starting point of any analysis/exploration is to get a broad overview of how our data is structured.
-
-::: {.panel-tabset group="language"}
-## R
-
-In R we can use a package called `visdat` to visualise the structure of our data. If you haven't installed it yet, please run the following code in the console:
-
-```{r}
-#| eval: false
-install.packages("visdat")
-```
-
-We can then visualise our data structure with the `vis_dat()` function:
-
-```{r}
-#| warning: false
-vis_dat(gapminder)
-```
-
-Looking at the y-axis, we can see that there are over 150 observations in this data set. The data are organised and coloured by type, with the column names (our variables) at the top.
-
-From this we can see that we have several character or text variables (e.g. `country`, `world_region`). There are also several numerical variables, such as `year` and `children_per_woman`.
-
-There is one variable which contains logical data (`TRUE/FALSE`), called `is_oecd`.
-
-## Python
-:::
-
-There is a wealth of data there! To illustrate how we can use different visualisations to look at the same variable, we're going to focus on `life_expectancy` in different contexts.
+To illustrate how we can use different visualisations to look at the same variable, we're going to focus on `life_expectancy` in different contexts.
 
 Let's start off with a simple scatter plot that looks at `life_expectancy` against `income_per_person`:
 
@@ -164,70 +130,6 @@ ggplot(data = gapminder,
 :::
 
 Looking at this plot it appears that most of the low-income countries are in sub-Saharan Africa.
-
-### Distributions
-
-We've looked at some patterns in our data, using the `life_expectancy` variable as an example.
-
-We might want to understand this variable a bit better, so we need to look at it a bit more closely. A way of doing this is to see how life expectancy is distributed. We already noticed that life expectancy levels off, but perhaps there is more in these data than we already know.
-
-An easy way to get a sense of how your data are distributed is to create a box plot:
-
-::: {.panel-tabset group="language"}
-## R
-
-```{r}
-ggplot(data = gapminder,
-       aes(y = life_expectancy)) +
-  geom_boxplot()
-```
-
-
-## Python
-:::
-
-Another way is to create a histogram, where we slice our data into intervals (for example, in 5 year chunks e.g. 35-40 years, 40-45 years etc) and count how many observations fall into each interval.
-
-::: {.panel-tabset group="language"}
-## R
-
-We can do this quite straightforwardly by using `geom_histogram()`:
-
-```{r}
-ggplot(data = gapminder,
-       aes(x = life_expectancy)) +
-  geom_histogram()
-```
-
-When you run this bit of code it gives you some information:
-
-```
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-```
-
-What this means is that it chopped our data into 30 chunks/intervals and done the counting based on that. This might not be what we want and we can change this by changing the `bins` argument or using `binwidth`. The difference between the two is that with, for example, `bins = 10` we're saying "chop the data into 10 equal chunks" whereas with `binwidth = 10` we're saying "chop the data into chunks of 10 years each".
-
-To illustrate that histograms can vary heavily depending on the bin size, look at the following plots:
-
-```{r}
-ggplot(data = gapminder,
-       aes(x = life_expectancy)) +
-  geom_histogram(bins = 5) +
-  labs(title = "bins = 5")
-
-ggplot(data = gapminder,
-       aes(x = life_expectancy)) +
-  geom_histogram(bins = 15) +
-  labs(title = "bins = 15")
-```
-
-## Python
-:::
-
-However we slice the data, the largest number of countries with similar life expectancy seem to be in the 70-80 year range.
-
-There is also one country where life expectancy is very low and if I'd see a plot like this I would definitely want to investigate that further!
-
 
 ## Exercise
 
