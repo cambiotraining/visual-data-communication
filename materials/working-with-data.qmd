@@ -1,0 +1,210 @@
+---
+title: "Working with data"
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| results: hide
+source(file = "setup-files/setup.R")
+```
+
+```{python}
+#| echo: false
+#| message: false
+import shutup;shutup.please()
+exec(open('setup-files/setup.py').read())
+```
+
+::: {.callout-tip}
+## Learning outcomes
+
+- Be able to import tabular data
+- Perform basic operations on data
+
+:::
+
+## Libraries and functions
+
+::: {.callout-note collapse="true"}
+## Click to expand
+
+::: {.panel-tabset group="language"}
+## R
+
+### Libraries
+### Functions
+
+## Python
+
+### Libraries
+### Functions
+:::
+:::
+
+## Purpose and aim
+
+In this section we're covering the basics of reading in using tabular data.
+
+## Gapminder data set
+
+We will use data from the [_Gapminder Foundation_](https://www.gapminder.org/), 
+which gives access to global data as well as many tools to help explore it.
+In these lessons we're going to use some of these data to explore some of these data 
+ourselves.
+
+We have two files with data relating to socio-economic statistics: world data 
+for 2010 only and the same data for 1960 to 2010.
+
+Both of these have the same columns of data:
+
+| Column                       | Description                                                                                                                     |
+|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| country                     | country name                                                                                                                    |
+| world_region                | 6 world regions                                                                                                                 |
+| year                        | year that each datapoint refers to                                                                                               |
+| children_per_woman          | total fertility rate                                                                                                            |
+| life_expectancy             | average number of years a newborn child would live if current mortality patterns were to stay the same                          |
+| income_per_person           | gross domestic product per person adjusted for differences in purchasing power                                                  |
+| is_oecd       | Whether a country belongs to the “OECD” (`TRUE`) or not (`FALSE`)                                                                                                       |
+| income_groups               | categorical classification of income groups                                                                                     |
+| population             | total number of a country's population                                                                                                 |
+| main_religion               | religion of the majority of population in 2008                                                                                  |
+| child_mortality             | death of children under 5 years old per 1000 births                                                                             |
+| life_expectancy_female      | life expectancy at birth, females                                                                                               |
+| life_expectancy_male        | life expectancy at birth, males                                                                                                 |
+
+## Reading in data
+
+::: {.panel-tabset group="language"}
+## R
+
+There are several functions to read data into R, we're going to use one from the 
+`readr` package, which is part of the `tidyverse`. As such, we first need to load 
+the package into R's memory, by using the `library()` function:
+
+```{r}
+#| message: false
+library(tidyverse)
+```
+
+This command has to be run every time you start a new R session. Typically you 
+want to include the `library()` calls at the top of your script, so that a user 
+knows which packages need to be installed to run the analysis.
+
+Our data is provided in CSV format (comma separated values). This format is a 
+regular text file, where each value (or column of the table) is separated by a 
+comma. To read such a file, we use the `read_csv()` function, which needs at least 
+one input: the _path_ of the file we want to read. It is also good practice 
+to explicitly define how missing data is encoded in the file with the `na` option. 
+In our case, missing data are encoded as an empty string (imagine this as an empty 
+cell in a spreadsheet).
+
+Here's the command:
+
+```{r}
+gapminder <- read_csv("data/gapminder_clean.csv")
+```
+
+We see a lot of output there, but this is not an error! It's a message that `read_csv()` 
+prints to inform us of what type of data it thinks each column of the data set is. 
+We'll discuss this in a while.
+
+It's always useful to have a glimpse at the first few rows of your data set, to see how it is structured. We can do that with the `head()` function.
+
+```{r}
+head(gapminder)
+```
+
+
+### The `data.frame` object
+
+A **data.frame** is the basic type of object that stores _tabular_ data. 
+The `readr` package reads data in an "extended" version of a data frame that it 
+calls **tibble** (`tbl` for short). The details of their differences are not very 
+important unless you are a programmer, but _tibbles_ offer some user conveniences 
+such as a better printing method. For the rest of the course we'll refer to 
+"data frames" and "tibbles" interchangeably.
+
+
+## Python
+:::
+
+## Subsetting data
+
+::: {.panel-tabset group="language"}
+## R
+
+We can subset the data in our `gapminder` table by **column** or **row**. The `tidyverse` package has a series of useful functions that allow you to do this.
+
+### Subsetting by column
+
+We can use the `select()` function to select certain columns, for example if we just wanted the `country` and `year` column. The first argument we give to the function is the data set, followed by the name of the columns we want:
+
+```{r}
+select(gapminder, country, year)
+```
+
+
+### Subsetting by row
+
+Now let's say we wanted to only keep certain observations - which are organised in rows. Here we can use the `filter()` function. For example, if we only wanted the data for the United Kingdom:
+
+```{r}
+filter(gapminder, country == "United Kingdom")
+```
+
+Here we've taken the `gapminder` data set and we asked R to give us the rows where `country == "United Kingdom"` is `TRUE`. It goes through all the rows, in this case checking the `country` column. If the statement `country == "United Kingdom"` is `TRUE`, it returns the row. Otherwise it doesn't.
+
+In this case there is only one row with country "United Kingdom", but we could also use a different conditional statement, for example returning all the rows where the `income_per_person` is larger than $50,000:
+
+```{r}
+filter(gapminder, income_per_person > 50000)
+```
+
+## Python
+:::
+
+## Chaining commands
+
+Sometimes we need to perform many different operations before we have the right data in the correct format that we need. For example, we might want to filter for certain values and then only keep certain columns. We could perform these operations one by one and save the output of each into an object that we then use for the next operation.
+
+But this is not very efficient. So it can be useful to chain certain operations together, performing them one by one.
+
+::: {.panel-tabset group="language"}
+## R
+
+In R we can do this with the **pipe**. We'll be using the pipe operator for tidyverse (`%>%`). The pipe always starts with **data**, which it then "pipes through" to a function.
+
+Let's look at an example, recreating the `filter()` operation we did earlier, but this time with a pipe:
+
+```{r}
+gapminder %>% 
+  filter(income_per_person > 50000)
+```
+
+What it's done is taken the `gapminder` data set and then sent this to the `filter()` function. The function doesn't need the data set specified explicitly, because it knows it is coming from the pipe.
+
+We can combine this with other functions:
+
+```{r}
+gapminder %>% 
+  filter(income_per_person > 50000) %>% 
+  select(country, year)
+```
+
+Here we've performed the filtering, and then selected the `country` and `year` columns.
+## Python
+:::
+
+Chaining operations can be a very powerful tool, since it allows you to break down a complex operation into smaller steps. This often makes the analysis a lot less daunting!
+
+## Key points
+
+::: {.callout-note}
+
+- Tabular data are an excellent format for programming languages
+- Having variables in columns and observations in rows makes analysis easier
+- We can subset data across columns and rows
+
+:::

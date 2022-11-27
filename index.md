@@ -1,6 +1,6 @@
 ---
 title: "Visual data communication"
-author: "Martin van Rongen"
+author: "Martin van Rongen, Hugo Tavares, Matt Castle"
 date: today
 ---
 
@@ -8,27 +8,26 @@ date: today
 
 ## Overview 
 
-Include a one-paragraph summary of the course here. 
+Communicating data effectively is an important skill in many scientific fields, and beyond. The ease at which large quantities of data are now generated, it becomes more important than ever to be able to get your message across clearly.
+
+This course is intended to give you a background in how to communicate effectively, using visualisations.
 
 ::: {.callout-tip}
 ### Learning Objectives
 
-- List course learning objectives here.
-- These describe concepts the learners should grasp and techniques they should be able to use by the end of the course.
-- You can think of these as completing the phrase "after this course, the participant should be able to..."
-- They are not supposed to be as detailed as the learning objectives of each section, but more high-level.
+- Understand the basics of what makes a good and bad visualisation
+- Use basic programming skills to create effective data visualisations
+
 :::
 
 
 ### Target Audience
 
-Brief description of target audience here.
-
+People who need to communicate their data, particularly in a scientific setting.
 
 ### Prerequisites
 
-Detail any prerequisite skills needed to attend this course, with links to other relevant materials/courses if possible.
-
+We expect people to have a basic understanding of programming, either in R or Python. Included in these materials is a quick guide to programming, which some of the basic techniques used in this course. This is not intended as a replacement for a proper introduction to programming and if you are a complete novice - don't worry. Have a look at our [course schedule](https://www.training.cam.ac.uk/bioinformatics/Event-timetable) to book your place on an Introduction to R or Python. These courses run several times each year.
 
 ## Authors
 <!-- 
@@ -38,15 +37,23 @@ These examples include icons with links to GitHub and Orcid.
 
 About the authors:
 
+- **Hugo Tavares **
+  <a href="https://orcid.org/0000-0001-9373-2726" target="_blank"><i class="fa-brands fa-orcid" style="color:#a6ce39"></i></a> 
+  <a href="https://github.com/tavareshugo" target="_blank"><i class="fa-brands fa-github" style="color:#4078c0"></i></a>  
+  _Affiliation_: Bioinformatics Training Facility, University of Cambridge  
+  _Roles_: writing - original draft; conceptualisation; coding
 - **Martin van Rongen**
   <a href="https://github.com/mvanrongen" target="_blank"><i class="fa-brands fa-github" style="color:#4078c0"></i></a>  
   _Affiliation_: Bioinformatics Training Facility, University of Cambridge  
   _Roles_: writing - review & editing; conceptualisation; coding
+- **Matt Castle**
+  _Affiliation_: Bioinformatics Training Facility, University of Cambridge  
+  _Roles_: conceptualisation
 
-
+<!--
 ## Citation
 
-<!-- We can do this at the end -->
+ We can do this at the end 
 
 Please cite these materials if:
 
@@ -69,12 +76,6 @@ Or in BibTeX format:
   doi = {}
 }
 ```
+-->
 
-
-## Acknowledgements
-
-<!-- if there are no acknowledgements we can delete this section -->
-
-- List any other sources of materials that were used.
-- Or other people that may have advised during the material development (but are not authors).
 :::

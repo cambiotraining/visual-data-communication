@@ -1,0 +1,138 @@
+---
+title: "Functions and objects"
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| results: hide
+source(file = "setup-files/setup.R")
+```
+
+```{python}
+#| echo: false
+#| message: false
+import shutup;shutup.please()
+exec(open('setup-files/setup.py').read())
+```
+
+::: {.callout-tip}
+## Learning outcomes
+
+- Be able to use functions
+- Be able to assign values to objects
+
+:::
+
+## Libraries and functions
+
+::: {.callout-note collapse="true"}
+## Click to expand
+
+::: {.panel-tabset group="language"}
+## R
+
+### Libraries
+### Functions
+
+## Python
+
+### Libraries
+### Functions
+:::
+:::
+
+## Purpose and aim
+
+In this section we'll focus on functions and objects. We'll learn how to use functions and how to create and access objects.
+
+## Functions
+
+Functions perform specific operations. A function usually gets one or more inputs called arguments and returns a value. An example is:
+
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+#| eval: false
+sqrt()
+```
+
+This function returns the square root of a number. As such, it can only have a number as input, for example:
+
+```{r}
+sqrt(9)
+```
+
+## Python
+:::
+
+Functions can take different arguments. In the example above there was only one, but many functions allow you to specify more than one input. For example, let's say we wanted to round a number.
+
+::: {.panel-tabset group="language"}
+## R
+
+We can use the `round()` function:
+
+```{r}
+round(10.232)
+```
+
+This returns a whole number. But what if we wanted to round it to one decimal? The `round()` function has an argument called `digits` that allows you to do just that. We separate the input and the argument with a comma.
+
+```{r}
+round(10.232, digits = 1)
+```
+
+## Python
+:::
+
+## Objects
+
+Often, you want to save the output of an operation for later use. In other words, we need to assign values to objects.
+
+::: {.panel-tabset group="language"}
+## R
+
+To create an object, we need to give it a name followed by the assignment operator `<-`, and the value we want to give to it.
+
+For example:
+
+```{r}
+age <- 32
+```
+
+We can read the code as: the value 32 is assigned to the object `age`. Note that when you run this line of code the object you just created appears on your environment tab (top-right panel).
+
+When assigning a value to an object, R does not print anything on the console. You can print the value by typing the object name on the console:
+
+```{r}
+age
+```
+
+## Python
+:::
+
+### Using objects
+
+The nice thing about storing values in objects is that you can use them for further operations. Look at the following example.
+
+::: {.panel-tabset group="language"}
+## R
+
+Let's say we wanted to calculate double the `age`:
+
+```{r}
+age * 2
+```
+
+## Python
+:::
+
+## Key points
+
+::: {.callout-note}
+
+- Functions perform a specific set of operations
+- Objects allow you to store value that can be accessed later
+:::

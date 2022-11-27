@@ -19,16 +19,9 @@ exec(open('setup-files/setup.py').read())
 ::: {.callout-tip}
 ## Learning outcomes
 
-**Questions**
-
 -
 -
 
-**Objectives**
-
--
--
--
 :::
 
 ## Libraries and functions
@@ -37,11 +30,6 @@ exec(open('setup-files/setup.py').read())
 ## Click to expand
 
 ::: {.panel-tabset group="language"}
-## tidyverse
-
-### Libraries
-### Functions
-
 ## R
 
 ### Libraries
@@ -53,6 +41,8 @@ exec(open('setup-files/setup.py').read())
 ### Functions
 :::
 :::
+
+## Purpose and aim
 
 ### Exercises
 

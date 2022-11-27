@@ -6,8 +6,14 @@ website:
         # Only edit from this line down
         - section: "Data communication"
         - section: "Quick guide to programming"
+          contents:
+            - materials/intro-to-programming.qmd
+            - materials/functions-and-objects.qmd
+            - materials/working-with-data.qmd
+            - materials/intro-to-plotting.qmd
         - section: "Chart types"
           contents:
             - materials/data-distributions.qmd
             - materials/correlations.qmd
             - materials/ranking.qmd
+            - materials/changes.qmd

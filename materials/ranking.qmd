@@ -29,12 +29,6 @@ exec(open('setup-files/setup.py').read())
 ## Click to expand
 
 ::: {.panel-tabset group="language"}
-## tidyverse
-
-### Libraries
-
-### Functions
-
 ## R
 
 ### Libraries
