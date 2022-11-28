@@ -1,5 +1,5 @@
 ---
-title: "Changes"
+title: "Looking for changes"
 ---
 
 ```{r}
@@ -19,7 +19,7 @@ exec(open('setup-files/setup.py').read())
 ::: {.callout-tip}
 ## Learning outcomes
 
-- Be able to visualise changing data
+- Be able to visualise changes in data
 
 :::
 
@@ -125,8 +125,8 @@ gapminder1960_2010 %>%
   geom_line()
 ```
 
-::: {.callout-info collapse="true"}
-## Note on `%in%`
+::: {.callout-note collapse="true"}
+## Note on `%in%` syntax
 
 We use `%in%` when we want to compare against a collection of values. Let's look at a very simple data set called `colours`, which contains 5 different colour values:
 

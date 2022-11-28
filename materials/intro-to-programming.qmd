@@ -1,5 +1,5 @@
 ---
-title: "Introduction to programming"
+title: "Getting started"
 ---
 
 ```{r}
@@ -86,7 +86,7 @@ The default layout is:
   you to navigate your files, view plots, view installed packages and search help files. 
 
 
-![RStudio_startup](images/00-RStudio_screen.png)
+![](images/00-RStudio_screen.png)
 
 ## Python
 :::

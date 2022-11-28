@@ -1,5 +1,5 @@
 ---
-title: "Ranking"
+title: "Ranking your data"
 ---
 
 ```{r}
@@ -85,7 +85,8 @@ p2 <- gapminder %>%
   group_by(world_region) %>% 
   summarise(mean_income = mean(income_per_person)) %>% 
   ungroup() %>% 
-  ggplot(aes(x = fct_reorder(world_region, mean_income), y = mean_income)) +
+  ggplot(aes(x = fct_reorder(world_region, mean_income),
+             y = mean_income)) +
   geom_bar(stat = "identity") +
   theme(axis.text.x = element_text(angle = 45, hjust=1)) +
   labs(x = "World region", y = "Mean income")

@@ -1,5 +1,5 @@
 ---
-title: "Correlations"
+title: "Finding correlations"
 ---
 
 ```{r}

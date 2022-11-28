@@ -4,16 +4,26 @@ website:
       contents:
         - materials.md
         # Only edit from this line down
-        - section: "Data communication"
-        - section: "Quick guide to programming"
+        - section: "Basic programming"
           contents:
             - materials/intro-to-programming.qmd
             - materials/functions-and-objects.qmd
             - materials/working-with-data.qmd
             - materials/intro-to-plotting.qmd
-        - section: "Chart types"
+        - section: "Exploration"
           contents:
             - materials/data-distributions.qmd
             - materials/correlations.qmd
             - materials/ranking.qmd
             - materials/changes.qmd
+        - section: "Construction concepts"
+          contents:
+            #- materials/marks-and-channels.qmd
+            #- materials/colour.qmd
+            #- materials/discriminability.qmd
+            - materials/popout.qmd
+            #- materials/space-and-layout.qmd
+        #- section: "Communicating with purpose"
+          #contents:
+            #- materials/audience.qmd
+            #- materials/message.qmd
