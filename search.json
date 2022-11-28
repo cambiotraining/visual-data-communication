@@ -1,0 +1,422 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Visual data communication",
+    "section": "",
+    "text": "OverviewAuthors\n\n\nCommunicating data effectively is an important skill in many scientific fields, and beyond. The ease at which large quantities of data are now generated, it becomes more important than ever to be able to get your message across clearly.\nThis course is intended to give you a background in how to communicate effectively, using visualisations.\n\n\n\n\n\n\nLearning Objectives\n\n\n\n\nUnderstand the basics of what makes a good and bad visualisation\nUse basic programming skills to create effective data visualisations\n\n\n\n\nTarget Audience\nPeople who need to communicate their data, particularly in a scientific setting.\n\n\nPrerequisites\nWe expect people to have a basic understanding of programming, either in R or Python. Included in these materials is a quick guide to programming, which some of the basic techniques used in this course. This is not intended as a replacement for a proper introduction to programming and if you are a complete novice - don’t worry. Have a look at our course schedule to book your place on an Introduction to R or Python. These courses run several times each year.\n\n\n\n\nAbout the authors:\n\nHugo Tavares   \nAffiliation: Bioinformatics Training Facility, University of Cambridge\nRoles: writing - original draft; conceptualisation; coding\nMartin van Rongen \nAffiliation: Bioinformatics Training Facility, University of Cambridge\nRoles: writing - review & editing; conceptualisation; coding\nMatt Castle Affiliation: Bioinformatics Training Facility, University of Cambridge\nRoles: conceptualisation"
+  },
+  {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Setup",
+    "section": "",
+    "text": "Workshop Attendees\n\n\n\nIf you are attending one of our workshops, we will provide a training environment with all of the required software and data.\nIf you want to setup your own computer to run the analysis demonstrated on this course, you can follow the instructions below."
+  },
+  {
+    "objectID": "setup.html#r-and-rstudio",
+    "href": "setup.html#r-and-rstudio",
+    "title": "Setup",
+    "section": "R and RStudio",
+    "text": "R and RStudio\n\n\nWindows\nDownload and install all these using default options:\n\nR\nRStudio\n\n\n\nMac OS\nDownload and install all these using default options:\n\nR\nRStudio\n\n\n\nLinux\n\nGo to the R installation folder and look at the instructions for your distribution.\nDownload the RStudio installer for your distribution and install it using your package manager."
+  },
+  {
+    "objectID": "materials/changes.html#libraries-and-functions",
+    "href": "materials/changes.html#libraries-and-functions",
+    "title": "Looking for changes",
+    "section": "Libraries and functions",
+    "text": "Libraries and functions\n\n\n\n\n\n\nClick to expand\n\n\n\n\n\n\nRPython\n\n\n\nLibraries\n\n\nFunctions\n\n\n\n\nLibraries\n\n\nFunctions"
+  },
+  {
+    "objectID": "materials/changes.html#purpose-and-aim",
+    "href": "materials/changes.html#purpose-and-aim",
+    "title": "Looking for changes",
+    "section": "Purpose and aim",
+    "text": "Purpose and aim\nIn this section we’re going to look at dealing with data that changes. This can be when you’ve got a data for different points in time, or perhaps some response to different concentrations.\nHere the change over time or in concentration may show some interesting properties."
+  },
+  {
+    "objectID": "materials/changes.html#loading-data",
+    "href": "materials/changes.html#loading-data",
+    "title": "Looking for changes",
+    "section": "Loading data",
+    "text": "Loading data\nWe’ll be using a new data set for this section - it contains similar information as the gapminder data set we’ve used so far, but it has data for different years. There is data from 1960 to 2010.\n\nRPython\n\n\n\ngapminder1960_2010 <- read_csv(\"data/gapminder1960to2010_socioeconomic.csv\")"
+  },
+  {
+    "objectID": "materials/changes.html#changes-over-time",
+    "href": "materials/changes.html#changes-over-time",
+    "title": "Looking for changes",
+    "section": "Changes over time",
+    "text": "Changes over time\nLet’s say we’re interested in life expectancy. We now have data on this variable for 50 different years, so it’d be nice to see how life expectancy changed over time.\nThere are 193 countries in this data set, so it’s probably not a good idea to plot them all at once…\nLet’s focus close to home and see how life expectancy changed in the United Kingdom. To do this, we first filter out all of the data of the United Kingdom, and then plot it.\n\nRPython\n\n\n\ngapminder1960_2010 %>% \n  filter(country == \"United Kingdom\") %>% \n  ggplot(aes(x = year,\n             y = life_expectancy,\n             group = country)) +\n  geom_line()\n\n\n\n\n\n\n\n\n\n\nWe can see that life expectancy has increased markedly over the last 50 years. Notice that the y-axis is in a range of around 70 - 85! If we’d change that so that the y-axis started at zero, then our plot would look rather different.\n\nRPython\n\n\nWe can set the y-axis range or limits with ylim(), specifying the first and last value that we want in the plot:\n\ngapminder1960_2010 %>% \n  filter(country == \"United Kingdom\") %>% \n  ggplot(aes(x = year,\n             y = life_expectancy,\n             group = country)) +\n  geom_line() +\n  ylim(0, 90)\n\n\n\n\n\n\n\n\n\n\nThese two plots show the same data, but the clarity of the message is rather different.\nThese plots of course show only data for one country, so it doesn’t give us much context. How impressive is the increase in life expectancy in the United Kingdom, compared to other countries? We know that, for example, the United States and China have had a lot of economic growth in the past 50 year, so let’s compare the United Kingdom with them.\n\nRPython\n\n\nWe adjust the filter that we used earlier, to include the United States and China. We also colour the data by country, so that we can distinguish the three countries.\n\ngapminder1960_2010 %>% \n  filter(country %in% c(\"China\", \"United Kingdom\", \"United States\")) %>% \n  ggplot(aes(x = year,\n             y = life_expectancy,\n             colour = country,\n             group = country)) +\n  geom_line()\n\n\n\n\n\n\n\n\n\n\nNote on %in% syntax\n\n\n\n\n\nWe use %in% when we want to compare against a collection of values. Let’s look at a very simple data set called colours, which contains 5 different colour values:\n\n\n\n\ncolours\n\n# A tibble: 5 × 1\n  value \n  <chr> \n1 green \n2 yellow\n3 yellow\n4 red   \n5 purple\n\n\nIf we wanted to filter out the yellow and purple values, we could do that like this:\n\nfilter(colours, value %in% c(\"yellow\", \"purple\"))\n\n# A tibble: 3 × 1\n  value \n  <chr> \n1 yellow\n2 yellow\n3 purple\n\n\nWhat happens is that R goes through each item after %in% and checks if it can find it in the value column. So in this case it first checks yellow, followed by purple.\n\n\n\n\n\n\n\n\n\nFrom this plot we can see that the United Kingdom and United States show very similar increases in life expectancy, roughly increasing by 10 years.\nHowever, plotting this together with China’s life expectancy, it shows that China has seen a much larger increase over the past 50 years, since its life expectancy was only just above 30 year in 1960!\n\nExercises\n\n\n\n\n\n\nHome country progress\n\n\n\nLevel:   \nPlot the life expectancy for your home country against Poland, Chile and Mexico. How does the life expectancy in your home country compare to these countries?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nFor example:\n\nRPython\n\n\n\ngapminder1960_2010 %>% \n  filter(country %in% c(\"Netherlands\", \"Poland\", \"Chile\", \"Mexico\")) %>% \n  ggplot(aes(x = year,\n             y = life_expectancy,\n             colour = country,\n             group = country)) +\n  geom_line()"
+  },
+  {
+    "objectID": "materials/changes.html#key-points",
+    "href": "materials/changes.html#key-points",
+    "title": "Looking for changes",
+    "section": "Key points",
+    "text": "Key points\n\n\n\n\n\n\nNote\n\n\n\n\nVisualising changes over time is a powerful tool to detect trends\nDecisions on axis limits can dramatically change the message"
+  },
+  {
+    "objectID": "materials/correlations.html#libraries-and-functions",
+    "href": "materials/correlations.html#libraries-and-functions",
+    "title": "Finding correlations",
+    "section": "Libraries and functions",
+    "text": "Libraries and functions\n\n\n\n\n\n\nClick to expand\n\n\n\n\n\n\nRPython\n\n\n\nLibraries\n\nlibrary(tidyverse)\nlibrary(visdat)\n\n\n\nFunctions\n\n\n\n\nLibraries\n\n\nFunctions"
+  },
+  {
+    "objectID": "materials/correlations.html#purpose-and-aim",
+    "href": "materials/correlations.html#purpose-and-aim",
+    "title": "Finding correlations",
+    "section": "Purpose and aim",
+    "text": "Purpose and aim\nWhen we set off to gather or explore data, we generally have a research question that we’re interested in. We then design an experiment to test this question - in that case our data helps us to find an answer.\nQuite often we gather a lot more data than we directly need to answer our research question. As such, it’s often very useful to explore our data and look for patterns or correlations."
+  },
+  {
+    "objectID": "materials/correlations.html#loading-data",
+    "href": "materials/correlations.html#loading-data",
+    "title": "Finding correlations",
+    "section": "Loading data",
+    "text": "Loading data\nThe first step to exploring our data is of course loading it in the first place.\n\nRPython\n\n\n\ngapminder <- read_csv(\"data/gapminder_clean.csv\")\n\n\n\n\n\n\n\nThe gapminder data set that we’ve loaded has 13 different variables, with observations for over 150 different countries in the year 2010."
+  },
+  {
+    "objectID": "materials/correlations.html#correlating-variables",
+    "href": "materials/correlations.html#correlating-variables",
+    "title": "Finding correlations",
+    "section": "Correlating variables",
+    "text": "Correlating variables\nTo illustrate how we can use correlate variables to one another, we’re going to focus on life_expectancy in different contexts.\nLet’s start off with a simple scatter plot that looks at life_expectancy against income_per_person:\n\nRPython\n\n\n\nggplot(data = gapminder,\n       aes(x = income_per_person,\n           y = life_expectancy)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\nIt seems that as the income per person increases, so does the life expectancy. We can also see that the life expectancy kind of plateaus - which is not very surprising, since it can’t go on indefinitely!\nLooking at this plot, it’s quite striking how there is quite a range of life expectancy values at the really low income countries. We know that there is information on different world regions in the data (world_region). Perhaps there are certain world regions that have particularly low income levels?\nThis is something we can easily check.\n\nRPython\n\n\nWe simply adjust the previous plot by colouring our data by world_region:\n\nggplot(data = gapminder,\n       aes(x = income_per_person,\n           y = life_expectancy,\n           colour = world_region)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\nLooking at this plot it appears that most of the low-income countries are in sub-Saharan Africa.\nWe could explore this even further by, for example, adding information on the population size to the plot:\n\nRPython\n\n\nWe can adjust the previous plot by adding size to our plot, based on population:\n\nggplot(data = gapminder,\n       aes(x = income_per_person,\n           y = life_expectancy,\n           colour = world_region,\n           size = population)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nIt’s easy to add too much information to a single plot. In the example above, we’re actually plotting four different variables in a single plot:\n\nincome_per_person on the x-axis\nlife_expectancy on the y-axis\nworld_region as colour\npopulation as size\n\nWhether this helps convey whatever message you have is not exactly clear. We’ll talk more about the purpose of a plot and the audience in the next section.\n\n\n\nExercises\n\n\n\n\n\n\nIncome levels across main religions\n\n\n\nLevel:   \nPlot life expectancy vs income per person for the main religions.\nCan you see any trends?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\nRPython\n\n\n\nggplot(data = gapminder,\n       aes(x = income_per_person,\n           y = life_expectancy,\n           colour = main_religion)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\nThere are no clear trends in these data, apart from that the data are very spread out!\nWhat we can see in the plot is that the country with the highest income per person is a Muslim country, and the second-highest income country is Christian.\n\n\n\n\n\n\n\n\n\n\n\nIncome extremes\n\n\n\nLevel:   \nTry the following:\n\nFind the 5 highest income countries\nFind the 5 lowest income countries\nCreate a box plot with those data points\n\nHint: it might be easiest to save the results in two separate objects.\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\nRPython\n\n\nFirst, we get the 5 highest income countries:\n\ntop5_income <- gapminder %>% \n  arrange(desc(income_per_person)) %>% \n  slice(1:5)\n\nNext, we get the 5 lowest income countries:\n\nbottom5_income <- gapminder %>% \n  arrange(income_per_person) %>% \n  slice(1:5)\n\nLastly, we can plot this as follows:\n\nggplot(data = top5_income,\n       aes(x = \"top 5\", y = income_per_person)) +\n  geom_boxplot() +\n  # create new box using the bottom 5 data\n  geom_boxplot(data = bottom5_income,\n               aes(x = \"bottom 5\", y = income_per_person))"
+  },
+  {
+    "objectID": "materials/correlations.html#visualising-correlations",
+    "href": "materials/correlations.html#visualising-correlations",
+    "title": "Finding correlations",
+    "section": "Visualising correlations",
+    "text": "Visualising correlations\nA standard method of looking for correlations is to use a correlation matrix. These are often generated by using Pearson’s r - a measure of correlation. If you’re interested in finding out more, see Core statistics 3: correlations.\nThis is not a statistics course, but what we’re doing here is focussing on how we can visualise such a matrix. A matrix is simply a data frame with just numerical values. The reason why we can’t use the entire gapminder data set is because we can’t calculate correlations between groups. After all, it wouldn’t make sense to explore if world region is correlated with main religion, for example!\nBecause we’re only able to calculate correlations between numerical variables, we first need pull out only those columns that are numeric. We’re also not interested in the year variable, because we know there is only one value in that one anyway (the year 2010),\n\nRPython\n\n\n\ngapminder %>% \n  select(where(is.numeric)) %>% \n  select(-year)\n\n# A tibble: 167 × 7\n   children_per_wom… life_expectancy income_per_pers… population child_mortality\n               <dbl>           <dbl>            <dbl>      <dbl>           <dbl>\n 1              5.82            59.8             1672   29185511           88.0 \n 2              6.16            59.9             6360   23356247          120.  \n 3              1.65            77.6             9928    2948029           13.3 \n 4              1.87            72.9            55363    8549998            8.48\n 5              2.37            75.8            18912   40895751           14.4 \n 6              1.55            74.0             6703    2877314           18.5 \n 7              2.13            76.6            20660      88030            9.59\n 8              1.93            82.0            41530   22154687            4.77\n 9              1.44            80.6            43336    8409945            4.33\n10              1.96            69.3            16216    9032465           37.6 \n# … with 157 more rows, and 2 more variables: life_expectancy_female <dbl>,\n#   life_expectancy_male <dbl>\n\n\n\n\n\n\n\n\nAfter this, we can calculate the correlation matrix.\n\nRPython\n\n\nOne of the ways we can do this is by using the cor() function:\n\ngapminder %>% \n  select(where(is.numeric)) %>% \n  select(-year) %>% \n  cor(method = \"pearson\")\n\n                       children_per_woman life_expectancy income_per_person\nchildren_per_woman             1.00000000     -0.72197292       -0.49069393\nlife_expectancy               -0.72197292      1.00000000        0.57306921\nincome_per_person             -0.49069393      0.57306921        1.00000000\npopulation                    -0.08242701      0.02021798       -0.05518878\nchild_mortality                0.83205416     -0.87918658       -0.50622105\nlife_expectancy_female        -0.82605805      0.93001838        0.57434713\nlife_expectancy_male          -0.75909310      0.93125439        0.61432730\n                         population child_mortality life_expectancy_female\nchildren_per_woman     -0.082427010     0.832054159            -0.82605805\nlife_expectancy         0.020217982    -0.879186584             0.93001838\nincome_per_person      -0.055188782    -0.506221048             0.57434713\npopulation              1.000000000    -0.005857309             0.01509248\nchild_mortality        -0.005857309     1.000000000            -0.89127415\nlife_expectancy_female  0.015092483    -0.891274153             1.00000000\nlife_expectancy_male    0.032751043    -0.843957872             0.96776823\n                       life_expectancy_male\nchildren_per_woman              -0.75909310\nlife_expectancy                  0.93125439\nincome_per_person                0.61432730\npopulation                       0.03275104\nchild_mortality                 -0.84395787\nlife_expectancy_female           0.96776823\nlife_expectancy_male             1.00000000\n\n\n\n\n\n\n\n\nThis is of course a hideously large table, which is almost impossible to interpret. But that’s the point! It’s much easier to use a visual representation of these data. Well, once the data are in the right format, that is.\nDon’t worry if the data wrangling is a bit overwhelming, at this stage it’s not essential that you understand that bit of code - but more that you’re able to see how we can visualise these data.\n\nRPython\n\n\n\ngapminder_cor <- gapminder %>% \n  select(where(is.numeric)) %>% \n  select(-year) %>% \n  cor(method = \"pearson\") %>% \n  as_tibble(rownames = \"var1\") %>% \n  pivot_longer(cols = -var1,\n               names_to = \"var2\",\n               values_to = \"pearson_cor\") %>% \n  mutate(pearson_cor = round(pearson_cor, digits = 3)) %>% \n  drop_na()\n\nThis gives us a table with the following format:\n\nhead(gapminder_cor)\n\n# A tibble: 6 × 3\n  var1               var2                   pearson_cor\n  <chr>              <chr>                        <dbl>\n1 children_per_woman children_per_woman           1    \n2 children_per_woman life_expectancy             -0.722\n3 children_per_woman income_per_person           -0.491\n4 children_per_woman population                  -0.082\n5 children_per_woman child_mortality              0.832\n6 children_per_woman life_expectancy_female      -0.826\n\n\nWe can then plot the correlation matrix, plotting var1 on the x-axis and var2 on the y-axis. To aid visualisation, we’re using the geom_tile() geometry, which creates a tile plot. The colour of each tile depends on the value of the correlation coefficient (pearson_cor). Together, this creates a heatmap of the data, where the values are depicted by colour.\n\nggplot(data = gapminder_cor,\n       aes(x = var1, y = var2, fill = pearson_cor)) +\n  geom_tile()\n\n\n\n\nAnnoyingly, the x-axis labels are a bit obscured, so improve readability we rotate them 45 degrees. This is not entirely intuitive, but a quick Google search using the phrase “rotate text label ggplot” brings us to an answer on Stackoverflow that we can easily adapt.\n\nggplot(data = gapminder_cor,\n       aes(x = var1, y = var2, fill = pearson_cor)) +\n  geom_tile() +\n  theme(axis.text.x = element_text(angle = 45, hjust=1))\n\n\n\n\n\n\n\n\n\n\nThe variables across the diagonals are perfectly correlated (with a correlation coefficient of 1). This makes sense because, for example, child_mortality would be perfectly correlated with… itself!\nOther notable things are that the male/female life expectancy variables are quite highly correlated with overall life expectancy.\nThe correlation between life expectancy and income (which we explored previously using the scatter plot) is also reasonably strong and positive.\nSeveral variables are negatively correlated with one another, such as child mortality and life expectancy. This sad example makes sense, because if the child mortality rate in a country is high, it’s not inconceivable that this has an effect on the overall life expectancy in that country."
+  },
+  {
+    "objectID": "materials/correlations.html#key-points",
+    "href": "materials/correlations.html#key-points",
+    "title": "Finding correlations",
+    "section": "Key points",
+    "text": "Key points\n\n\n\n\n\n\nNote\n\n\n\n\nWe can find correlations by calculating correlation coefficients\nScatter plots allow us to visualise correlations between two variables\nTile plots or heatmaps are useful to visualise large numbers of correlations"
+  },
+  {
+    "objectID": "materials/data-distributions.html#libraries-and-functions",
+    "href": "materials/data-distributions.html#libraries-and-functions",
+    "title": "Data distributions",
+    "section": "Libraries and functions",
+    "text": "Libraries and functions\n\n\n\n\n\n\nClick to expand\n\n\n\n\n\n\nRPython\n\n\n\nLibraries\n\nlibrary(tidyverse)\nlibrary(visdat)\n\n\n\nFunctions\n\n\n\n\nLibraries\n\n\nFunctions"
+  },
+  {
+    "objectID": "materials/data-distributions.html#purpose-and-aim",
+    "href": "materials/data-distributions.html#purpose-and-aim",
+    "title": "Data distributions",
+    "section": "Purpose and aim",
+    "text": "Purpose and aim\nSometimes we’re dealing with large data sets, other times they might be small. Either way, gaining insight in how your data are distributed across the different variables will help you understand your data better. This is important, since it will affect how and which conclusions you may draw from your data at a later stage. In our case we’re using the gapminder data set. This data set has 13 different variables, with observations for over 150 different countries in the year 2010.\nA good starting point of any analysis/exploration is to get a general sense of the data structure. Let’s look into how we can do this."
+  },
+  {
+    "objectID": "materials/data-distributions.html#loading-data",
+    "href": "materials/data-distributions.html#loading-data",
+    "title": "Data distributions",
+    "section": "Loading data",
+    "text": "Loading data\nIf you haven’t done so yet, please load the data as follows:\n\nRPython\n\n\n\ngapminder <- read_csv(\"data/gapminder_clean.csv\")"
+  },
+  {
+    "objectID": "materials/data-distributions.html#data-structure",
+    "href": "materials/data-distributions.html#data-structure",
+    "title": "Data distributions",
+    "section": "Data structure",
+    "text": "Data structure\nThere are different ways to gain insight into the structure of your data. You can do this numerically or visually.\n\nRPython\n\n\nIn R we can use a package called visdat to visualise the structure of our data. If you haven’t installed it yet, please run the following code in the console:\n\ninstall.packages(\"visdat\")\n\nWe can then visualise our data structure with the vis_dat() function:\n\nvis_dat(gapminder)\n\n\n\n\nLooking at the y-axis, we can see that there are over 150 observations in this data set. The data are organised and coloured by type, with the column names (our variables) at the top.\nFrom this we can see that we have several character or text variables (e.g. country, world_region). There are also several numerical variables, such as year and children_per_woman.\nThere is one variable which contains logical data (TRUE/FALSE), called is_oecd.\n\n\n\n\n\n\nThere is a wealth of data there! So where do we go from here? In this case we’re going to use one of the variables as an example. We’ll use life_expectancy to illustrate how you can get more insight into how certain parts of your data are distributed."
+  },
+  {
+    "objectID": "materials/data-distributions.html#box-plots",
+    "href": "materials/data-distributions.html#box-plots",
+    "title": "Data distributions",
+    "section": "Box plots",
+    "text": "Box plots\nAn easy way to get a sense of the data distribution is to create a box plot. For the life_expectancy variable we can do this as follows:\n\nRPython\n\n\n\nggplot(data = gapminder,\n       aes(x = 1,\n           y = life_expectancy)) +\n  geom_boxplot()\n\n\n\n\nSince we are plotting only one variable, we’re defining the x value as 1, but it doesn’t actually have any numerical meaning.\nBox plots give you some summary statistics, so therefore it’s often useful to plot them together with the actual data. We can do this quite easily by adding another layer to the plot that contains the data points. We’re also adding some transparency (alpha = 0.4 - which is 40% opacity) so we can still see the box plots themselves. We’re also defining the width = 0.1 so that the data points are not spread out over the entire width of the box plot, but are constrained a bit more.\n\nggplot(data = gapminder,\n       aes(x = 1,\n           y = life_expectancy)) +\n  geom_boxplot() +\n  geom_jitter(alpha = 0.4, width = 0.1)\n\n\n\n\n\n\n\n\n\n\n\nExercises\n\n\n\n\n\n\nExercise: Income box plot\n\n\n\nLevel:   \nCreate a box plot that displays the income_per_person. Overlay the data points on top of the plot. What can you see?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\nRPython\n\n\n\nggplot(data = gapminder,\n       aes(x = 1,\n           y = income_per_person)) +\n  geom_boxplot() +\n  geom_jitter(alpha = 0.4, width = 0.1)\n\n\n\n\n\n\n\n\n\n\nIncome per person across the different countries is not equally spread. We can see this in the location of the median (the horizontal black line in the box plot), which is not centered inside the box.\nLooking at the actual data makes this even more obvious: a small set of countries have a rather high level of income, with one country standing out above the rest.\n\n\n\n\n\n\n\n\n\n\n\nExercise: High income countries\n\n\n\nLevel:   \nThe spread of income per person is not equal and it would be useful to explore this a bit more. Try and find answers to the following questions:\n\nHow does income per person vary across the different world regions?\nWhat is the country with the highest income per person?\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\nRPython\n\n\nTo see if income per person varies across the world regions, we can group the data based on world_region. We adjust the previous box plot as follows:\n\nggplot(data = gapminder,\n       aes(x = world_region,\n           y = income_per_person)) +\n  geom_boxplot() +\n  geom_jitter(alpha = 0.4, width = 0.1)\n\n\n\n\nTo find the country with the highest level of income, we need to filter our data. We need to do this in descending order, so we’re combining the arrange() function with the desc() helper function.\n\ngapminder %>% \n  arrange(desc(income_per_person))\n\n# A tibble: 167 × 13\n   country  world_region  year children_per_wo… life_expectancy income_per_pers…\n   <chr>    <chr>        <dbl>            <dbl>           <dbl>            <dbl>\n 1 Qatar    middle_east…  2010             2.07            78.0           119974\n 2 Luxembo… europe_cent…  2010             1.58            80.8            91743\n 3 Brunei   east_asia_p…  2010             1.84            75.1            80556\n 4 Kuwait   middle_east…  2010             2.22            81.2            75360\n 5 Singapo… east_asia_p…  2010             1.26            83.2            73061\n 6 Norway   europe_cent…  2010             1.95            80.9            62350\n 7 Switzer… europe_cent…  2010             1.5             82.5            55866\n 8 United … middle_east…  2010             1.87            72.9            55363\n 9 United … america       2010             1.93            78.7            49479\n10 Netherl… europe_cent…  2010             1.8             80.8            46102\n# … with 157 more rows, and 7 more variables: is_oecd <lgl>,\n#   income_groups <chr>, population <dbl>, main_religion <chr>,\n#   child_mortality <dbl>, life_expectancy_female <dbl>,\n#   life_expectancy_male <dbl>\n\n\n\n\n\n\n\n\n\nIncome per person varies markedly across the different world regions, with low income levels in South Asia and sub-Saharan Africa. Another notable thing is that income in the Middle East/North Africa region has a huge spread.\nThe country with the highest income per person (in 2010) is Qatar, with an income of 120 thousand dollars per person."
+  },
+  {
+    "objectID": "materials/data-distributions.html#violin-plots",
+    "href": "materials/data-distributions.html#violin-plots",
+    "title": "Data distributions",
+    "section": "Violin plots",
+    "text": "Violin plots\nViolin plots are similar to box plots, but they give extra information on the distribution of the data. This can be particularly useful if your data is multi-modal, as in, it has more than one peak.\nThis can happen if your data splits into two or more discernible groups.\nLet’s say we wanted to look at the number of children women get, across the different religions.\n\nRPython\n\n\nWe can use geom_violin() to create a violin plot in ggplot2:\n\nggplot(data = gapminder,\n       aes(x = main_religion,\n           y = children_per_woman)) +\n  geom_violin()\n\n\n\n\n\n\n\n\n\n\nWe can see that in Christian countries having just under 2 children (on average!) is most common. We can see this because the violin is ‘fattest’ just below 2. However, there is quite a range, with some countries having up to 6 children on average.\nComparing across the religions shows that in Eastern religions having lots of children is very uncommon, whereas in Muslim countries this does occur.\n\nExercises\n\n\n\n\n\n\nChildren per woman across different world regions\n\n\n\nLevel:   \nCreate a single plot that contains violins for the number of children per woman, for each world region.\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\nRPython\n\n\n\nggplot(data = gapminder,\n       aes(x = world_region,\n           y = children_per_woman)) +\n  geom_violin()"
+  },
+  {
+    "objectID": "materials/data-distributions.html#histograms",
+    "href": "materials/data-distributions.html#histograms",
+    "title": "Data distributions",
+    "section": "Histograms",
+    "text": "Histograms\nAnother way to look at how data is distributed is to create a histogram. Here we slice our data into intervals (for example, in 5 year chunks e.g. 35-40 years, 40-45 years etc) and count how many observations fall into each interval. This gives us a frequency for the number of observations into each interval group.\n\nRPython\n\n\nWe can do this quite straightforwardly by using geom_histogram():\n\nggplot(data = gapminder,\n       aes(x = life_expectancy)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\nWhen you run this bit of code it gives you some information:\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\nWhat this means is that it chopped our data into 30 chunks/intervals and done the counting based on that. This might not be what we want and we can change this by changing the bins argument or using binwidth. The difference between the two is that with, for example, bins = 10 we’re saying “chop the data into 10 equal chunks” whereas with binwidth = 10 we’re saying “chop the data into chunks of 10 years each”.\nTo illustrate that histograms can vary heavily depending on the bin size, look at the following plots:\n\nggplot(data = gapminder,\n       aes(x = life_expectancy)) +\n  geom_histogram(bins = 5) +\n  labs(title = \"bins = 5\")\n\n\n\nggplot(data = gapminder,\n       aes(x = life_expectancy)) +\n  geom_histogram(bins = 15) +\n  labs(title = \"bins = 15\")\n\n\n\n\n\n\n\n\n\n\nThis means that our interpretation can also change, depending on the number of bins we’ve specified. So we need to be aware of this when we’re using histograms!\nHowever we slice the data, the largest number of countries with similar life expectancy seem to be in the 70-80 year range.\nThere is also one country where life expectancy is very low and if I’d see a plot like this I would definitely want to investigate that further!\n\nExercises\n\n\n\n\n\n\nExercise: Lowest life expectancy\n\n\n\nLevel:   \nFind the country that has the lowest life expectancy.\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\nRPython\n\n\nWe can arrange the data by life_expectancy in ascending order, using the arrange() function:\n\ngapminder %>% \n  arrange(life_expectancy)\n\n# A tibble: 167 × 13\n   country  world_region  year children_per_wo… life_expectancy income_per_pers…\n   <chr>    <chr>        <dbl>            <dbl>           <dbl>            <dbl>\n 1 Haiti    america       2010             3.33            32.5             1510\n 2 Eswatini sub_saharan…  2010             3.53            46.0             8242\n 3 Lesotho  sub_saharan…  2010             3.3             47.8             2419\n 4 Zimbabwe sub_saharan…  2010             4.03            49.7             1928\n 5 Mozambi… sub_saharan…  2010             5.56            52.0              945\n 6 Malawi   sub_saharan…  2010             5.31            54.2             1078\n 7 Somalia  sub_saharan…  2010             6.87            55.0              614\n 8 Zambia   sub_saharan…  2010             5.4             56.0             3338\n 9 South A… sub_saharan…  2010             2.59            56.1            11973\n10 Papua N… east_asia_p…  2010             3.99            56.3             3103\n# … with 157 more rows, and 7 more variables: is_oecd <lgl>,\n#   income_groups <chr>, population <dbl>, main_religion <chr>,\n#   child_mortality <dbl>, life_expectancy_female <dbl>,\n#   life_expectancy_male <dbl>\n\n\n\n\n\n\n\n\nThe country with the lowest life expectancy is Haiti. The year 2010 was particularly bad for them, since there was a catastrophic earthquake, that may very well have had an effect on the life expectancy in the country that year."
+  },
+  {
+    "objectID": "materials/data-distributions.html#key-points",
+    "href": "materials/data-distributions.html#key-points",
+    "title": "Data distributions",
+    "section": "Key points",
+    "text": "Key points\n\n\n\n\n\n\nNote\n\n\n\n\nData distributions allows us to understand the structure of our data better\nBox and violin plots give us summary statistics\nHistograms displays the frequency of observations"
+  },
+  {
+    "objectID": "materials/functions-and-objects.html#libraries-and-functions",
+    "href": "materials/functions-and-objects.html#libraries-and-functions",
+    "title": "Functions and objects",
+    "section": "Libraries and functions",
+    "text": "Libraries and functions\n\n\n\n\n\n\nClick to expand\n\n\n\n\n\n\nRPython\n\n\n\nLibraries\n\n\nFunctions\n\n\n\n\nLibraries\n\n\nFunctions"
+  },
+  {
+    "objectID": "materials/functions-and-objects.html#purpose-and-aim",
+    "href": "materials/functions-and-objects.html#purpose-and-aim",
+    "title": "Functions and objects",
+    "section": "Purpose and aim",
+    "text": "Purpose and aim\nIn this section we’ll focus on functions and objects. We’ll learn how to use functions and how to create and access objects."
+  },
+  {
+    "objectID": "materials/functions-and-objects.html#functions-2",
+    "href": "materials/functions-and-objects.html#functions-2",
+    "title": "Functions and objects",
+    "section": "Functions",
+    "text": "Functions\nFunctions perform specific operations. A function usually gets one or more inputs called arguments and returns a value. An example is:\n\nRPython\n\n\n\nsqrt()\n\nThis function returns the square root of a number. As such, it can only have a number as input, for example:\n\nsqrt(9)\n\n[1] 3\n\n\n\n\n\n\n\n\nFunctions can take different arguments. In the example above there was only one, but many functions allow you to specify more than one input. For example, let’s say we wanted to round a number.\n\nRPython\n\n\nWe can use the round() function:\n\nround(10.232)\n\n[1] 10\n\n\nThis returns a whole number. But what if we wanted to round it to one decimal? The round() function has an argument called digits that allows you to do just that. We separate the input and the argument with a comma.\n\nround(10.232, digits = 1)\n\n[1] 10.2"
+  },
+  {
+    "objectID": "materials/functions-and-objects.html#objects",
+    "href": "materials/functions-and-objects.html#objects",
+    "title": "Functions and objects",
+    "section": "Objects",
+    "text": "Objects\nOften, you want to save the output of an operation for later use. In other words, we need to assign values to objects.\n\nRPython\n\n\nTo create an object, we need to give it a name followed by the assignment operator <-, and the value we want to give to it.\nFor example:\n\nage <- 32\n\nWe can read the code as: the value 32 is assigned to the object age. Note that when you run this line of code the object you just created appears on your environment tab (top-right panel).\nWhen assigning a value to an object, R does not print anything on the console. You can print the value by typing the object name on the console:\n\nage\n\n[1] 32\n\n\n\n\n\n\n\n\n\nUsing objects\nThe nice thing about storing values in objects is that you can use them for further operations. Look at the following example.\n\nRPython\n\n\nLet’s say we wanted to calculate double the age:\n\nage * 2\n\n[1] 64"
+  },
+  {
+    "objectID": "materials/functions-and-objects.html#key-points",
+    "href": "materials/functions-and-objects.html#key-points",
+    "title": "Functions and objects",
+    "section": "Key points",
+    "text": "Key points\n\n\n\n\n\n\nNote\n\n\n\n\nFunctions perform a specific set of operations\nObjects allow you to store value that can be accessed later"
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#libraries-and-functions",
+    "href": "materials/intro-to-plotting.html#libraries-and-functions",
+    "title": "Introduction to plotting",
+    "section": "Libraries and functions",
+    "text": "Libraries and functions\n\n\n\n\n\n\nClick to expand\n\n\n\n\n\n\nRPython\n\n\n\nLibraries\n\n\nFunctions\n\n\n\n\nLibraries\n\n\nFunctions"
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#purpose-and-aim",
+    "href": "materials/intro-to-plotting.html#purpose-and-aim",
+    "title": "Introduction to plotting",
+    "section": "Purpose and aim",
+    "text": "Purpose and aim\nBe able to create basic plots to explore your data."
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#loading-data",
+    "href": "materials/intro-to-plotting.html#loading-data",
+    "title": "Introduction to plotting",
+    "section": "Loading data",
+    "text": "Loading data\nIf you haven’t done so yet, please load the data as follows:\n\nRPython\n\n\n\ngapminder <- read_csv(\"data/gapminder_clean.csv\")"
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#building-a-plot",
+    "href": "materials/intro-to-plotting.html#building-a-plot",
+    "title": "Introduction to plotting",
+    "section": "Building a plot",
+    "text": "Building a plot\n\nRPython\n\n\nHere we’ll learn how to build a plot, using the ggplot2 package. This package has a consistent set of grammer rules that allow you to create a plot. It needs 3 basic pieces of information:\n\nA data.frame with data to be plotted\nThe variables (columns of data.frame) that will be mapped to different aesthetics of the graph (e.g. axis, colours, shapes, etc.)\nthe geometry that will be drawn on the graph (e.g. points, lines, boxplots, violinplots, etc.)\n\nThis translates into the following basic syntax:\nggplot(data = <data.frame>, \n       mapping = aes(x = <column of data.frame>, y = <column of data.frame>)) +\n   geom_<type of geometry>()\nFor our first visualisation, let’s try to recreate one of the visualisations from Hans Rosling’s talk. The question we’re interested in is: how much separation is there between different world regions in terms of family size and life expectancy? We will explore this by using a scatterplot showing the relationship between children_per_woman and life_expectancy.\nLet’s do it step-by-step to see how ggplot2 works. Start by giving data to ggplot:\n\nggplot(data = gapminder)\n\n\n\n\nThat “worked” (as in, we didn’t get an error). But because we didn’t give ggplot() any variables to be mapped to aesthetic components of the graph, we just got an empty square.\nFor mappping columns to aesthetics, we use the aes() function:\n\nggplot(data = gapminder, \n       mapping = aes(x = children_per_woman, y = life_expectancy))\n\n\n\n\nThat’s better, now we have some axis. Notice how ggplot() defines the axis based on the range of data given. But it’s still not a very interesting graph, because we didn’t tell what it is we want to draw on the graph.\nThis is done by adding (literally +) geometries to our graph:\n\nggplot(data = gapminder, \n       mapping = aes(x = children_per_woman, y = life_expectancy)) +\n  geom_point()\n\n\n\n\nNotice how geom_point() warns you that it had to remove some missing values (if the data is missing for at least one of the variables, then it cannot plot the points)."
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#changing-aesthetics-based-on-data",
+    "href": "materials/intro-to-plotting.html#changing-aesthetics-based-on-data",
+    "title": "Introduction to plotting",
+    "section": "Changing aesthetics based on data",
+    "text": "Changing aesthetics based on data\nIn the above exercise we changed the colour of the points by defining it ourselves. However, it would be better if we coloured the points based on a variable of interest.\nFor example, to explore our question of how different world regions really are, we want to colour the countries in our graph accordingly.\n\nRPython\n\n\nWe can do this by passing this information to the colour aesthetic inside the aes() function:\n\nggplot(data = gapminder, \n       mapping = aes(x = children_per_woman, y = life_expectancy, colour = world_region)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\nAesthetics: inside or outside aes()?\n\n\n\nThe previous examples illustrate an important distinction between aesthetics defined inside or outside of aes():\n\nif you want the aesthetic to change based on the data it goes inside aes()\nif you want to manually specify how the geometry should look like, it goes outside aes()"
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#multiple-geometries",
+    "href": "materials/intro-to-plotting.html#multiple-geometries",
+    "title": "Introduction to plotting",
+    "section": "Multiple geometries",
+    "text": "Multiple geometries\nOften, we may want to overlay several geometries on top of each other. For example, we might want to visualise a box plot together with a violin plot.\n\nRPython\n\n\nLet’s start by making a violin plot:\n\n# scale the violins by \"width\" rather than \"area\", which is the default\nggplot(gapminder, aes(x = world_region, y = children_per_woman)) +\n  geom_violin(scale = \"width\")\n\n\n\n\nTo layer a boxplot on top of it we “add” (with +) another geometry to the graph:\n\n# Make boxplots thinner so the shape of the violins is visible\nggplot(gapminder, aes(x = world_region, y = children_per_woman)) +\n  geom_violin(scale = \"width\") +\n  geom_boxplot(width = 0.2)\n\n\n\n\nThe order in which you add the geometries defines the order they are “drawn” on the graph. For example, try swapping their order and see what happens.\nNotice how we’ve shortened our code by omitting the names of the options data = and mapping = inside ggplot(). Because the data is always the first thing given to ggplot() and the mapping is always identified by the function aes(), this is often written in the more compact form as we just did."
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#key-points",
+    "href": "materials/intro-to-plotting.html#key-points",
+    "title": "Introduction to plotting",
+    "section": "Key points",
+    "text": "Key points\n\n\n\n\n\n\nNote\n\n\n\n\nWe can build plots layer by layer\nAesthetics can be based on data"
+  },
+  {
+    "objectID": "materials/intro-to-programming.html#libraries-and-functions",
+    "href": "materials/intro-to-programming.html#libraries-and-functions",
+    "title": "Getting started",
+    "section": "Libraries and functions",
+    "text": "Libraries and functions\n\n\n\n\n\n\nClick to expand\n\n\n\n\n\n\nRPython\n\n\n\nLibraries\n\n\nFunctions\n\n\n\n\nLibraries\n\n\nFunctions"
+  },
+  {
+    "objectID": "materials/intro-to-programming.html#purpose-and-aim",
+    "href": "materials/intro-to-programming.html#purpose-and-aim",
+    "title": "Getting started",
+    "section": "Purpose and aim",
+    "text": "Purpose and aim\nUsing a programming language to analyse, visualise and communicate your data has many advantages over point-and-click programmes.\n\nit documents analysis steps with code, aiding reproducibility\nallows scaling to large data\ngenerates high quality graphics that can be adjusted"
+  },
+  {
+    "objectID": "materials/intro-to-programming.html#introduction",
+    "href": "materials/intro-to-programming.html#introduction",
+    "title": "Getting started",
+    "section": "Introduction",
+    "text": "Introduction\n\nRPython\n\n\nThe term “R” is used to refer to both the programming language and the software that interprets the scripts written using it.\nRStudio is an additional software that makes it easier to interact with R by providing tools that make programming easier. To function correctly, RStudio needs R and therefore both need to be installed on your computer.\nSome advantages of using R for your data analysis include:\n\nAnalysis steps are documented with code, allowing for greater reproducibility.\nThere are thousands of packages (extensions) available, making R a very flexible and powerful tool, for a wide range of applications.\nAnalysis can be scaled to large data.\nCan generate a wide range of high-quality graphics for data visualisation.\nThere is a large community of contributors.\nIt’s free and open source.\n\n\nThe RStudio Interface\nRStudio is divided into four “panes”, illustrated below. The default layout is:\n\nTop Left - Source: this is where you edit your R scripts (this panel might not appear until you create a script, which we demonstrate below).\nBottom Left - Console: where R will execute commands and print results.\nTop Right - Environment: this will show you which objects you create while working with R.\nBottom Right - Files/Plots/Packages/Help: several tabs that allow you to navigate your files, view plots, view installed packages and search help files."
+  },
+  {
+    "objectID": "materials/intro-to-programming.html#getting-set-up",
+    "href": "materials/intro-to-programming.html#getting-set-up",
+    "title": "Getting started",
+    "section": "Getting set up",
+    "text": "Getting set up\n\nRPython\n\n\nIt is good practice to keep a set of related data, analyses, and text self-contained in a single folder called the working directory (usually a folder on your computer where you have all the files relating to a project you’re working on). The working directory is an important concept to understand. It is the place where R will look for and save files.\nAll of the scripts within this folder can then use relative paths to files. Relative paths indicate where inside the project a file is located (as opposed to absolute paths, which point to where a file is on a specific computer). Working this way makes it a lot easier to move your project around on your computer and share it with others without having to directly modify file paths in the individual scripts.\nRStudio provides a helpful set of tools to do this through its Projects interface, which not only creates a working directory for you but also remembers its location (allowing you to quickly navigate to it). The interface also preserves custom settings and open files to make it easier to resume work after a break.\n\nCreating a new project\nUsually, you will already have a folder on your computer for your project, for example with some data you collected or downloaded from the web.\nTo create an R Project within the r-workshop directory:\n\nFrom the upper menu on RStudio click: File > New project > Existing directory.\nClick the browse… button and navigate and open your r-workshop folder.\nClick on Create project. This will initiate a fresh R session.\n\nFrom now on, whenever you want to work on this project, open the the Rproj file that was created in your r-workshop folder.\nThis will ensure your working directory is automatically set correctly. This also means that you can move the project folder to a different location or even different computer. As long as you open the Rproj file, your working directory will be set correctly.\nIf you need to check your working directory, you can run getwd() on the console. If for some reason your working directory is not what it should be, you can change it in the RStudio interface by navigating in the file browser (bottom-right panel) to where your working directory should be, clicking on the blue gear icon More > Set As Working Directory.\nAlternatively, you can run setwd(\"/path/to/working/directory\") on the console to reset your working directory. However, your scripts should not include this line, because it will fail on someone else’s computer."
+  },
+  {
+    "objectID": "materials/intro-to-programming.html#writing-code",
+    "href": "materials/intro-to-programming.html#writing-code",
+    "title": "Getting started",
+    "section": "Writing code",
+    "text": "Writing code\n\nRPython\n\n\nNow that we have a project, let’s run our first commands in R.\nOn the console panel, type:\n\n1 + 100\n\nAnd R will print out the answer, with a preceding [1]. Don’t worry about this for now, we’ll explain that later. For now think of it as indicating output.\nAny time you hit return and the console shows a “+” instead of a “>”, it means it’s waiting for you to complete the command. If you want to cancel a command you can hit Esc and RStudio will give you back the > prompt."
+  },
+  {
+    "objectID": "materials/intro-to-programming.html#creating-scripts",
+    "href": "materials/intro-to-programming.html#creating-scripts",
+    "title": "Getting started",
+    "section": "Creating scripts",
+    "text": "Creating scripts\n\nRPython\n\n\nSo far, we’ve been typing these commands directly in the R console. However, if we closed RStudio and later wanted to recreate these operations, there would be no record of them anywhere.\nIn practice, we should always write our code in a script, which is a plain text document with our commands written in it. To create a new R script go to File > New File > R Script.\nThis will open a panel on the top-left. This is a text editor, which in RStudio does some syntax highlighting (it colours the code) to help read the code.\nAs you’re adding code to the script, you can run it interactively on the console by pressing the shortcut Ctrl+Enter."
+  },
+  {
+    "objectID": "materials/intro-to-programming.html#installing-and-loading-packages",
+    "href": "materials/intro-to-programming.html#installing-and-loading-packages",
+    "title": "Getting started",
+    "section": "Installing and loading packages",
+    "text": "Installing and loading packages\n\nRPython\n\n\nAdditional packages can be installed to extend the functionality of R. Most packages are available in a central repository called CRAN and can be installed from within R using the install.packages() function.\nFor example, to install (or update) the tidyverse package, you would run the following command on the console:\n\ninstall.packages(\"tidyverse\")\n\nBecause the install process accesses the CRAN repository, you will need an Internet connection to install packages.\nAfter this, you can then load the package to use it in your analysis. For the example above, we would do that as follows with the library() function:\n\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "materials/intro-to-programming.html#key-points",
+    "href": "materials/intro-to-programming.html#key-points",
+    "title": "Getting started",
+    "section": "Key points",
+    "text": "Key points\n\n\n\n\n\n\nNote\n\n\n\n\nWe use a working directory to organise our projects\nUsing scripts we’re able to keep a record of our code\nPackages or libraries give additional functionality"
+  },
+  {
+    "objectID": "materials/popout.html#libraries-and-functions",
+    "href": "materials/popout.html#libraries-and-functions",
+    "title": "Making data stand out",
+    "section": "Libraries and functions",
+    "text": "Libraries and functions\n\n\n\n\n\n\nClick to expand\n\n\n\n\n\n\nRPython\n\n\n\nLibraries\n\n\nFunctions\n\n\n\n\nLibraries\n\n\nFunctions"
+  },
+  {
+    "objectID": "materials/popout.html#purpose-and-aim",
+    "href": "materials/popout.html#purpose-and-aim",
+    "title": "Making data stand out",
+    "section": "Purpose and aim",
+    "text": "Purpose and aim\nOften we have to deal with large amounts of data. But even more often we want to draw the reader’s attention to a particular property of the data that we’re displaying. In these cases it can be useful to visually let your data stand out."
+  },
+  {
+    "objectID": "materials/popout.html#loading-data",
+    "href": "materials/popout.html#loading-data",
+    "title": "Making data stand out",
+    "section": "Loading data",
+    "text": "Loading data\nIf you haven’t done so yet, please load the data as follows:\n\nRPython\n\n\n\ngapminder <- read_csv(\"data/gapminder_clean.csv\")"
+  },
+  {
+    "objectID": "materials/popout.html#the-popout",
+    "href": "materials/popout.html#the-popout",
+    "title": "Making data stand out",
+    "section": "The popout",
+    "text": "The popout\nTo be honest, I’m not entirely sure if this is a word, but it’s a technique that is often used in visualisation. Here we’re colouring our data of interest in a highly contrasting way to the rest of the data, to make them “pop out”.\nHave a look at the following plot, where we are plotting child mortality against the number of children per woman:\n\nRPython\n\n\n\nggplot(data = gapminder,\n       aes(x = children_per_woman,\n           y = child_mortality)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\nIt looks like there is a strong positive correlation between the number of children per women and child mortality, since child mortality seems to increase as the number of children per woman is higher.\nIn our data set we have a variable called is_oecd, which contains TRUE/FALSE statements on whether a country is part of the Organisation for Economic Co-operation and Development. This organisation stimulates economic progress and world trade and consists of primarily richer, Western countries.\nLet’s say we wanted to explore if this possible correlation has something to do with the economic status of the country. If that’s the case, it could be that child mortality rates in OECD countries is perhaps not linked to the number of children per women, whereas it is in non-OECD countries. Perhaps differences in the quality of healthcare lead to better survival rates for children in richer countries, even if a woman has many children.\nWe can visualise this.\n\nRPython\n\n\n\nggplot(data = gapminder,\n       aes(x = children_per_woman,\n           y = child_mortality,\n           colour = is_oecd)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\nIt looks like child mortality rates in non-OECD countries are much more variable than in OECD countries. There doesn’t appear to be enough spread in the OECD country data to draw conclusions about the OECD countries.\nWe’ve previously seen that life expectancy is poor in sub-Saharan Africa. It would therefore be interesting to investigate if that has anything to do with high levels of child mortality.\nTo visualise this we need to colour the data of the sub-Saharan Africa world_region a different colour than the rest of the data.\nWe can use a similar technique as we did for the OECD countries. We first need to create a column that contains information about whether a country is in sub-Saharan Africa and then colour the data accordingly.\nHere we also manually update the colours to increase data discriminability.\n\nRPython\n\n\n\ngapminder %>% \n  mutate(is_sub_saharan_africa = world_region == \"sub_saharan_africa\") %>%\n  ggplot(aes(x = children_per_woman,\n             y = child_mortality,\n             colour = is_sub_saharan_africa)) +\n  geom_point() +\n  scale_colour_manual(values = c(\"grey\", \"firebrick\"))\n\n\n\n\n\n\n\n\n\n\n\nExercises\n\n\n\n\n\n\nIncome vs life expectancy in South Asia\n\n\n\nLevel:   \nPlot income (x-axis) against life expectancy for women (y-axis), colouring the data for South Asia differently from the rest of the data. Ensure that there is sufficient contrast between the two groups of data points.\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\nRPython\n\n\n\ngapminder %>% \n  mutate(is_south_asia = world_region == \"south_asia\") %>% \n  ggplot(aes(x = income_per_person,\n         y = life_expectancy_female,\n         colour = is_south_asia)) +\n  geom_point() +\n  scale_colour_manual(values = c(\"grey\", \"firebrick\"))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOrdering and emphasising groups\n\n\n\nLevel:   \nCreate a bar plot that contains the income per person, split by world region.\nEnsure that the data is arranged in ascending order (based on average income across each region) and highlight East-Asia Pacific.\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nWe’re combining some skills from the ordering/ranking section with the popout.\nFirst we need to find the average income for each region, and then colour East-Asia Pacific. To colour the inside of the bar plot we need to use the fill instead of the colour argument (see what happens if you do use colour!).\n\nRPython\n\n\n\ngapminder %>% \n  group_by(world_region) %>% \n  summarise(mean_income = mean(income_per_person)) %>% \n  ungroup() %>% \n  mutate(is_eap = world_region == \"east_asia_pacific\") %>% \n  ggplot(aes(x = fct_reorder(world_region, mean_income),\n             y = mean_income,\n             fill = is_eap)) +\n  geom_bar(stat = \"identity\") +\n  theme(axis.text.x = element_text(angle = 45, hjust=1)) +\n  labs(x = \"World region\", y = \"Mean income\")"
+  },
+  {
+    "objectID": "materials/popout.html#key-points",
+    "href": "materials/popout.html#key-points",
+    "title": "Making data stand out",
+    "section": "Key points",
+    "text": "Key points\n\n\n\n\n\n\nNote\n\n\n\n\nWe can use a popout to emphasise data"
+  },
+  {
+    "objectID": "materials/ranking.html#libraries-and-functions",
+    "href": "materials/ranking.html#libraries-and-functions",
+    "title": "Ranking your data",
+    "section": "Libraries and functions",
+    "text": "Libraries and functions\n\n\n\n\n\n\nClick to expand\n\n\n\n\n\n\nRPython\n\n\n\nLibraries\n\n\nFunctions\n\n\n\n\nLibraries\n\n\nFunctions"
+  },
+  {
+    "objectID": "materials/ranking.html#purpose-and-aim",
+    "href": "materials/ranking.html#purpose-and-aim",
+    "title": "Ranking your data",
+    "section": "Purpose and aim",
+    "text": "Purpose and aim\nDepending on the message we want to get across with our visualisation, we might want to order or rank our data."
+  },
+  {
+    "objectID": "materials/ranking.html#loading-data",
+    "href": "materials/ranking.html#loading-data",
+    "title": "Ranking your data",
+    "section": "Loading data",
+    "text": "Loading data\nIf you haven’t done so yet, please load the data as follows:\n\nRPython\n\n\n\ngapminder <- read_csv(\"data/gapminder_clean.csv\")\n\n\n\n\n\n\n\nUsing the gapminder data set, let’s look at the following example.\n\nRPython\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSo what happened here? Both plots show the average income across the countries within each world region. In panel A the different regions are ordered alphabetically, whereas in panel B they are displayed in ascending order of average income.\nSame data, but a different purpose! When would we use one or the other?\nIf we simply wanted a look-up table, where we could easily find the average income for a specific world region, then we would want to use the representation in panel A. Let’s say we want to find the value for South Asia - we’d follow along the x-axis in alphabetical order. Doing the same in panel B is actually much harder.\nIf we’re interested in the world regions with particularly high average levels of income, then panel B would be more suitable. We’d simply look at the world regions that are displayed towards the right of the plot."
+  },
+  {
+    "objectID": "materials/ranking.html#reordering-data",
+    "href": "materials/ranking.html#reordering-data",
+    "title": "Ranking your data",
+    "section": "Reordering data",
+    "text": "Reordering data\nThe process of reordering your data, depending on the purpose of your visualisation, can be a bit tricky.\nTo understand this a bit better it’s important to get our head round some different categorical data types, wonderfully illustrated by Allison Horst:\n\nThe type we are focusing on is the ordinal data. These are descriptions (so not numerical data) that have some kind of order.\nThis can be an inherent order, for example a range of emotions from good to bad. Using the illustration we’d expect the bee to feel awesome, ok and unhappy in that order.\nIt can also be an order that we are imposing ourselves. Again, using the illustration we can talk about turtle, snail and butterfly. These have no inherent order, but maybe we want to impose one, such as alphabetical order. If we’d do that, they would be arranged as butterfly, snail, turtle.\nThe way that programming languages deal with this kind of ordering is through factors. These are categorical data that have a fixed and known set of values.\nLet’s illustrate this with the bee example. Assume we followed a certain bee for 5 hours and recorded it emotional state once per hour. We could, hypothetically of course, end up with the following observations:\nok, awesome, unhappy, ok, unhappy\nThe bee was clearly not having the best of days. But I digress.\n\nRPython\n\n\nIf we wanted to code these states in R, then we would do the following:\n\nbee <- c(\"ok\", \"awesome\", \"unhappy\", \"ok\", \"unhappy\")\n\nbee\n\n[1] \"ok\"      \"awesome\" \"unhappy\" \"ok\"      \"unhappy\"\n\n\nThey appear in the order that I observed them. Now let’s say that I want to impose a certain order on them, maybe alphabetically. I could take my bee object and convert it to a factor.\n\nbee_factor <- factor(bee)\n\nbee_factor\n\n[1] ok      awesome unhappy ok      unhappy\nLevels: awesome ok unhappy\n\n\nThe first line still gives me the 5 observations in their original order, but below it there are Levels: awesome ok unhappy.\nWhat’s happened here is that R recognises that there are three distinct possible values in our data, awesome, ok and unhappy. And it’s ordered them alphabetically, which is the default.\nIf I’d want to change this order, I can specify the levels directly:\n\nfactor(bee_factor, levels = c(\"unhappy\", \"ok\", \"awesome\"))\n\n[1] ok      awesome unhappy ok      unhappy\nLevels: unhappy ok awesome\n\n\n\n\n\n\n\n\nNow let’s see how we translate this to our data set. Let’s create box plots for income_per_person for each main religion. We’ll look at the default order, and then change it.\n\nRPython\n\n\nIncome per person for each religion:\n\nggplot(data = gapminder,\n       aes(x = main_religion, y = income_per_person)) +\n  geom_boxplot()\n\n\n\n\nThis is in alphabetical order, by default.\nLet’s say we wanted to change it. One of the ways we could do this is by making the main_religion column a factor and changing its order. Let’s say we wanted to arrange them in order of average income. We could find this out by calculating the average income for each religion:\n\ngapminder %>% \n  group_by(main_religion) %>% \n  summarise(mean_income = mean(income_per_person)) %>% \n  arrange(mean_income) %>% \n  ungroup()\n\n# A tibble: 3 × 2\n  main_religion     mean_income\n  <chr>                   <dbl>\n1 eastern religions      14034.\n2 muslim                 16600.\n3 christian              17721.\n\n\nWe would then order the data as follows:\n\ngapminder %>% \n  mutate(main_religion = factor(main_religion,\n                                levels = c(\"eastern religions\", \"muslim\", \"christian\"))) %>% \n  ggplot(aes(x = main_religion, y = income_per_person)) +\n  geom_boxplot()\n\n\n\n\nThis works, but you can imagine that if you have lots of groups then doing this by manually specifying the levels becomes very (very!) tedious.\nThankfully there is another way of doing exactly the same, without manual specifying the order. This uses the fct_reorder() function to… reorder the factor (what’s in the name?!).\nThe way that it works is that you give it the data you want to reorder, then tell it what to reorder by. In our case we want to reorder by the mean income for each religion, so we need to calculate that first. After that we reorder the data directly within ggplot():\n\ngapminder %>% \n  # group by main religion\n  group_by(main_religion) %>% \n  # create a new column that contains the average\n  # income for that type of religion\n  mutate(mean_income = mean(income_per_person)) %>% \n  # remove the grouping\n  ungroup() %>% \n  # send the data to ggplot\n  # and fct_reorder the main_religion on the x-axis\n  # based on the calculated mean_income\n  ggplot(aes(x = fct_reorder(main_religion, mean_income),\n             y = income_per_person)) +\n  # create box plots\n  geom_boxplot()"
+  },
+  {
+    "objectID": "materials/ranking.html#stem-plots",
+    "href": "materials/ranking.html#stem-plots",
+    "title": "Ranking your data",
+    "section": "Stem plots",
+    "text": "Stem plots\nThe bar plot was useful when there weren’t too many observations. However, if we have lots of observations, then it can become a bit crowded. Have a look at the plot below, where we’re looking at the income per person for all the countries in the Middle East / North Africa region:\n\nRPython\n\n\n\ngapminder %>% \n  filter(world_region == \"middle_east_north_africa\") %>% \n  ggplot(aes(x = country, y = income_per_person)) +\n  geom_bar(stat = \"identity\") +\n  theme(axis.text.x = element_text(angle = 45, hjust=1))\n\n\n\n\n\n\n\n\n\n\nAnother way that we could display those data is by creating a stem plot (or lollipop plot).\n\nRPython\n\n\n\ngapminder %>% \n  filter(world_region == \"middle_east_north_africa\") %>% \n  ggplot(aes(x = country, y = income_per_person)) +\n  geom_point() +\n  geom_segment(aes(xend = country, yend = 0)) +\n  theme(axis.text.x = element_text(angle = 45, hjust=1))\n\n\n\n\n\n\n\n\n\n\nThis type of plot can be useful if you have lots of categories, since each category takes up a bit less space than a bar.\n\nExercises\n\n\n\n\n\n\nReordering data FIXME\n\n\n\nLevel:   \nBelow is a chunk of code. In several places the code states <FIXME>. Try to make the necessary changes, so that you end up with a stem plot that displays the number of children per woman, for each country in Europe and Central Asia. Reorder the data by number of children per woman, from high to low.\nWhich country has the second highest number of children per woman?\n\nRPython\n\n\n\ngapminder %>% \n  filter(world_region == <FIXME>) %>% \n  ggplot(aes(x = fct_reorder(country,\n                             <FIXME>(children_per_woman)),\n             y = children_per_woman)) +\n  geom_point() +\n  geom_segment(aes(xend = <FIXME>, yend = 0)) +\n  theme(axis.text.x = element_text(angle = 45, hjust=1)) +\n  labs(x = \"Country\",\n       y = \"Children per woman\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\nRPython\n\n\n\ngapminder %>% \n  filter(world_region == \"europe_central_asia\") %>% \n  ggplot(aes(x = fct_reorder(country,\n                             desc(children_per_woman)),\n             y = children_per_woman)) +\n  geom_point() +\n  geom_segment(aes(xend = country, yend = 0)) +\n  theme(axis.text.x = element_text(angle = 45, hjust=1)) +\n  labs(x = \"Country\",\n       y = \"Children per woman\")\n\n\n\n\n\n\n\n\n\n\nThe country with the second highest number of children per woman is the Kyrgyz Republic (Kyrgyzstan)."
+  },
+  {
+    "objectID": "materials/ranking.html#key-points",
+    "href": "materials/ranking.html#key-points",
+    "title": "Ranking your data",
+    "section": "Key points",
+    "text": "Key points\n\n\n\n\n\n\nNote\n\n\n\n\nRanking or ordering your data in a particular way can help tell a story\nProgramming languages use factors to deal with categories that have an inherent order"
+  },
+  {
+    "objectID": "materials/working-with-data.html#libraries-and-functions",
+    "href": "materials/working-with-data.html#libraries-and-functions",
+    "title": "Working with data",
+    "section": "Libraries and functions",
+    "text": "Libraries and functions\n\n\n\n\n\n\nClick to expand\n\n\n\n\n\n\nRPython\n\n\n\nLibraries\n\n\nFunctions\n\n\n\n\nLibraries\n\n\nFunctions"
+  },
+  {
+    "objectID": "materials/working-with-data.html#purpose-and-aim",
+    "href": "materials/working-with-data.html#purpose-and-aim",
+    "title": "Working with data",
+    "section": "Purpose and aim",
+    "text": "Purpose and aim\nIn this section we’re covering the basics of reading in using tabular data."
+  },
+  {
+    "objectID": "materials/working-with-data.html#gapminder-data-set",
+    "href": "materials/working-with-data.html#gapminder-data-set",
+    "title": "Working with data",
+    "section": "Gapminder data set",
+    "text": "Gapminder data set\nWe will use data from the Gapminder Foundation, which gives access to global data as well as many tools to help explore it. In these lessons we’re going to use some of these data to explore some of these data ourselves.\nWe have two files with data relating to socio-economic statistics: world data for 2010 only and the same data for 1960 to 2010.\nBoth of these have the same columns of data:\n\n\n\n\n\n\n\nColumn\nDescription\n\n\n\n\ncountry\ncountry name\n\n\nworld_region\n6 world regions\n\n\nyear\nyear that each datapoint refers to\n\n\nchildren_per_woman\ntotal fertility rate\n\n\nlife_expectancy\naverage number of years a newborn child would live if current mortality patterns were to stay the same\n\n\nincome_per_person\ngross domestic product per person adjusted for differences in purchasing power\n\n\nis_oecd\nWhether a country belongs to the “OECD” (TRUE) or not (FALSE)\n\n\nincome_groups\ncategorical classification of income groups\n\n\npopulation\ntotal number of a country’s population\n\n\nmain_religion\nreligion of the majority of population in 2008\n\n\nchild_mortality\ndeath of children under 5 years old per 1000 births\n\n\nlife_expectancy_female\nlife expectancy at birth, females\n\n\nlife_expectancy_male\nlife expectancy at birth, males"
+  },
+  {
+    "objectID": "materials/working-with-data.html#reading-in-data",
+    "href": "materials/working-with-data.html#reading-in-data",
+    "title": "Working with data",
+    "section": "Reading in data",
+    "text": "Reading in data\n\nRPython\n\n\nThere are several functions to read data into R, we’re going to use one from the readr package, which is part of the tidyverse. As such, we first need to load the package into R’s memory, by using the library() function:\n\nlibrary(tidyverse)\n\nThis command has to be run every time you start a new R session. Typically you want to include the library() calls at the top of your script, so that a user knows which packages need to be installed to run the analysis.\nOur data is provided in CSV format (comma separated values). This format is a regular text file, where each value (or column of the table) is separated by a comma. To read such a file, we use the read_csv() function, which needs at least one input: the path of the file we want to read. It is also good practice to explicitly define how missing data is encoded in the file with the na option. In our case, missing data are encoded as an empty string (imagine this as an empty cell in a spreadsheet).\nHere’s the command:\n\ngapminder <- read_csv(\"data/gapminder_clean.csv\")\n\nRows: 167 Columns: 13\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (4): country, world_region, income_groups, main_religion\ndbl (8): year, children_per_woman, life_expectancy, income_per_person, popul...\nlgl (1): is_oecd\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\nWe see a lot of output there, but this is not an error! It’s a message that read_csv() prints to inform us of what type of data it thinks each column of the data set is. We’ll discuss this in a while.\nIt’s always useful to have a glimpse at the first few rows of your data set, to see how it is structured. We can do that with the head() function.\n\nhead(gapminder)\n\n# A tibble: 6 × 13\n  country   world_region  year children_per_wo… life_expectancy income_per_pers…\n  <chr>     <chr>        <dbl>            <dbl>           <dbl>            <dbl>\n1 Afghanis… south_asia    2010             5.82            59.8             1672\n2 Angola    sub_saharan…  2010             6.16            59.9             6360\n3 Albania   europe_cent…  2010             1.65            77.6             9928\n4 United A… middle_east…  2010             1.87            72.9            55363\n5 Argentina america       2010             2.37            75.8            18912\n6 Armenia   europe_cent…  2010             1.55            74.0             6703\n# … with 7 more variables: is_oecd <lgl>, income_groups <chr>,\n#   population <dbl>, main_religion <chr>, child_mortality <dbl>,\n#   life_expectancy_female <dbl>, life_expectancy_male <dbl>\n\n\n\nThe data.frame object\nA data.frame is the basic type of object that stores tabular data. The readr package reads data in an “extended” version of a data frame that it calls tibble (tbl for short). The details of their differences are not very important unless you are a programmer, but tibbles offer some user conveniences such as a better printing method. For the rest of the course we’ll refer to “data frames” and “tibbles” interchangeably."
+  },
+  {
+    "objectID": "materials/working-with-data.html#subsetting-data",
+    "href": "materials/working-with-data.html#subsetting-data",
+    "title": "Working with data",
+    "section": "Subsetting data",
+    "text": "Subsetting data\n\nRPython\n\n\nWe can subset the data in our gapminder table by column or row. The tidyverse package has a series of useful functions that allow you to do this.\n\nSubsetting by column\nWe can use the select() function to select certain columns, for example if we just wanted the country and year column. The first argument we give to the function is the data set, followed by the name of the columns we want:\n\nselect(gapminder, country, year)\n\n# A tibble: 167 × 2\n   country               year\n   <chr>                <dbl>\n 1 Afghanistan           2010\n 2 Angola                2010\n 3 Albania               2010\n 4 United Arab Emirates  2010\n 5 Argentina             2010\n 6 Armenia               2010\n 7 Antigua and Barbuda   2010\n 8 Australia             2010\n 9 Austria               2010\n10 Azerbaijan            2010\n# … with 157 more rows\n\n\n\n\nSubsetting by row\nNow let’s say we wanted to only keep certain observations - which are organised in rows. Here we can use the filter() function. For example, if we only wanted the data for the United Kingdom:\n\nfilter(gapminder, country == \"United Kingdom\")\n\n# A tibble: 1 × 13\n  country   world_region  year children_per_wo… life_expectancy income_per_pers…\n  <chr>     <chr>        <dbl>            <dbl>           <dbl>            <dbl>\n1 United K… europe_cent…  2010             1.89            80.4            36509\n# … with 7 more variables: is_oecd <lgl>, income_groups <chr>,\n#   population <dbl>, main_religion <chr>, child_mortality <dbl>,\n#   life_expectancy_female <dbl>, life_expectancy_male <dbl>\n\n\nHere we’ve taken the gapminder data set and we asked R to give us the rows where country == \"United Kingdom\" is TRUE. It goes through all the rows, in this case checking the country column. If the statement country == \"United Kingdom\" is TRUE, it returns the row. Otherwise it doesn’t.\nIn this case there is only one row with country “United Kingdom”, but we could also use a different conditional statement, for example returning all the rows where the income_per_person is larger than $50,000:\n\nfilter(gapminder, income_per_person > 50000)\n\n# A tibble: 8 × 13\n  country   world_region  year children_per_wo… life_expectancy income_per_pers…\n  <chr>     <chr>        <dbl>            <dbl>           <dbl>            <dbl>\n1 United A… middle_east…  2010             1.87            72.9            55363\n2 Brunei    east_asia_p…  2010             1.84            75.1            80556\n3 Switzerl… europe_cent…  2010             1.5             82.5            55866\n4 Kuwait    middle_east…  2010             2.22            81.2            75360\n5 Luxembou… europe_cent…  2010             1.58            80.8            91743\n6 Norway    europe_cent…  2010             1.95            80.9            62350\n7 Qatar     middle_east…  2010             2.07            78.0           119974\n8 Singapore east_asia_p…  2010             1.26            83.2            73061\n# … with 7 more variables: is_oecd <lgl>, income_groups <chr>,\n#   population <dbl>, main_religion <chr>, child_mortality <dbl>,\n#   life_expectancy_female <dbl>, life_expectancy_male <dbl>"
+  },
+  {
+    "objectID": "materials/working-with-data.html#chaining-commands",
+    "href": "materials/working-with-data.html#chaining-commands",
+    "title": "Working with data",
+    "section": "Chaining commands",
+    "text": "Chaining commands\nSometimes we need to perform many different operations before we have the right data in the correct format that we need. For example, we might want to filter for certain values and then only keep certain columns. We could perform these operations one by one and save the output of each into an object that we then use for the next operation.\nBut this is not very efficient. So it can be useful to chain certain operations together, performing them one by one.\n\nR\n\n\nIn R we can do this with the pipe. We’ll be using the pipe operator for tidyverse (%>%). The pipe always starts with data, which it then “pipes through” to a function.\nLet’s look at an example, recreating the filter() operation we did earlier, but this time with a pipe:\n\ngapminder %>% \n  filter(income_per_person > 50000)\n\n# A tibble: 8 × 13\n  country   world_region  year children_per_wo… life_expectancy income_per_pers…\n  <chr>     <chr>        <dbl>            <dbl>           <dbl>            <dbl>\n1 United A… middle_east…  2010             1.87            72.9            55363\n2 Brunei    east_asia_p…  2010             1.84            75.1            80556\n3 Switzerl… europe_cent…  2010             1.5             82.5            55866\n4 Kuwait    middle_east…  2010             2.22            81.2            75360\n5 Luxembou… europe_cent…  2010             1.58            80.8            91743\n6 Norway    europe_cent…  2010             1.95            80.9            62350\n7 Qatar     middle_east…  2010             2.07            78.0           119974\n8 Singapore east_asia_p…  2010             1.26            83.2            73061\n# … with 7 more variables: is_oecd <lgl>, income_groups <chr>,\n#   population <dbl>, main_religion <chr>, child_mortality <dbl>,\n#   life_expectancy_female <dbl>, life_expectancy_male <dbl>\n\n\nWhat it’s done is taken the gapminder data set and then sent this to the filter() function. The function doesn’t need the data set specified explicitly, because it knows it is coming from the pipe.\nWe can combine this with other functions:\n\ngapminder %>% \n  filter(income_per_person > 50000) %>% \n  select(country, year)\n\n# A tibble: 8 × 2\n  country               year\n  <chr>                <dbl>\n1 United Arab Emirates  2010\n2 Brunei                2010\n3 Switzerland           2010\n4 Kuwait                2010\n5 Luxembourg            2010\n6 Norway                2010\n7 Qatar                 2010\n8 Singapore             2010\n\n\nHere we’ve performed the filtering, and then selected the country and year columns. ## Python\n\n\n\nChaining operations can be a very powerful tool, since it allows you to break down a complex operation into smaller steps. This often makes the analysis a lot less daunting!"
+  },
+  {
+    "objectID": "materials/working-with-data.html#key-points",
+    "href": "materials/working-with-data.html#key-points",
+    "title": "Working with data",
+    "section": "Key points",
+    "text": "Key points\n\n\n\n\n\n\nNote\n\n\n\n\nTabular data are an excellent format for programming languages\nHaving variables in columns and observations in rows makes analysis easier\nWe can subset data across columns and rows"
+  }
+]
