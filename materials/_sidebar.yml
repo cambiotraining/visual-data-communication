@@ -22,7 +22,7 @@ website:
             #- materials/colour.qmd
             #- materials/discriminability.qmd
             - materials/popout.qmd
-            #- materials/space-and-layout.qmd
+            - materials/space-and-layout.qmd
         #- section: "Communicating with purpose"
           #contents:
             #- materials/audience.qmd

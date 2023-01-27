@@ -16,11 +16,10 @@ import shutup;shutup.please()
 exec(open('setup-files/setup.py').read())
 ```
 
-::: {.callout-tip}
+::: callout-tip
 ## Learning outcomes
 
-- Learn how to make some data stand out from the crowd
-
+-   Learn how to make some data stand out from the crowd
 :::
 
 ## Libraries and functions
@@ -32,11 +31,13 @@ exec(open('setup-files/setup.py').read())
 ## R
 
 ### Libraries
+
 ### Functions
 
 ## Python
 
 ### Libraries
+
 ### Functions
 :::
 :::
@@ -129,7 +130,7 @@ gapminder %>%
 
 ### Exercises
 
-::: {.callout-note icon=false}
+::: {.callout-note icon="false"}
 ## Income vs life expectancy in South Asia
 
 **Level:** {{< fa solid star >}} {{< fa regular star >}} {{< fa regular star >}}
@@ -138,6 +139,7 @@ Plot income (x-axis) against life expectancy for women (y-axis), colouring the d
 
 ::: {.callout-tip collapse="true"}
 ## Answer
+
 ::: {.panel-tabset group="language"}
 ## R
 
@@ -151,13 +153,12 @@ gapminder %>%
   scale_colour_manual(values = c("grey", "firebrick"))
 ```
 
-
 ## Python
 :::
 :::
 :::
 
-::: {.callout-note icon=false}
+::: {.callout-note icon="false"}
 ## Ordering and emphasising groups
 
 **Level:** {{< fa solid star >}} {{< fa solid star >}} {{< fa regular star >}}
@@ -171,7 +172,7 @@ Ensure that the data is arranged in ascending order (based on average income acr
 
 We're combining some skills from the ordering/ranking section with the popout.
 
-First we need to find the average income for each region, and then colour East-Asia Pacific. To colour the _inside_ of the bar plot we need to use the `fill` instead of the `colour` argument (see what happens if you do use `colour`!).
+First we need to find the average income for each region, and then colour East-Asia Pacific. To colour the *inside* of the bar plot we need to use the `fill` instead of the `colour` argument (see what happens if you do use `colour`!).
 
 ::: {.panel-tabset group="language"}
 ## R
@@ -197,8 +198,6 @@ gapminder %>%
 
 ## Key points
 
-::: {.callout-note}
-
-- We can use a popout to emphasise data
-
+::: callout-note
+-   We can use a popout to emphasise data
 :::

@@ -1,0 +1,128 @@
+---
+title: "Purpose"
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| results: hide
+source(file = "setup-files/setup.R")
+```
+
+```{python}
+#| echo: false
+#| message: false
+import shutup;shutup.please()
+exec(open('setup-files/setup.py').read())
+```
+
+::: {.callout-tip}
+## Learning outcomes
+
+- Learn to define and specify purpose
+
+:::
+
+## Libraries and functions
+
+::: {.callout-note collapse="true"}
+## Click to expand
+
+::: {.panel-tabset group="language"}
+## R
+
+### Libraries
+### Functions
+
+## Python
+
+### Libraries
+### Functions
+:::
+:::
+
+## Purpose and aim
+
+One of the issues we often face is that we need to communicate our data to a varied audience. When we are trying to get a message across to people with a mixture of backgrounds we need to pay attention to how we frame our message. Among other things, we need to consider:
+
+* the message/purpose of the visualisation
+* the most suitable type of plot
+
+Without a clear message or purpose, our visualisation is destined to fail! 
+
+Let's compare these three plots:
+
+```{r}
+#| echo: false
+#| message: false
+
+gapminder <- read_csv("data/gapminder_clean.csv")
+
+p1 <- gapminder %>% 
+  ggplot(aes(x = world_region)) +
+  geom_bar() +
+  labs(title = "alphabetically",
+       x = NULL) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
+p2 <- gapminder %>% 
+  mutate(world_region = fct_reorder(world_region, income_per_person)) %>% 
+  ggplot(aes(x = world_region)) +
+  geom_bar() +
+  labs(title = "by income",
+       x = NULL) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
+p3 <- gapminder %>% 
+  mutate(world_region = fct_reorder(world_region, income_per_person)) %>% 
+  mutate(is_america = world_region == "america") %>% 
+  ggplot(aes(x = world_region)) +
+  geom_bar(aes(fill = is_america)) +
+  scale_fill_manual(values = c("grey35", "firebrick")) +
+  labs(title = "focus on America",
+       x = NULL) +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
+(p1 + p2 + p3) + 
+  plot_annotation(tag_levels = "A")
+```
+
+We're plotting the same data every time, but the message is different, where we're looking at the number of countries in each world region:
+
+A. alphabetically ordered - useful as a reference
+B. ordered by income (low to high)
+C. focus on a particular world region
+
+The alphabetically ordered data could be useful, if you wanted to show the range of number of countries. Ordering them by income per person would allow you to talk about how the number of countries that make up a world region doesn't really seem to be related to the income per person. Lastly, highlighting a specific world region in a different colour instantly focuses the attention.
+
+This example is actually a bit rubbish. Do we care about the number of countries in each world region? Maybe, if we're reporting _averages_ across world regions. The message we're able to get across with this particular visualisation is limited.
+
+I've used this example on purpose, to highlight the fact that it's really easy to create a visual, give it some structure but it still is devoid of any usefulness.
+
+
+### Exercises
+
+::: {.callout-note icon=false}
+## Exercise title
+
+**Level:** {{< fa solid star >}} {{< fa regular star >}} {{< fa regular star >}}
+
+Description
+
+::: {.callout-tip collapse="true"}
+## Answer
+::: {.panel-tabset group="language"}
+## R
+## Python
+:::
+:::
+:::
+
+## Key points
+
+::: {.callout-note}
+-
+-
+-
+:::
