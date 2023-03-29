@@ -34,10 +34,6 @@ exec(open('setup-files/setup.py').read())
 ### Libraries
 ### Functions
 
-## Python
-
-### Libraries
-### Functions
 :::
 :::
 
@@ -57,7 +53,6 @@ If you haven't done so yet, please load the data as follows:
 gapminder <- read_csv("data/gapminder_clean.csv")
 ```
 
-## Python
 :::
 
 ## Building a plot
@@ -124,7 +119,6 @@ Notice how `geom_point()` warns you that it had to remove some missing values
 (if the data is missing for at least one of the variables, then it cannot plot 
 the points).
 
-## Python
 :::
 
 ## Changing aesthetics based on data
@@ -156,7 +150,6 @@ The previous examples illustrate an important distinction between _aesthetics_ d
 - if you want to **manually specify** how the geometry should look like, it goes **outside `aes()`**
 :::
 
-## Python
 :::
 
 ## Multiple geometries
@@ -191,7 +184,6 @@ options `data = ` and `mapping = ` inside `ggplot()`. Because the data is always
 the first thing given to `ggplot()` and the mapping is always identified by the 
 function `aes()`, this is often written in the more compact form as we just did. 
 
-## Python
 :::
 
 ## Key points

@@ -34,11 +34,6 @@ exec(open('setup-files/setup.py').read())
 
 ### Libraries
 ### Functions
-
-## Python
-
-### Libraries
-### Functions
 :::
 :::
 
@@ -64,7 +59,6 @@ This function returns the square root of a number. As such, it can only have a n
 sqrt(9)
 ```
 
-## Python
 :::
 
 Functions can take different arguments. In the example above there was only one, but many functions allow you to specify more than one input. For example, let's say we wanted to round a number.
@@ -84,7 +78,6 @@ This returns a whole number. But what if we wanted to round it to one decimal? T
 round(10.232, digits = 1)
 ```
 
-## Python
 :::
 
 ## Objects
@@ -110,7 +103,6 @@ When assigning a value to an object, R does not print anything on the console. Y
 age
 ```
 
-## Python
 :::
 
 ### Using objects
@@ -126,7 +118,6 @@ Let's say we wanted to calculate double the `age`:
 age * 2
 ```
 
-## Python
 :::
 
 ## Key points

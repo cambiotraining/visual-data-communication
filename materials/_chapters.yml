@@ -1,0 +1,25 @@
+book:
+  chapters:
+    - part: "Programming with purpose"
+      chapters:
+        - materials/intro-to-programming.qmd
+        - materials/functions-and-objects.qmd
+        - materials/working-with-data.qmd
+        - materials/intro-to-plotting.qmd
+    - part: "Exploration"
+      chapters:
+        - materials/data-distributions.qmd
+        - materials/correlations.qmd
+        - materials/ranking.qmd
+        - materials/changes.qmd
+    - part: "Construction concepts"
+      chapters:
+        #- materials/marks-and-channels.qmd
+        #- materials/colour.qmd
+        #- materials/discriminability.qmd
+        - materials/popout.qmd
+        - materials/space-and-layout.qmd
+    #- part: "Communicating with purpose"
+      #chapters:
+        #- materials/audience.qmd
+        #- materials/message.qmd

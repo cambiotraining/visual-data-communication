@@ -43,10 +43,6 @@ library(visdat)
 
 ### Functions
 
-## Python
-
-### Libraries
-### Functions
 :::
 :::
 
@@ -68,7 +64,6 @@ If you haven't done so yet, please load the data as follows:
 gapminder <- read_csv("data/gapminder_clean.csv")
 ```
 
-## Python
 :::
 
 ## Data structure
@@ -98,7 +93,6 @@ From this we can see that we have several character or text variables (e.g. `cou
 
 There is one variable which contains logical data (`TRUE/FALSE`), called `is_oecd`.
 
-## Python
 :::
 
 There is a wealth of data there! So where do we go from here? In this case we're going to use one of the variables as an example. We'll use `life_expectancy` to illustrate how you can get more insight into how certain parts of your data are distributed.
@@ -129,7 +123,6 @@ ggplot(data = gapminder,
   geom_jitter(alpha = 0.4, width = 0.1)
 ```
 
-## Python
 :::
 
 ### Exercises
@@ -154,7 +147,6 @@ ggplot(data = gapminder,
   geom_jitter(alpha = 0.4, width = 0.1)
 ```
 
-## Python
 :::
 
 Income per person across the different countries is not equally spread. We can see this in the location of the median (the horizontal black line in the box plot), which is not centered inside the box.
@@ -194,8 +186,6 @@ To find the country with the highest level of income, we need to filter our data
 gapminder %>% 
   arrange(desc(income_per_person))
 ```
-
-## Python
 :::
 
 1. Income per person varies markedly across the different world regions, with low income levels in South Asia and sub-Saharan Africa. Another notable thing is that income in the Middle East/North Africa region has a huge spread.
@@ -224,7 +214,6 @@ ggplot(data = gapminder,
   geom_violin()
 ```
 
-## Python
 :::
 
 We can see that in Christian countries having just under 2 children (on average!) is most common. We can see this because the violin is 'fattest' just below 2. However, there is quite a range, with some countries having up to 6 children on average.
@@ -252,7 +241,6 @@ ggplot(data = gapminder,
   geom_violin()
 ```
 
-## Python
 :::
 :::
 :::
@@ -294,7 +282,6 @@ ggplot(data = gapminder,
   labs(title = "bins = 15")
 ```
 
-## Python
 :::
 
 This means that our interpretation can also change, depending on the number of bins we've specified. So we need to be aware of this when we're using histograms!
@@ -324,7 +311,6 @@ gapminder %>%
   arrange(life_expectancy)
 ```
 
-## Python
 :::
 
 The country with the lowest life expectancy is `r gapminder %>% arrange(life_expectancy) %>% slice(1) %>% pull(country)`. The year 2010 was particularly bad for them, since there was a [catastrophic earthquake](https://en.wikipedia.org/wiki/2010_Haiti_earthquake), that may very well have had an effect on the life expectancy in the country that year.

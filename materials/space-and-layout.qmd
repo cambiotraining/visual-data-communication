@@ -42,10 +42,6 @@ library(patchwork)
 
 ### Functions
 
-## Python
-
-### Libraries
-### Functions
 :::
 :::
 
@@ -65,7 +61,6 @@ If you haven't done so yet, please load the data as follows:
 gapminder <- read_csv("data/gapminder_clean.csv")
 ```
 
-## Python
 :::
 
 ## Composing plots
@@ -172,7 +167,6 @@ Finally, we can also add annotations, which is very useful to add automatic "tag
                   title = "Figure 1")
 ```
 
-## Python
 :::
 
 ## Facetting
@@ -203,8 +197,6 @@ ggplot(gapminder,
   facet_wrap(facets = vars(income_groups))
 ```
 
-
-## Python
 :::
 
 If instead we want a matrix of facets to display `income_groups` and `economic_organisation`, then we use `facet_grid()`:
@@ -218,8 +210,6 @@ ggplot(gapminder,
   geom_point() +
   facet_grid(rows = vars(income_groups), cols = vars(is_oecd))
 ```
-
-## Python
 
 :::
 

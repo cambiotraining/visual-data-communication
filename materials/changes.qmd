@@ -34,10 +34,6 @@ exec(open('setup-files/setup.py').read())
 ### Libraries
 ### Functions
 
-## Python
-
-### Libraries
-### Functions
 :::
 :::
 
@@ -59,7 +55,6 @@ We'll be using a new data set for this section - it contains similar information
 gapminder1960_2010 <- read_csv("data/gapminder1960to2010_socioeconomic.csv")
 ```
 
-## Python
 :::
 
 ## Changes over time
@@ -82,8 +77,6 @@ gapminder1960_2010 %>%
   geom_line()
 ```
 
-
-## Python
 :::
 
 We can see that life expectancy has increased markedly over the last 50 years. Notice that the y-axis is in a range of around 70 - 85! If we'd change that so that the y-axis started at zero, then our plot would look rather different.
@@ -103,7 +96,6 @@ gapminder1960_2010 %>%
   ylim(0, 90)
 ```
 
-## Python
 :::
 
 These two plots show the same data, but the clarity of the message is rather different.
@@ -149,7 +141,6 @@ What happens is that R goes through each item after `%in%` and checks if it can 
 
 :::
 
-## Python
 :::
 
 From this plot we can see that the United Kingdom and United States show very similar increases in life expectancy, roughly increasing by 10 years.
@@ -183,7 +174,6 @@ gapminder1960_2010 %>%
   geom_line()
 ```
 
-## Python
 :::
 :::
 :::

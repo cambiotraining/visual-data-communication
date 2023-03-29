@@ -35,10 +35,6 @@ exec(open('setup-files/setup.py').read())
 ### Libraries
 ### Functions
 
-## Python
-
-### Libraries
-### Functions
 :::
 :::
 
@@ -126,8 +122,6 @@ important unless you are a programmer, but _tibbles_ offer some user convenience
 such as a better printing method. For the rest of the course we'll refer to 
 "data frames" and "tibbles" interchangeably.
 
-
-## Python
 :::
 
 ## Subsetting data
@@ -161,8 +155,6 @@ In this case there is only one row with country "United Kingdom", but we could a
 ```{r}
 filter(gapminder, income_per_person > 50000)
 ```
-
-## Python
 :::
 
 ## Chaining commands
@@ -194,7 +186,7 @@ gapminder %>%
 ```
 
 Here we've performed the filtering, and then selected the `country` and `year` columns.
-## Python
+
 :::
 
 Chaining operations can be a very powerful tool, since it allows you to break down a complex operation into smaller steps. This often makes the analysis a lot less daunting!

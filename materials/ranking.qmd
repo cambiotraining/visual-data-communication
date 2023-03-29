@@ -32,14 +32,8 @@ exec(open('setup-files/setup.py').read())
 ## R
 
 ### Libraries
-
 ### Functions
 
-## Python
-
-### Libraries
-
-### Functions
 :::
 :::
 
@@ -59,7 +53,6 @@ If you haven't done so yet, please load the data as follows:
 gapminder <- read_csv("data/gapminder_clean.csv")
 ```
 
-## Python
 :::
 
 Using the `gapminder` data set, let's look at the following example.
@@ -98,7 +91,6 @@ p1 + p2 + plot_annotation(title = "Same data, different purpose",
                           tag_levels = "A")
 ```
 
-## Python
 :::
 
 So what happened here? Both plots show the average income across the countries within each world region. In panel A the different regions are ordered alphabetically, whereas in panel B they are displayed in ascending order of average income.
@@ -159,8 +151,6 @@ If I'd want to change this order, I can specify the levels directly:
 ```{r}
 factor(bee_factor, levels = c("unhappy", "ok", "awesome"))
 ```
-
-## Python
 :::
 
 Now let's see how we translate this to our data set. Let's create box plots for `income_per_person` for each main religion. We'll look at the default order, and then change it.
@@ -222,7 +212,6 @@ gapminder %>%
   geom_boxplot()
 ```
 
-## Python
 :::
 
 ## Stem plots
@@ -240,7 +229,6 @@ gapminder %>%
   theme(axis.text.x = element_text(angle = 45, hjust=1))
 ```
 
-## Python
 :::
 
 Another way that we could display those data is by creating a stem plot (or lollipop plot).
@@ -257,7 +245,6 @@ gapminder %>%
   theme(axis.text.x = element_text(angle = 45, hjust=1))
 ```
 
-## Python
 :::
 
 This type of plot can be useful if you have lots of categories, since each category takes up a bit less space than a bar.
@@ -291,7 +278,6 @@ gapminder %>%
        y = "Children per woman")
 ```
 
-## Python
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -313,7 +299,6 @@ gapminder %>%
        y = "Children per woman")
 ```
 
-## Python
 :::
 
 The country with the second highest number of children per woman is the Kyrgyz Republic (Kyrgyzstan).

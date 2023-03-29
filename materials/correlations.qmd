@@ -42,10 +42,6 @@ library(visdat)
 
 ### Functions
 
-## Python
-
-### Libraries
-### Functions
 :::
 :::
 
@@ -67,7 +63,6 @@ The first step to exploring our data is of course loading it in the first place.
 gapminder <- read_csv("data/gapminder_clean.csv")
 ```
 
-## Python
 :::
 
 The `gapminder` data set that we've loaded has 13 different variables, with observations for over 150 different countries in the year 2010.
@@ -88,7 +83,6 @@ ggplot(data = gapminder,
   geom_point()
 ```
 
-## Python
 :::
 
 It seems that as the income per person increases, so does the life expectancy. We can also see that the life expectancy kind of plateaus - which is not very surprising, since it can't go on indefinitely!
@@ -110,7 +104,6 @@ ggplot(data = gapminder,
   geom_point()
 ```
 
-## Python
 :::
 
 Looking at this plot it appears that most of the low-income countries are in sub-Saharan Africa.
@@ -130,8 +123,6 @@ ggplot(data = gapminder,
            size = population)) +
   geom_point()
 ```
-
-## Python
 :::
 
 ::: {.callout-important}
@@ -169,7 +160,6 @@ ggplot(data = gapminder,
   geom_point()
 ```
 
-## Python
 :::
 
 There are no clear trends in these data, apart from that the data are very spread out!
@@ -223,7 +213,6 @@ ggplot(data = top5_income,
                aes(x = "bottom 5", y = income_per_person))
 ```
 
-## Python
 :::
 :::
 :::
@@ -245,7 +234,6 @@ gapminder %>%
   select(-year)
 ```
 
-## Python
 :::
 
 After this, we can calculate the correlation matrix.
@@ -261,7 +249,6 @@ gapminder %>%
   select(-year) %>% 
   cor(method = "pearson")
 ```
-## Python
 :::
 
 This is of course a hideously large table, which is almost impossible to interpret. But that's the point! It's much easier to use a visual representation of these data. Well, once the data are in the right format, that is.
@@ -307,7 +294,6 @@ ggplot(data = gapminder_cor,
   theme(axis.text.x = element_text(angle = 45, hjust=1))
 ```
 
-## Python
 :::
 
 The variables across the diagonals are perfectly correlated (with a correlation coefficient of 1). This makes sense because, for example, `child_mortality` would be perfectly correlated with... itself!

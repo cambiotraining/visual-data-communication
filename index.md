@@ -2,6 +2,7 @@
 title: "Visual data communication"
 author: "Martin van Rongen, Hugo Tavares, Matt Castle"
 date: today
+number-sections: false
 ---
 
 :::{.panel-tabset}

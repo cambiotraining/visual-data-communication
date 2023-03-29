@@ -33,11 +33,6 @@ exec(open('setup-files/setup.py').read())
 
 ### Libraries
 ### Functions
-
-## Python
-
-### Libraries
-### Functions
 :::
 :::
 
@@ -88,7 +83,6 @@ The default layout is:
 
 ![](images/00-RStudio_screen.png)
 
-## Python
 :::
 
 ## Getting set up
@@ -99,6 +93,7 @@ The default layout is:
 It is good practice to keep a set of related data, analyses, and text
 self-contained in a single folder called the **working directory** (usually a folder 
 on your computer where you have all the files relating to a project you're working on). 
+
 The working directory is an important concept to understand. It is the place
 where R will look for and save files.
 
@@ -135,15 +130,13 @@ that you can move the project folder to a different location or even different
 computer. As long as you open the `Rproj` file, your working directory will be set correctly. 
 
 If you need to check your working directory, you can run `getwd()` on the console. 
-If for some reason your working directory is not what it should be, you can change it in the
-RStudio interface by navigating in the file browser (bottom-right panel) to where your working directory should be, clicking on the blue gear icon 
+If for some reason your working directory is not what it should be, you can change it in the RStudio interface by navigating in the file browser (bottom-right panel) to where your working directory should be, clicking on the blue gear icon 
 <kbd>More</kbd> > <kbd>Set As Working Directory</kbd>.
 
 Alternatively, you can run `setwd("/path/to/working/directory")` on the console to 
 reset your working directory. However, your scripts should not include this line, 
 because it will fail on someone else's computer.
 
-## Python
 :::
 
 ## Writing code
@@ -168,7 +161,6 @@ Any time you hit return and the console shows a "`+`" instead of a "`>`", it
 means it's waiting for you to complete the command. If you want to cancel a
 command you can hit <kbd>Esc</kbd> and RStudio will give you back the `>` prompt.
 
-## Python
 :::
 
 ## Creating scripts
@@ -190,7 +182,6 @@ does some syntax highlighting (it colours the code) to help read the code.
 As you're adding code to the script, you can run it interactively on the console 
 by pressing the shortcut <kbd>Ctrl</kbd>+<kbd>Enter</kbd>. 
 
-## Python
 :::
 
 ## Installing and loading packages
@@ -220,7 +211,6 @@ After this, you can then load the package to use it in your analysis. For the ex
 library(tidyverse)
 ```
 
-## Python
 :::
 
 
