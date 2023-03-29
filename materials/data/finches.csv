@@ -1,4 +1,4 @@
-﻿Species,Group,weight,wing,tarsus,blength,bdepth,bwidth,PC1 body,PC1 beak,PC2 beak
+﻿species,group,weight,wing,tarsus,blength,bdepth,bwidth,pc1_body,pc1_beak,pc2_beak
 G. fortis,Early blunt,15.84,67.13,19.55,10.3,8.95,8.32,0.382160284,-0.431162924,-0.298932002
 G. fortis,Early blunt,15.15,66,18.3,10.4,8.7,8.4,-1.062579773,-0.452361005,-0.123305963
 G. fortis,Early blunt,17.97,68,18.93,11.17,9.6,8.83,0.838884642,0.955418895,0.054622633
