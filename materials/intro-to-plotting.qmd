@@ -152,7 +152,7 @@ ggplot(data = finches,
 ```
 :::
 
-## Changing aesthetics based on data
+## Data-based aesthetics
 
 In the plot above we lumped all the data together. We've ignored the fact that these measurements come from two different species. These species are also subdivided into different groups. We'll explore the grouping later, but now we're interested to see if there are clear differences between the species.
 
@@ -219,7 +219,107 @@ For example, try swapping their order and see what happens.
 Notice how we've shortened our code by omitting the names of the 
 options `data = ` and `mapping = ` inside `ggplot()`. Because the data is always 
 the first thing given to `ggplot()` and the mapping is always identified by the 
-function `aes()`, this is often written in the more compact form as we just did. 
+function `aes()`, this is often written in the more compact form as we just did.
+
+## Exercises
+
+### Finch weight {#sec-exr_weight}
+
+:::{.callout-exercise}
+
+{{< level 1 >}}
+
+Let's put this knowledge into practice. The `finches` data set contains multiple variables, among which weight measurements for individual birds.
+
+Create a boxplot for these weight measurements, splitting the data by species.
+
+::: {.callout-answer collapse=true}
+## Answer
+
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+#| message: false
+ggplot(finches, aes(x = species,
+                    y = weight)) +
+  geom_boxplot()
+```
+
+:::
+:::
+:::
+
+### Subgroup weight {#sec-exr_subgroupweight}
+
+:::{.callout-exercise}
+
+{{< level 2 >}}
+
+The measurements are not only recorded by species, but also by group (the originally named `group` variable in the data set). The grouping has been determined on basis of the shape of the beak (pointed or blunt) and a certain timed event (early/late). We'll talk in more detail about this a bit later.
+
+For now, I'd like you to create a boxplot for the weight measurements of *G. scandens* only, splitting the data by group.
+
+Overlay the data points on top of the boxplot, changing the colour to "blue".
+
+::: {.callout-answer collapse=true}
+## Answer
+
+::: {.panel-tabset group="language"}
+## R
+There are two options to approach this:
+
+1. You can either filter out the *G. scandens* measurements and save it into a new object or
+2. You can use the pipe to do filter first, sending the output directly to the `ggplot()` function.
+
+In the latter case you do not need to provide a `data =` argument, because `ggplot()` knows that the data are coming from the pipe. We'll use this method here:
+
+```{r}
+finches %>% 
+  filter(species == "G. scandens") %>% 
+  ggplot(aes(x = group,
+             y = weight)) +
+  geom_boxplot() +
+  geom_point(colour = "blue")
+```
+
+:::
+:::
+:::
+
+### Separating data points {#sec-exr_separation}
+
+:::{.callout-exercise}
+
+{{< level 3 >}}
+
+In the previous exercise we've plotted finch weight for the different subgroups in *G. scandens*. You can see that all of the data points are in a line, causing quite some overlap. We could use transparency to solve this, but I'd like you to explore something different. Have a search for a phenomenon called **jitter** and replot the data.
+
+::: {.callout-answer collapse=true}
+## Answer
+
+It's often best when searching for these terms to also include phrases related to your function. For example, I searched for "jitter data ggplot". The first hit showed the help page for [geom_jitter()](https://ggplot2.tidyverse.org/reference/geom_jitter.html). At the bottom of a help page you can usually find some code examples. Reading through the text, `geom_jitter()` adds a tiny bit of random variation to each data point, to avoid overplotting. We can even combine that with adding some transparency.
+
+Here we can play around a bit with how *wide* we want the jittering to be. This is set with the `width =` argument, which takes a value between 0 and 1. We'll set the width to 10% (= 0.1).
+
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+finches %>% 
+  filter(species == "G. scandens") %>% 
+  ggplot(aes(x = group,
+             y = weight)) +
+  geom_boxplot() +
+  geom_jitter(colour = "blue",
+              width = 0.1,
+              alpha = 0.5)
+```
+
+:::
+:::
+:::
+
 
 ## Key points
 

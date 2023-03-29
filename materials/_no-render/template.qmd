@@ -44,20 +44,21 @@ exec(open('setup-files/setup.py').read())
 
 ## Purpose and aim
 
-### Exercises
+## Exercises
 
-::: {.callout-note icon=false}
-## Exercise title
+### Exercise title {#sec-exr_title}
 
-**Level:** {{< fa solid star >}} {{< fa regular star >}} {{< fa regular star >}}
+:::{.callout-exercise}
+
+{{< level 1 >}}
 
 Description
 
-::: {.callout-tip collapse="true"}
+::: {.callout-answer collapse=true}
 ## Answer
+
 ::: {.panel-tabset group="language"}
 ## R
-## Python
 :::
 :::
 :::
