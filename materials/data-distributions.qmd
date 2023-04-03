@@ -61,7 +61,7 @@ If you haven't done so yet, please load the data as follows:
 
 ```{r}
 #| message: false
-gapminder <- read_csv("data/gapminder_clean.csv")
+finches <- read_csv("data/finches.csv")
 ```
 
 :::
@@ -78,36 +78,39 @@ In R we can use a package called `visdat` to visualise the structure of our data
 ```{r}
 #| eval: false
 install.packages("visdat")
+
+# load the package
+library(visdat)
 ```
 
 We can then visualise our data structure with the `vis_dat()` function:
 
 ```{r}
 #| warning: false
-vis_dat(gapminder)
+vis_dat(finches)
 ```
 
 Looking at the y-axis, we can see that there are over 150 observations in this data set. The data are organised and coloured by type, with the column names (our variables) at the top.
 
-From this we can see that we have several character or text variables (e.g. `country`, `world_region`). There are also several numerical variables, such as `year` and `children_per_woman`.
+From this we can see that we have two character or text variables (`species` and `group`). There are also several numerical variables, such as `weight` and `wing`.
 
-There is one variable which contains logical data (`TRUE/FALSE`), called `is_oecd`.
+There is one variable which contains logical data (`TRUE/FALSE`), called `is_early`.
 
 :::
 
-There is a wealth of data there! So where do we go from here? In this case we're going to use one of the variables as an example. We'll use `life_expectancy` to illustrate how you can get more insight into how certain parts of your data are distributed.
+There is a wealth of data there! So where do we go from here? In this case we're going to use one of the variables as an example. We'll use `bdepth` (beak depth) to illustrate how you can get more insight into how certain parts of your data are distributed.
 
 ## Box plots
 
-An easy way to get a sense of the data distribution is to create a box plot. For the `life_expectancy` variable we can do this as follows:
+An easy way to get a sense of the data distribution is to create a box plot. For the `bdepth` variable we can do this as follows:
 
 ::: {.panel-tabset group="language"}
 ## R
 
 ```{r}
-ggplot(data = gapminder,
+ggplot(data = finches,
        aes(x = 1,
-           y = life_expectancy)) +
+           y = bdepth)) +
   geom_boxplot()
 ```
 
@@ -116,82 +119,13 @@ Since we are plotting only one variable, we're defining the `x` value as 1, but 
 Box plots give you some summary statistics, so therefore it's often useful to plot them together with the actual data. We can do this quite easily by adding another layer to the plot that contains the data points. We're also adding some transparency (`alpha = 0.4` - which is 40% opacity) so we can still see the box plots themselves. We're also defining the `width = 0.1` so that the data points are not spread out over the entire width of the box plot, but are constrained a bit more.
 
 ```{r}
-ggplot(data = gapminder,
+ggplot(data = finches,
        aes(x = 1,
-           y = life_expectancy)) +
+           y = bdepth)) +
   geom_boxplot() +
   geom_jitter(alpha = 0.4, width = 0.1)
 ```
 
-:::
-
-### Exercises
-
-::: {.callout-note icon=false}
-## Exercise: Income box plot
-
-**Level:** {{< fa solid star >}} {{< fa regular star >}} {{< fa regular star >}}
-
-Create a box plot that displays the `income_per_person`. Overlay the data points on top of the plot. What can you see?
-
-::: {.callout-tip collapse="true"}
-## Answer
-::: {.panel-tabset group="language"}
-## R
-
-```{r}
-ggplot(data = gapminder,
-       aes(x = 1,
-           y = income_per_person)) +
-  geom_boxplot() +
-  geom_jitter(alpha = 0.4, width = 0.1)
-```
-
-:::
-
-Income per person across the different countries is not equally spread. We can see this in the location of the median (the horizontal black line in the box plot), which is not centered inside the box.
-
-Looking at the actual data makes this even more obvious: a small set of countries have a rather high level of income, with one country standing out above the rest.
-:::
-:::
-
-::: {.callout-note icon=false}
-## Exercise: High income countries
-
-**Level:** {{< fa solid star >}} {{< fa solid star >}} {{< fa regular star >}}
-
-The spread of income per person is not equal and it would be useful to explore this a bit more. Try and find answers to the following questions:
-
-1. How does income per person vary across the different world regions?
-2. What is the country with the highest income per person?
-
-::: {.callout-tip collapse="true"}
-## Answer
-::: {.panel-tabset group="language"}
-## R
-
-To see if income per person varies across the world regions, we can group the data based on `world_region`. We adjust the previous box plot as follows:
-
-```{r}
-ggplot(data = gapminder,
-       aes(x = world_region,
-           y = income_per_person)) +
-  geom_boxplot() +
-  geom_jitter(alpha = 0.4, width = 0.1)
-```
-
-To find the country with the highest level of income, we need to filter our data. We need to do this in descending order, so we're combining the `arrange()` function with the `desc()` helper function.
-
-```{r}
-gapminder %>% 
-  arrange(desc(income_per_person))
-```
-:::
-
-1. Income per person varies markedly across the different world regions, with low income levels in South Asia and sub-Saharan Africa. Another notable thing is that income in the Middle East/North Africa region has a huge spread.
-
-2. The country with the highest income per person (in 2010) is `r gapminder %>% arrange(desc(income_per_person)) %>% slice(1) %>% pull(country)`, with an income of `r round(gapminder %>% arrange(desc(income_per_person)) %>% slice(1) %>% pull(income_per_person) / 1000)` thousand dollars per person.
-:::
 :::
 
 ## Violin plots
@@ -200,7 +134,7 @@ Violin plots are similar to box plots, but they give extra information on the di
 
 This can happen if your data splits into two or more discernible groups.
 
-Let's say we wanted to look at the number of children women get, across the different religions.
+Let's say we wanted to look at the beak length across both species. Since we've got early and late time points it would not be fair to lump all the data together. So, let's focus on just the early observations. We can filter these out using the `is_early` variable.
 
 ::: {.panel-tabset group="language"}
 ## R
@@ -208,46 +142,35 @@ Let's say we wanted to look at the number of children women get, across the diff
 We can use `geom_violin()` to create a violin plot in `ggplot2`:
 
 ```{r}
-ggplot(data = gapminder,
-       aes(x = main_religion,
-           y = children_per_woman)) +
+finches %>% 
+  filter(is_early == TRUE) %>% 
+  ggplot(aes(x = species,
+             y = bdepth)) +
   geom_violin()
 ```
 
 :::
 
-We can see that in Christian countries having just under 2 children (on average!) is most common. We can see this because the violin is 'fattest' just below 2. However, there is quite a range, with some countries having up to 6 children on average.
+We can see that in *G. fortis* the beak depth is more spread out than in *G. scandens* in these early observations (pre-1983). To illustrate this in more detail, we can overlay the actual data points - again avoiding overlap. We update our code as follows:
 
-Comparing across the religions shows that in Eastern religions having lots of children is very uncommon, whereas in Muslim countries this does occur.
-
-### Exercises
-
-::: {.callout-note icon=false}
-## Children per woman across different world regions
-
-**Level:** {{< fa solid star >}} {{< fa regular star >}} {{< fa regular star >}}
-
-Create a single plot that contains violins for the number of children per woman, for each world region.
-
-::: {.callout-tip collapse="true"}
-## Answer
 ::: {.panel-tabset group="language"}
 ## R
 
 ```{r}
-ggplot(data = gapminder,
-       aes(x = world_region,
-           y = children_per_woman)) +
-  geom_violin()
+finches %>% 
+  filter(is_early == TRUE) %>% 
+  ggplot(aes(x = species,
+           y = bdepth)) +
+  geom_violin() +
+  geom_jitter(width = 0.05,
+              alpha = 0.6)
 ```
 
-:::
-:::
 :::
 
 ## Histograms
 
-Another way to look at how data is distributed is to create a histogram. Here we slice our data into intervals (for example, in 5 year chunks e.g. 35-40 years, 40-45 years etc) and count how many observations fall into each interval. This gives us a frequency for the number of observations into each interval group.
+Another way to look at how data is distributed is to create a histogram. Here we slice our beak depth data into intervals and count how many observations fall into each interval. This gives us a frequency for the number of observations into each interval group.
 
 ::: {.panel-tabset group="language"}
 ## R
@@ -255,8 +178,8 @@ Another way to look at how data is distributed is to create a histogram. Here we
 We can do this quite straightforwardly by using `geom_histogram()`:
 
 ```{r}
-ggplot(data = gapminder,
-       aes(x = life_expectancy)) +
+ggplot(data = finches,
+       aes(x = bdepth)) +
   geom_histogram()
 ```
 
@@ -266,18 +189,18 @@ When you run this bit of code it gives you some information:
 `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-What this means is that it chopped our data into 30 chunks/intervals and done the counting based on that. This might not be what we want and we can change this by changing the `bins` argument or using `binwidth`. The difference between the two is that with, for example, `bins = 10` we're saying "chop the data into 10 equal chunks" whereas with `binwidth = 10` we're saying "chop the data into chunks of 10 years each".
+What this means is that it chopped our data into 30 chunks/intervals and done the counting based on that. This might not be what we want and we can change this by changing the `bins` argument or using `binwidth`. The difference between the two is that with, for example, `bins = 5` we're saying "chop the data into 5 equal chunks" whereas with `binwidth = 5` we're saying "chop the data into chunks of 5 millimeters each".
 
 To illustrate that histograms can vary heavily depending on the bin size, look at the following plots:
 
 ```{r}
-ggplot(data = gapminder,
-       aes(x = life_expectancy)) +
+ggplot(data = finches,
+       aes(x = bdepth)) +
   geom_histogram(bins = 5) +
   labs(title = "bins = 5")
 
-ggplot(data = gapminder,
-       aes(x = life_expectancy)) +
+ggplot(data = finches,
+       aes(x = bdepth)) +
   geom_histogram(bins = 15) +
   labs(title = "bins = 15")
 ```
@@ -286,35 +209,157 @@ ggplot(data = gapminder,
 
 This means that our interpretation can also change, depending on the number of bins we've specified. So we need to be aware of this when we're using histograms!
 
-However we slice the data, the largest number of countries with similar life expectancy seem to be in the 70-80 year range.
+However we slice the data, a beak depth of around 9 mm appears to be most common.
 
-There is also one country where life expectancy is very low and if I'd see a plot like this I would definitely want to investigate that further!
+## Exercises
 
-### Exercises
+### Late beak depth measurements {#sec-lateviolin}
 
-::: {.callout-note icon=false}
-## Exercise: Lowest life expectancy
+:::{.callout-exercise}
 
-**Level:** {{< fa solid star >}} {{< fa regular star >}} {{< fa regular star >}}
+{{< level 1 >}}
 
-Find the country that has the lowest life expectancy.
+We've looked at the beak depth of the finches that were recorded before the 1983 event. I'd like you to do the same for the observations post-1983, using a violin plot. Plot the data by species.
 
-::: {.callout-tip collapse="true"}
+::: {.callout-answer collapse=true}
 ## Answer
+
 ::: {.panel-tabset group="language"}
 ## R
 
-We can arrange the data by `life_expectancy` in ascending order, using the `arrange()` function:
+```{r}
+finches %>% 
+  filter(is_early == FALSE) %>% 
+  ggplot(aes(x = species,
+             y = bdepth)) +
+  geom_violin()
+```
+
+:::
+:::
+:::
+
+### Beak depth over time {#sec-beakdepthtime}
+
+:::{.callout-exercise}
+
+{{< level 2 >}}
+
+In the previous exercise we've plotted the beak depth values for the post-1983 finches, for each species as a violin plot. If you haven't done so yet, please plot them now and answer the following questions:
+
+1. Are there any clear visual differences between the early and late measurements?
+2. Depending on the answer in (1), is a violin plot the most appropriate type of plot? Explain why.
+
+::: {.callout-answer collapse=true}
+## Answer
+
+::: {.panel-tabset group="language"}
+## R
 
 ```{r}
-gapminder %>% 
-  arrange(life_expectancy)
+#| echo: false
+
+p1 <- finches %>% 
+  filter(is_early == TRUE) %>% 
+  ggplot(aes(x = species,
+             y = bdepth)) +
+  geom_violin() +
+  labs(title = "Early measurements")
+
+p2 <- finches %>% 
+  filter(is_early == FALSE) %>% 
+  ggplot(aes(x = species,
+             y = bdepth)) +
+  geom_violin() +
+  labs(title = "Late measurements")
+
+(p1 + p2) +
+  plot_annotation(tag_levels = "A")
+```
+:::
+
+1. The spread of the data in the early *G. scandens* data is much less than in the later observations. This suggests that the beak depth in this species was less variable before 1983. The spread in *G. fortis* seems relatively comparable between the two time points. But the violin is wider at the lower beak depth range in the later time point, compared to the early one. This suggests a reduction in the overall beak depth over time.
+
+2. The violin plot might not be the most suitable way of looking at these data. The width of the violins has information, but does make interpretation more complicated to the average reader.
+
+How to improve? Well, I would start by looking at the actual data (see below). This seems to support the suggestion about the changes in *G. fortis*. If that's a message we would like to focus on we could represent the data as averages and highlight the changes. We'll practice this in the next exercise.
+
+```{r}
+#| echo: false
+
+p3 <- finches %>% 
+  filter(is_early == TRUE) %>% 
+  ggplot(aes(x = species,
+             y = bdepth)) +
+  geom_violin() +
+  geom_jitter(width = 0.05) +
+  labs(title = "Early measurements")
+
+p4 <- finches %>% 
+  filter(is_early == FALSE) %>% 
+  ggplot(aes(x = species,
+             y = bdepth)) +
+  geom_violin() +
+  geom_jitter(width = 0.05) +
+  labs(title = "Late measurements")
+
+(p3 + p4) +
+  plot_annotation(tag_levels = "A")
+```
+
+:::
+:::
+
+### Changes in *G. fortis* beak depth {#sec-changesfortis}
+
+:::{.callout-exercise}
+
+{{< level 3 >}}
+
+In @sec-beakdepthtime we saw that using a violin plot may not be the most appropriate method of displaying changes across the two time points. If we want to focus on the beak depth change in *G. fortis*, we could also plot the average value at each time point. If we connect these averages with a line, then we can visualise the *direction of change*. We'll cover this in more detail in a later chapter, but you can challenge yourself in advance! 
+
+Hints:
+
+* If you want to plot the average values, have a look at the `stat_summary()` function.
+* If you want to connect the means, Google for something along the lines of "connect means using stat_summary"
+* It's useful to plot the original data as well!
+
+::: {.callout-answer collapse=true}
+## Answer
+
+There are actually quite a few steps to get the plot we'd like. Thankfully, using `ggplot()`, this is quite modular. So we'll do the following:
+
+1. Keep only the *G. fortis* data
+2. Plot the original data, perhaps adding some jitter/transparency to aid visual separation
+3. Calculate the mean value for each group (early/late) using `stat_summary()` and display this as a point
+4. Connect the two mean values. This is a bit trickier than it really ought to be, but in effect we need to tell `ggplot()` that the two mean values belong together. They do this through the `species` variable, since they both come from the same species.
+5. Change the colour of the points/line of the averages to stand out from the original data
+
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+finches %>% 
+  filter(species == "G. fortis") %>% 
+  ggplot(aes(x = is_early,
+             y = bdepth)) +
+  geom_jitter(width = 0.05,
+              alpha = 0.6) +
+  stat_summary(fun = mean,
+               geom = "point",
+               size = 3,
+               colour = "firebrick") +
+  stat_summary(aes(group = species), fun = mean,
+               geom = "line",
+               linewidth = 1,
+               colour = "firebrick")
 ```
 
 :::
 
-The country with the lowest life expectancy is `r gapminder %>% arrange(life_expectancy) %>% slice(1) %>% pull(country)`. The year 2010 was particularly bad for them, since there was a [catastrophic earthquake](https://en.wikipedia.org/wiki/2010_Haiti_earthquake), that may very well have had an effect on the life expectancy in the country that year.
+We can see that, on average, the beak depth is lower in the post-1983 measurements (`is_early = FALSE`). This is further emphasised through connecting the two averages: the slope of the line indicates the difference between them.
 
+I would personally prefer to see the early data on the left, and the later data on the right. That makes more sense chronologically. That is indeed possible, but includes something called `factors`, which we'll cover later. So for now, we won't worry about it.
 :::
 :::
 
@@ -325,4 +370,5 @@ The country with the lowest life expectancy is `r gapminder %>% arrange(life_exp
 - Data distributions allows us to understand the structure of our data better
 - Box and violin plots give us summary statistics
 - Histograms displays the frequency of observations
+- Once you have a story to tell (or point to make), revisit your plots and choose the most appropriate one to convey that
 :::

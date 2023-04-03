@@ -1,0 +1,16 @@
+{
+  "hash": "db8de34926c8b89676f83708d6f9cf56",
+  "result": {
+    "markdown": "---\ntitle: \"Data wrangling\"\n---\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n\n::: {.callout-tip}\n## Learning outcomes\n\n- Be able to make changes to variables (columns)\n- Be able to make changes to observations (rows)\n- Implement changes on a grouped basis\n\n:::\n\n## Libraries and functions\n\n::: {.callout-note collapse=\"true\"}\n## Click to expand\n\n::: {.panel-tabset group=\"language\"}\n## R\n\n### Libraries\n### Functions\n\n:::\n:::\n\n## Purpose and aim\n\nOften, there is not one single data format that allows you to do all of your analysis. Getting comfortable with making changes to the way your data are organised is an important skill. This is sometimes referred to as 'data wrangling'. In this section we'll learn how we can change the organisation of columns, how to add new columns, manipulate rows and perform these operations on subgroups of the data.\n\n## Reading in data\n\n::: {.panel-tabset group=\"language\"}\n## R\n\nWe'll keep using our data set on Darwin's finches. If you haven't read these data in, please do so with the following:\n\n\n::: {.cell}\n\n```{.r .cell-code}\nfinches <- read_csv(\"data/finches.csv\")\n```\n:::\n\n:::\n\nCONTENT COMING SOON\n\n## Key points\n\n::: {.callout-note}\n\n- \n\n:::\n",
+    "supporting": [
+      "data-wrangling_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

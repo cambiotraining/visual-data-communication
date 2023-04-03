@@ -1,12 +1,13 @@
 book:
   chapters:
-    - part: "Programming with purpose"
+    - part: "Coding with purpose"
       chapters:
         - materials/intro-to-programming.qmd
         - materials/functions-and-objects.qmd
         - materials/working-with-data.qmd
         - materials/intro-to-plotting.qmd
-    - part: "Exploration"
+        - materials/data-wrangling.qmd
+    - part: "Exploring your data"
       chapters:
         - materials/data-distributions.qmd
         - materials/correlations.qmd

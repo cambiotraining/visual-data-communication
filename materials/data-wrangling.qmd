@@ -1,0 +1,67 @@
+---
+title: "Data wrangling"
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| results: hide
+source(file = "setup-files/setup.R")
+```
+
+```{python}
+#| echo: false
+#| message: false
+import shutup;shutup.please()
+exec(open('setup-files/setup.py').read())
+```
+
+::: {.callout-tip}
+## Learning outcomes
+
+- Be able to make changes to variables (columns)
+- Be able to make changes to observations (rows)
+- Implement changes on a grouped basis
+
+:::
+
+## Libraries and functions
+
+::: {.callout-note collapse="true"}
+## Click to expand
+
+::: {.panel-tabset group="language"}
+## R
+
+### Libraries
+### Functions
+
+:::
+:::
+
+## Purpose and aim
+
+Often, there is not one single data format that allows you to do all of your analysis. Getting comfortable with making changes to the way your data are organised is an important skill. This is sometimes referred to as 'data wrangling'. In this section we'll learn how we can change the organisation of columns, how to add new columns, manipulate rows and perform these operations on subgroups of the data.
+
+## Reading in data
+
+::: {.panel-tabset group="language"}
+## R
+
+We'll keep using our data set on Darwin's finches. If you haven't read these data in, please do so with the following:
+
+```{r}
+#| message: false
+finches <- read_csv("data/finches.csv")
+```
+:::
+
+CONTENT COMING SOON
+
+## Key points
+
+::: {.callout-note}
+
+- 
+
+:::
