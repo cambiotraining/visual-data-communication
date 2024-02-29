@@ -321,9 +321,10 @@ finches %>%
 :::
 
 
-## Key points
+## Summary
 
-::: {.callout-note}
+::: {.callout-tip}
+#### Key points
 
 - We can build plots layer by layer
 - Aesthetics can be based on data

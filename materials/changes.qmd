@@ -178,9 +178,10 @@ gapminder1960_2010 %>%
 :::
 :::
 
-## Key points
+## Summary
 
-::: {.callout-note}
+::: {.callout-tip}
+#### Key points
 
 - Visualising changes over time is a powerful tool to detect trends
 - Decisions on axis limits can dramatically change the message

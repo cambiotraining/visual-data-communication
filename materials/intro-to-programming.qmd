@@ -214,9 +214,10 @@ library(tidyverse)
 :::
 
 
-## Key points
+## Summary
 
-::: {.callout-note}
+::: {.callout-tip}
+#### Key points
 
 - We use a working directory to organise our projects
 - Using scripts we're able to keep a record of our code

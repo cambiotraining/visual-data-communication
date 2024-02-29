@@ -213,9 +213,11 @@ ggplot(gapminder,
 
 :::
 
-## Key points
+## Summary
 
-::: {.callout-note}
+::: {.callout-tip}
+#### Key points
+
 - Use of white space helps readability and focus
 - Grouping of related graphs can help navigating through complex data
 - We can split our data in groups using facetting

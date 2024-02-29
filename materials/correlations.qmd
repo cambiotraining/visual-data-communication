@@ -304,9 +304,10 @@ The correlation between life expectancy and income (which we explored previously
 
 Several variables are negatively correlated with one another, such as child mortality and life expectancy. This sad example makes sense, because if the child mortality rate in a country is high, it's not inconceivable that this has an effect on the overall life expectancy in that country.
 
-## Key points
+## Summary
 
-::: {.callout-note}
+::: {.callout-tip}
+#### Key points
 
 - We can find correlations by calculating correlation coefficients
 - Scatter plots allow us to visualise correlations between two variables

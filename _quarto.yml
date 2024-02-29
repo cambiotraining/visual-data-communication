@@ -16,6 +16,9 @@ project:
 
 format: courseformat-html
 
+filters:
+  - courseformat
+
 bibliography: references.bib
 
 execute:

@@ -119,9 +119,11 @@ Description
 :::
 :::
 
-## Key points
+## Summary
 
-::: {.callout-note}
+::: {.callout-tip}
+#### Key points
+
 -
 -
 -

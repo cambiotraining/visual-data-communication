@@ -213,7 +213,7 @@ However we slice the data, a beak depth of around 9 mm appears to be most common
 
 ## Exercises
 
-### Late beak depth measurements {#sec-lateviolin}
+### Late beak depth measurements {#sec-exr_lateviolin}
 
 :::{.callout-exercise}
 
@@ -221,7 +221,7 @@ However we slice the data, a beak depth of around 9 mm appears to be most common
 
 We've looked at the beak depth of the finches that were recorded before the 1983 event. I'd like you to do the same for the observations post-1983, using a violin plot. Plot the data by species.
 
-::: {.callout-answer collapse=true}
+::: {.callout-answer collapse="true"}
 ## Answer
 
 ::: {.panel-tabset group="language"}
@@ -363,9 +363,12 @@ I would personally prefer to see the early data on the left, and the later data 
 :::
 :::
 
-## Key points
 
-::: {.callout-note}
+
+## Summary
+
+::: {.callout-tip}
+#### Key points
 
 - Data distributions allows us to understand the structure of our data better
 - Box and violin plots give us summary statistics

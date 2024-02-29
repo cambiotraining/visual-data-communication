@@ -169,9 +169,10 @@ Here we've performed the filtering, and then selected the `species` and `weight`
 
 Chaining operations can be a very powerful tool, since it allows you to break down a complex operation into smaller steps. This often makes the analysis a lot less daunting!
 
-## Key points
+## Summary
 
-::: {.callout-note}
+::: {.callout-tip}
+#### Key points
 
 - Tabular data are an excellent format for programming languages
 - Having variables in columns and observations in rows makes analysis easier

@@ -305,9 +305,10 @@ The country with the second highest number of children per woman is the Kyrgyz R
 :::
 :::
 
-## Key points
+## Summary
 
-::: callout-note
+::: {.callout-tip}
+#### Key points
 
 - Ranking or ordering your data in a particular way can help tell a story
 - Programming languages use factors to deal with categories that have an inherent order

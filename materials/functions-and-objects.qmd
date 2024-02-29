@@ -120,9 +120,10 @@ age * 2
 
 :::
 
-## Key points
+## Summary
 
-::: {.callout-note}
+::: {.callout-tip}
+#### Key points
 
 - Functions perform a specific set of operations
 - Objects allow you to store value that can be accessed later

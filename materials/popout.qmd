@@ -184,8 +184,10 @@ gapminder %>%
 :::
 :::
 
-## Key points
+## Summary
 
-::: callout-note
+::: {.callout-tip}
+#### Key points
+
 -   We can use a popout to emphasise data
 :::

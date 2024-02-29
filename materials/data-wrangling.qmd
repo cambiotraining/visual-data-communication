@@ -58,9 +58,10 @@ finches <- read_csv("data/finches.csv")
 
 CONTENT COMING SOON
 
-## Key points
+## Summary
 
-::: {.callout-note}
+::: {.callout-tip}
+#### Key points
 
 - 
 
