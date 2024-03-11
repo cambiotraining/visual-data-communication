@@ -1,28 +1,33 @@
 ---
-title: "Visual data communication"
+title: "Preface"
 author: "Martin van Rongen, Hugo Tavares, Matt Castle"
 date: today
 number-sections: false
 ---
 
-:::{.panel-tabset}
-
 ## Overview 
 
 Communicating data effectively is an important skill in many scientific fields, and beyond. The ease at which large quantities of data are now generated, it becomes more important than ever to be able to get your message across clearly.
 
-This course is intended to give you a background in how to communicate effectively, using visualisations.
+This course is intended to give you background on how to communicate effectively, using visualisations.
+
+The course is split into different sections which are modular, but independent of each other. As such, they can be worked through in order, but also used as a reference.
+
+There is a section **Coding with purpose** which provides a very short recap on some basic programming concepts. Although not intended as a replacement for a more in-depth programming course, it will provide you with the basic tools you need to get started. If you already have experience in programming, do skip this section!
+
+
 
 ::: {.callout-tip}
-### Learning Objectives
+### Learning objectives
 
+- Gain insight into the visual design process
 - Understand the basics of what makes a good and bad visualisation
 - Use basic programming skills to create effective data visualisations
 
 :::
 
 
-### Target Audience
+### Target audience
 
 People who need to communicate their data, particularly in a scientific setting.
 
@@ -78,5 +83,3 @@ Or in BibTeX format:
 }
 ```
 -->
-
-:::

@@ -39,9 +39,7 @@ exec(open('setup-files/setup.py').read())
 
 ## Purpose and aim
 
-In this section we're going to look at dealing with data that changes. This can be when you've got a data for different points in time, or perhaps some response to different concentrations.
-
-Here the change over time or in concentration may show some interesting properties.
+In this section we're going to look at dealing with data that changes. These can be changes over time or, for example, changes across treatments / regions / concentrations etc.
 
 ## Loading data
 
@@ -63,10 +61,12 @@ Let's say we're interested in life expectancy. We now have data on this variable
 
 There are `r gapminder1960_2010 %>% distinct(country) %>% count() %>% pull(n)` countries in this data set, so it's probably not a good idea to plot them all at once...
 
-Let's focus close to home and see how life expectancy changed in the United Kingdom. To do this, we first filter out all of the data of the United Kingdom, and then plot it.
+Let's focus close to home and see how life expectancy changed in the United Kingdom over these years.
 
 ::: {.panel-tabset group="language"}
 ## R
+
+To do this, we first filter out all of the data of the United Kingdom, and then plot it.
 
 ```{r}
 gapminder1960_2010 %>% 
@@ -99,6 +99,40 @@ gapminder1960_2010 %>%
 :::
 
 These two plots show the same data, but the clarity of the message is rather different.
+
+:::{.callout-important}
+## Scale matters
+
+How you scale and define your axes matters, as you might have derived from the plots above. Have a look at the graphs below, which are based on exactly the same data:
+
+```{r}
+#| echo: false
+#| results: hide
+spending <- tibble(gov = c("Clinton", "Bush", "Democratic roadmap"),
+                   perc = c(19.8, 19.6, 23.3))
+
+spend <- ggplot(spending, aes(gov, perc)) +
+  geom_col() +
+  labs(x = "",
+       y = "")
+
+spend_A <- spend + scale_y_continuous(limits = c(17, 24),
+                                     oob = scales::squish)
+
+spend_B <- spend +
+  coord_cartesian(ylim = c(0, 100))
+```
+
+```{r}
+#| echo: false
+spend_A + spend_B +
+  plot_annotation(tag_levels = "A",
+                  title = "Federal spending US Government",
+                  subtitle = "(% share of economy)")
+```
+
+Let's assume that they were published in the campaign prospectus of the Republican and Democratic parties. Which one do you think ended up where?
+:::
 
 These plots of course show only data for one country, so it doesn't give us much context. How impressive is the increase in life expectancy in the United Kingdom, compared to other countries? We know that, for example, the United States and China have had a lot of economic growth in the past 50 year, so let's compare the United Kingdom with them.
 

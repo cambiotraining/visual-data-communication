@@ -11,16 +11,20 @@ book:
       chapters:
         - materials/data-distributions.qmd
         - materials/correlations.qmd
-        - materials/ranking.qmd
         - materials/changes.qmd
+    - part: "Information hierarchy"
+      chapters:
+        - materials/ranking.qmd
+        - materials/popout.qmd
+        - materials/grey.qmd
     - part: "Construction concepts"
       chapters:
         #- materials/marks-and-channels.qmd
         #- materials/colour.qmd
         #- materials/discriminability.qmd
-        - materials/popout.qmd
         - materials/space-and-layout.qmd
     #- part: "Communicating with purpose"
       #chapters:
         #- materials/audience.qmd
         #- materials/message.qmd
+    - references.qmd

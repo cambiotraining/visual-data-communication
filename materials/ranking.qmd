@@ -1,5 +1,5 @@
 ---
-title: "Ranking your data"
+title: "Information hierarchy"
 ---
 
 ```{r}
@@ -19,8 +19,9 @@ exec(open('setup-files/setup.py').read())
 ::: callout-tip
 ## Learning outcomes
 
--   Be able to rank and order data
--   Understand how to use ordering in visualisations
+- Consider informational hierarchy
+- Be able to rank and order data
+- Understand how to use ordering in visualisations
 :::
 
 ## Libraries and functions
@@ -39,7 +40,7 @@ exec(open('setup-files/setup.py').read())
 
 ## Purpose and aim
 
-Depending on the message we want to get across with our visualisation, we might want to order or rank our data.
+Hierarchy in data can often be translated to hierarchy of our graph. It allows us to change the narrative of our visualisation and give it structure. This often involves us ordering or ranking our data. We'll practice some examples of that here.
 
 ## Loading data
 
@@ -93,7 +94,7 @@ p1 + p2 + plot_annotation(title = "Same data, different purpose",
 
 :::
 
-So what happened here? Both plots show the average income across the countries within each world region. In panel A the different regions are ordered alphabetically, whereas in panel B they are displayed in ascending order of average income.
+So what happened here? Both plots show the average income across the countries within each world region. In panel A the different regions are **ordered** alphabetically, whereas in panel B they are displayed or **ranked** by average income.
 
 Same data, but a different purpose! When would we use one or the other?
 

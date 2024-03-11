@@ -1,0 +1,13 @@
+---
+title: "Design process"
+---
+
+A crucial part in the scientific process is creativity. Without new ideas, we'd struggle to further our understanding of any biological or physical process.
+
+The same goes for the design process: this all starts *somewhere*. For example, you might be investigating a specific problem in your field, or you have inherited a data set from a colleague. Or perhaps you're trying a more exploratory approach where you want to analyse existing results in a different way.
+
+All of these starting points usually develop into a **concept** where you want to explain your thoughts or findings to somebody. Doing this visually is a great idea and it allows you to set a specific goal, often with an audience in mind.
+
+An important part of defining your concept is to ensure that it does not raise many new questions: after all, you're trying to convey something you've investigated. If all your graph does is raise more questions, then it's probably not very effective. That said, data exploration is an important step in *developing* these concepts, so we'll be focusing on this early on.
+
+This process is very effectively coupled with further sketches and research by David McCandless, leading to very informative and beautiful design [@mccandless2024].

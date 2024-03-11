@@ -1,0 +1,74 @@
+---
+title: "Grey is great"
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| results: hide
+source(file = "setup-files/setup.R")
+```
+
+```{python}
+#| echo: false
+#| message: false
+import shutup;shutup.please()
+exec(open('setup-files/setup.py').read())
+```
+
+::: {.callout-tip}
+## Learning outcomes
+
+- Use the power of grey to your advantage
+- Use text as a visual
+
+:::
+
+## Libraries and functions
+
+::: {.callout-note collapse="true"}
+## Click to expand
+
+::: {.panel-tabset group="language"}
+## R
+
+### Libraries
+### Functions
+
+## Python
+
+### Libraries
+### Functions
+:::
+:::
+
+## Purpose and aim
+
+We have seen that [pop-outs](popout.qmd) can be very powerful to highlight parts of your data.
+
+## Exercises
+
+### Exercise title {#sec-exr_title}
+
+:::{.callout-exercise}
+
+{{< level 1 >}}
+
+Description
+
+::: {.callout-answer collapse=true}
+## Answer
+
+::: {.panel-tabset group="language"}
+## R
+:::
+:::
+:::
+
+## Key points
+
+::: {.callout-note}
+-
+-
+-
+:::

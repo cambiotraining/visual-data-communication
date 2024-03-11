@@ -1,0 +1,17 @@
+{
+  "hash": "e5da401a66636347fe17a25e26db1559",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Grey is great\"\n---\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n\n::: {.callout-tip}\n## Learning outcomes\n\n- Use the power of grey to your advantage\n- Use text as a visual\n\n:::\n\n## Libraries and functions\n\n::: {.callout-note collapse=\"true\"}\n## Click to expand\n\n::: {.panel-tabset group=\"language\"}\n## R\n\n### Libraries\n### Functions\n\n## Python\n\n### Libraries\n### Functions\n:::\n:::\n\n## Purpose and aim\n\nWe have seen that [pop-outs](popout.qmd) can be very powerful to highlight parts of your data.\n\n## Exercises\n\n### Exercise title {#sec-exr_title}\n\n:::{.callout-exercise}\n\n\n{{< level 1 >}}\n\n\n\nDescription\n\n::: {.callout-answer collapse=true}\n## Answer\n\n::: {.panel-tabset group=\"language\"}\n## R\n:::\n:::\n:::\n\n## Key points\n\n::: {.callout-note}\n-\n-\n-\n:::\n",
+    "supporting": [
+      "grey_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -57,7 +57,7 @@ book:
     - part: "Welcome"
       chapters:
         - index.md
+        - concepts.qmd
         - setup.md
-        - materials.md
-        - references.qmd
+        #- materials.md
     

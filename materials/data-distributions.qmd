@@ -48,7 +48,7 @@ library(visdat)
 
 ## Purpose and aim
 
-Sometimes we're dealing with large data sets,  other times they might be small. Either way, gaining insight in how your data are distributed across the different variables will help you understand your data better. This is important, since it will affect how and which conclusions you may draw from your data at a later stage. In our case we're using the `gapminder` data set. This data set has 13 different variables, with observations for over 150 different countries in the year 2010.
+Sometimes we're dealing with large data sets, other times they might be small. Either way, gaining insight in how your data are distributed across the different variables will help you understand your data better. This is important, since it will affect how and which conclusions you may draw from your data at a later stage. In our case we're using the `finches` data set.
 
 A good starting point of any analysis/exploration is to get a general sense of the **data structure**. Let's look into how we can do this.
 

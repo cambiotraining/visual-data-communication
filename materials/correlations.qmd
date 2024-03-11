@@ -51,6 +51,8 @@ When we set off to gather or explore data, we generally have a research question
 
 Quite often we gather a lot more data than we directly need to answer our research question. As such, it's often very useful to explore our data and look for patterns or correlations.
 
+For the next few sections we're moving away from finches and instead are using the `gapminder` data set. The snippet of data we're providing in `data/gapminder_clean.csv` contains socio-economic data for lots of different countries.
+
 ## Loading data
 
 The first step to exploring our data is of course loading it in the first place.
