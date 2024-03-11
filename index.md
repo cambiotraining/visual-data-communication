@@ -13,9 +13,7 @@ This course is intended to give you background on how to communicate effectively
 
 The course is split into different sections which are modular, but independent of each other. As such, they can be worked through in order, but also used as a reference.
 
-There is a section **Coding with purpose** which provides a very short recap on some basic programming concepts. Although not intended as a replacement for a more in-depth programming course, it will provide you with the basic tools you need to get started. If you already have experience in programming, do skip this section!
-
-
+There is a section [Coding with purpose](materials/intro-to-programming.qmd) which provides a very short recap on some basic programming concepts. Although not intended as a replacement for a more in-depth programming course, it will provide you with the basic tools you need to get started. If you already have experience in programming, do skip this section!
 
 ::: {.callout-tip}
 ### Learning objectives

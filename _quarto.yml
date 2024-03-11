@@ -33,6 +33,7 @@ metadata-files:
   # - "materials/_sidebar.yml"
 
 book:
+  bread-crumbs: false
   search:
     location: sidebar
   favicon: "_extensions/cambiotraining/courseformat/img/university-of-cambridge-favicon.ico"
