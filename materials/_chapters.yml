@@ -1,23 +1,23 @@
 book:
   chapters:
-    - part: "Coding with purpose"
+    - part: "**Coding with purpose**"
       chapters:
         - materials/intro-to-programming.qmd
         - materials/functions-and-objects.qmd
         - materials/working-with-data.qmd
         - materials/intro-to-plotting.qmd
         - materials/data-wrangling.qmd
-    - part: "Exploring your data"
+    - part: "**Exploring your data**"
       chapters:
         - materials/data-distributions.qmd
         - materials/correlations.qmd
         - materials/changes.qmd
-    - part: "Information hierarchy"
+    - part: "**Information hierarchy**"
       chapters:
         - materials/ranking.qmd
         - materials/popout.qmd
         - materials/grey.qmd
-    - part: "Construction concepts"
+    - part: "**Construction concepts**"
       chapters:
         #- materials/marks-and-channels.qmd
         #- materials/colour.qmd

@@ -1,5 +1,5 @@
 ---
-title: "Information hierarchy"
+title: "Rank and order"
 ---
 
 ```{r}
