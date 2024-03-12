@@ -259,6 +259,7 @@ tajikistan_grey <- stans %>%
 ## R
 
 ```{r}
+#| echo: false
 (tajikistan_black / tajikistan_grey) +
   plot_annotation(tag_levels = "A",
                   title = "Major global events drive economic progress in Tajikistan",
