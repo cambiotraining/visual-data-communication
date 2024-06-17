@@ -19,9 +19,10 @@ exec(open('setup-files/setup.py').read())
 ::: {.callout-tip}
 ## Learning outcomes
 
-- Be able to make changes to variables (columns)
-- Be able to make changes to observations (rows)
-- Implement changes on a grouped basis
+- Be able to make changes to variables (columns).
+- Be able to make changes to observations (rows).
+- Implement changes on a grouped basis.
+- Export a data set to file.
 
 :::
 
@@ -41,6 +42,31 @@ library(tidyverse)
 ```
 
 ### Functions
+
+```{r}
+#| eval: false
+# create / change columns
+dplyr::mutate()
+
+# move columns
+dplyr::relocate()
+
+# group values by one or more variables
+dplyr::group_by()
+
+# count number of unique observations
+dplyr::count()
+
+# summarises data; specify the type of summary within the function
+dplyr::summarise()
+
+# reshapes the data into a wide format
+tidyr::pivot_wider()
+
+# reshapes the data into a long format
+tidyr::pivot_longer()
+```
+
 
 :::
 :::
@@ -206,7 +232,6 @@ finches %>%
 
 Here we have count data (number of observations) for each species and group. It's quite a list and you can imagine that if you had many more species then it would become tricky to interpret. So, instead we're going to reshape the this table and have a column for each unique `group` and a row for each `species`.
 
-
 ::: {.panel-tabset group="language"}
 ## R
 
@@ -220,9 +245,11 @@ If we want to reshape the data, we can use the `pivot_*` functions. There are tw
 So, here we are using the `pivot_wider()` function. We need to tell it where the new column names are going to come from (`names_from =`). We also need to specify where the values are coming from that are going to be used to populate the new table (`values_from =`):
 
 ```{r}
-finches %>% 
+finches_wide <- finches %>% 
   count(species, group) %>% 
   pivot_wider(names_from = group, values_from = n)
+
+finches_wide
 ```
 
 :::
@@ -237,11 +264,29 @@ Deciding which format to use can sometimes feel a bit tricky. Relating it to plo
 :::
 ## Exporting data
 
+It can be useful to save data sets you create throughout your analysis.
+
+::: {.panel-tabset group="language"}
+## R
+We can do this using the `write_csv()` function. This will write a table to a `.csv` file (comma-separated values). The first part tells it which data set we're saving. We'll use the `finches_wide` as an example. The `file =` argument specifies where the file needs to be stored. Here, we are saving it in the `data` folder, under the name `finches_wide.csv`.
+
+Note: the filename needs to be in quotes *and* needs to have a file extension.
+
+```{r}
+#| eval: false
+write_csv(finches_wide, file = "data/finches_wide.csv")
+```
+
+:::
+
 ## Summary
 
 ::: {.callout-tip}
 #### Key points
 
-- 
+- A 3-step process (split - apply - combine) allows you to apply transformations on subgroups of your data.
+- The result can be combined in a single table.
+- We reshape our data based on our type of analysis.
+- Organise your data so that each variable has its own column and each observation is a row.
 
 :::
