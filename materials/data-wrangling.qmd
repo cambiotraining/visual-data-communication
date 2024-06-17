@@ -34,6 +34,12 @@ exec(open('setup-files/setup.py').read())
 ## R
 
 ### Libraries
+
+```{r}
+#| eval: false
+library(tidyverse)
+```
+
 ### Functions
 
 :::
@@ -56,7 +62,180 @@ finches <- read_csv("data/finches.csv")
 ```
 :::
 
-CONTENT COMING SOON
+## Creating new columns
+
+Sometimes you'll have to create new columns in your data set. For example, you might have a column that records something in kilograms, but you need it in milligrams. You'd then have to either convert the original column or create a new one with the new data.
+
+Let's see how to do this using the `weight` column from the `finches` data.
+
+::: {.panel-tabset group="language"}
+## R
+
+We'll use pipes to do this, so we can see what R is doing without immediately updating the data. This is generally a useful technique: check each step one-by-one and after you're happy with the changes, *then* update the table.
+
+To add a column, we use the `mutate()` function. We first define the name of the *new column*, then tell it what needs to go in it.
+
+```{r}
+finches %>% 
+  mutate(weight_kg = weight / 1000)
+```
+
+You'll probably notice that our new column isn't visible on screen. This is because we have quite a few columns in our table. We can move the new column to directly after the `weight` column. We use the `relocate()` function for this.
+
+We tell `relocate()` which column we want to move, then use the `.after =` argument to specify where we want to insert the column.
+
+```{r}
+finches %>% 
+  mutate(weight_kg = weight / 1000) %>% 
+  relocate(weight_kg, .after = weight)
+```
+
+:::
+
+We can see that the new column indeed contains the new weight measurements, composed of the original `weight` values divided by 1,000.
+
+Now that we know this gives us the result we want, we can update the original table:
+
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+finches <- finches %>% 
+  mutate(weight_kg = weight / 1000) %>% 
+  relocate(weight_kg, .after = weight)
+```
+
+:::
+
+## Grouping and summarising
+
+A very common technique used in data analysis is the "split-apply-combine". This is a three-step process, where we:
+
+1. Split the data into subgroups.
+2. Apply a set of transformations / calculations / ... to each subgroup.
+3. Combine the result into a single table.
+
+### Groups
+
+I happen to know that there are two distinct species in this data set. Let's say we're interested in finding out how many observations we have for each species.
+
+There are two steps to this process:
+
+1. We need to split the data by `species`.
+2. We need to count the number of rows (= observations) in each subgroup.
+
+::: {.panel-tabset group="language"}
+## R
+
+We can use the `group_by()` function to group data by a given variable. Here, we will group the data by `species`:
+
+```{r}
+finches %>% 
+  group_by(species)
+```
+
+This doesn't seem to make much difference, since it's still outputting all of the data. However, if you look closely, you will notice that next to the `A tibble: 180 x 13` text in the top-left corner there is now a `Groups: species [2]` designation. What this means is that, behind the scenes, the table is now also split by the `species` variable and that there are two distinct groups in there.
+
+So, if we want to see how many observations we have in each group we can use the very useful `count()` function. We don't have to specify anything - in this case it just counts the number of rows.
+
+```{r}
+finches %>% 
+  group_by(species) %>% 
+  count()
+```
+:::
+
+There we are, we have two distinct species of finch in these data and they more or less have an equal number of observations.
+
+### Summarising data
+
+Quite often you might find yourself in a situation where you want to get some summary statistics, based on subgroups within the data. Let's see how that works with our data.
+
+We now know there are two species in our data. Let's imagine we wanted to know the average `weight` for each species.
+
+::: {.panel-tabset group="language"}
+## R
+
+We can use the `summarise()` function to, well, *summarise* data. The first bit indicates the name of the new column that will contain the summarised values. The part after it determines what goes into this column.
+
+Here we want the average weight, so we use `mean(weight)` to calculate this. Let's store this in a column called `avg_weight`.
+
+```{r}
+finches %>% 
+  group_by(species) %>% 
+  summarise(avg_weight = mean(weight))
+```
+
+:::
+
+This gives us a table where we have the average weight for each species. We can simply expand this for any other variables, for example:
+
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+# calculate mean, median, minimum and maximum weight per group
+finches %>% 
+  group_by(species) %>% 
+  summarise(avg_weight = mean(weight),
+            median_weight = median(weight),
+            min_weight = min(weight),
+            max_weight = max(weight))
+```
+
+:::
+
+## Reshaping data
+
+When you're analysing your data, you'll often find that you will need to structure your data in different ways, for different purposes.
+
+Ideally, you always have the same starting point where:
+
+1. Each column contains a single variable (something you're measuring).
+2. Each row is a single observation (all the measurements belonging to a single unit/person/plant etc).
+
+Even though you might still need to have your data in a different shape, having it like this as a starting point means you can always rework your data.
+
+Let's illustrate this with the following example:
+
+```{r}
+#| echo: false
+finches %>% 
+  count(species, group)
+```
+
+Here we have count data (number of observations) for each species and group. It's quite a list and you can imagine that if you had many more species then it would become tricky to interpret. So, instead we're going to reshape the this table and have a column for each unique `group` and a row for each `species`.
+
+
+::: {.panel-tabset group="language"}
+## R
+
+We can obtain the data set above by using the `count()` function. Here we are counting by two variables: `species` and `group`.
+
+If we want to reshape the data, we can use the `pivot_*` functions. There are two main ones:
+
+1. `pivot_longer()` creates a 'long' format data set; here each observation is a single row and data is repeated in the first column.
+2. `pivot_wider()` creates a 'wide' format data set; here data is not repeated in the first column.
+
+So, here we are using the `pivot_wider()` function. We need to tell it where the new column names are going to come from (`names_from =`). We also need to specify where the values are coming from that are going to be used to populate the new table (`values_from =`):
+
+```{r}
+finches %>% 
+  count(species, group) %>% 
+  pivot_wider(names_from = group, values_from = n)
+```
+
+:::
+
+This gives us a 'wide' table, where the original data are split by the type of `group`. We have 4 distinct groups, so we end up with one column for each group plus the original one for `species`.
+
+::: {.callout-note}
+## Long or wide?
+
+Deciding which format to use can sometimes feel a bit tricky. Relating it to plotting can be helpful. Ask yourself the question: "what is going on the x and y axis?". Each variable that you want to plot on either the x or y axis needs to be in its own column.
+
+:::
+## Exporting data
 
 ## Summary
 
