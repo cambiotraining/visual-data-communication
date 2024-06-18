@@ -33,7 +33,37 @@ exec(open('setup-files/setup.py').read())
 ## R
 
 ### Libraries
+
+```{r}
+#| eval: false
+library(tidyverse)
+```
+
 ### Functions
+
+Functions below are mostly shown in the following way:
+
+`package_name::name_of_function()`
+
+The reason why we're doing this is two-fold:
+
+1. To make it explicit that functions are often packaged together into 'umbrella' packages. Tidyverse is one of those - it contains many packages such as `tidyr`, `ggplot2`, `readr`. This way it's clear which package each particular function is coming from.
+2. Sometimes the same function name is used across different packages. We'll see that later, where there is a `filter()` function in both the `stats` and `dplyr` packages. Throughout the course the correct one should be loaded automatically, but this way you can always check!
+
+```{r}
+#| eval: false
+# read in a .csv (comma-separated values) file
+readr::read_csv()
+
+# show the first 6 rows of a table
+head()
+
+# select columns in a table
+dplyr::select()
+
+# filter rows in a table
+dplyr::filter()
+```
 
 :::
 :::
