@@ -24,26 +24,15 @@ exec(open('setup-files/setup.py').read())
 
 :::
 
-## Libraries and functions
-
-::: {.callout-note collapse="true"}
-## Click to expand
-
-::: {.panel-tabset group="language"}
-## R
-
-### Libraries
-### Functions
-:::
-:::
-
 ## Purpose and aim
 
 In this section we'll focus on functions and objects. We'll learn how to use functions and how to create and access objects.
 
 ## Functions
 
-Functions perform specific operations. A function usually gets one or more inputs called arguments and returns a value. An example is:
+Functions perform specific operations. A function usually gets one or more inputs called arguments and returns a value. You can see it as a predefined script.
+
+An example is:
 
 ::: {.panel-tabset group="language"}
 ## R
@@ -61,7 +50,7 @@ sqrt(9)
 
 :::
 
-Functions can take different arguments. In the example above there was only one, but many functions allow you to specify more than one input. For example, let's say we wanted to round a number.
+Functions can take different **arguments**. In the example above there was only one, but many functions allow you to specify more than one input. For example, let's say we wanted to round a number.
 
 ::: {.panel-tabset group="language"}
 ## R
@@ -82,7 +71,7 @@ round(10.232, digits = 1)
 
 ## Objects
 
-Often, you want to save the output of an operation for later use. In other words, we need to assign values to objects.
+Often, you want to save the output of an operation for later use. In those cases we need to store that information somewhere. These are called **objects**. What happens is that we **assign** the output of the operation to an object.
 
 ::: {.panel-tabset group="language"}
 ## R
@@ -92,12 +81,12 @@ To create an object, we need to give it a name followed by the assignment operat
 For example:
 
 ```{r}
-age <- 32
+age <- 21
 ```
 
-We can read the code as: the value 32 is assigned to the object `age`. Note that when you run this line of code the object you just created appears on your environment tab (top-right panel).
+We can read the code as: the value 21 is assigned to the object `age`. When you run this line of code the object you just created appears in your `Environment` tab (top-right panel).
 
-When assigning a value to an object, R does not print anything on the console. You can print the value by typing the object name on the console:
+When assigning a value to an object, R does not print anything on the console. You can print the value by typing the object name in the console or by running it from within your script.
 
 ```{r}
 age
@@ -118,6 +107,170 @@ Let's say we wanted to calculate double the `age`:
 age * 2
 ```
 
+We can also perform operations between variables:
+
+```{r}
+phd_length <- 4
+
+age + phd_length
+```
+
+:::
+
+:::{.callout-important}
+## Exercise
+Complete [Exercise -@sec-exr_objects].
+:::
+
+### Object types
+
+In the example above we only used numbers - these are very useful, since we can do calculations with them.
+
+Numbers are just one type of data you may encounter. Although there are quite a few different types, the main ones include:
+
+1. numbers (e.g. `62`, `55`, `-27`)
+2. text (e.g. `"bunny"`, `"greenhouse"`, `"binder"`)
+3. logical (`TRUE` or `FALSE`)
+4. missing values (`NA`)
+
+::: {.panel-tabset group="language"}
+## R
+
+You might have noticed that the text values are in quotes (`" "`). R requires all text to be within quotation marks. That's the way it recognises it as text (also sometimes referred to as a *string*).
+
+The logical values are binary: they're either true or false. In R these true/false designations are represented by `TRUE` and `FALSE`. Note that they are case-sensitive.
+
+Missing values are specifically encoded as such in R. You'll find that this is a really useful feature, because it makes missing values explicit. They are encoded with `NA`.
+
+:::{.callout-note}
+## Special meanining
+
+You will notice that, in RStudio, the `TRUE`, `FALSE` and `NA` values are coloured light blue. This is because they have special meaning to R.
+
+This also means that we shouldn't use these in different context. For example, it's a bad idea to create an object named `TRUE`, since it would really confuse R.
+
+There are other names that have special meaning, but don't worry too much about it for now. Generally, if you accidentally choose a name for an object that has special meaning, it'll quickly becomes clear because your code might stop working.
+
+:::
+:::
+
+### Vectors
+
+Vectors are the building block of most programming languages. They are containers for a sequence of data elements. That may sound a bit cryptic, so let's illustrate this with some examples.
+
+::: {.panel-tabset group="language"}
+## R
+
+In the examples above we stored a single value in an object. But quite often we work with more than just one data point. The way that we group these together into a vector is by using the `c()` function.
+
+The `c()` or concatenate / combine function does what it says on the tin: it combines multiple values together. Have a look at the following set of examples:
+
+**Numbers:**
+
+```{r}
+vec_num <- c(12, 22, 98, 61)
+
+vec_num
+```
+
+**Text:**
+
+```{r}
+vec_text <- c("felsic", "intermediate", "mafic", "ultramafic")
+
+vec_text
+```
+
+In case you are wondering, these are [different types of lava](https://en.wikipedia.org/wiki/Lava#:~:text=Because%20of%20the%20role%20of,intermediate%2C%20mafic%2C%20and%20ultramafic.).
+
+**Mixed types:**
+
+```{r}
+vec_mixed <- c("tree", "leaf", 31, NA, 22)
+
+vec_mixed
+```
+:::
+
+You can also combine vectors together, for example:
+
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+c(vec_num, vec_mixed)
+```
+
+:::
+
+:::{.callout-note}
+## Preferential treatment
+Often, not all data types are equal. We won't go into too much detail here, but it's important to keep in mind that:
+
+* presence of text in a vector often leads to *all* the elements being converted to text
+:::
+
+:::{.callout-important}
+## Exercise
+Complete [Exercise -@sec-exr_vectors].
+:::
+
+## Exercises
+
+### Dealing with objects {#sec-exr_objects}
+
+:::{.callout-exercise}
+
+{{< level 1 >}}
+
+* Create an object `day_temp` containing the current temperature (yes, you can guess!)
+* Create an object `weather` containing the values `raining`, `cloudy`, `sunny`
+
+::: {.callout-answer collapse=true}
+
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+day_temp <- 21
+
+weather <- c("raining", "cloudy", "sunny")
+```
+
+:::
+:::
+:::
+
+### Vectors {#sec-exr_vectors}
+
+:::{.callout-exercise}
+
+{{< level 1 >}}
+
+Create the following vectors:
+
+1. A vector `vec_1` containing 3 numbers
+2. A vector `vec_2` with two numbers and two words
+3. A vector `vec_3` with two numbers, a missing value, two words and a TRUE/FALSE outcome 
+
+Look at the content of the vectors. Is there anything you notice?
+
+::: {.callout-answer collapse=true}
+
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+vec_1 <- c(31, 8, 92)
+
+vec_2 <- c(77, "hedgehog", "cloud", 33)
+
+vec_3 <- c(23, 66, NA, "bob", "jeff", FALSE)
+```
+
+You might have noticed that in `vec_2` and `vec_3` every value is now within quotes. That's because as soon as there is any text in a vector, R automatically converts *all* elements in the vector to text.
+:::
+:::
 :::
 
 ## Summary

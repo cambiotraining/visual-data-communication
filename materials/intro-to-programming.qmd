@@ -23,19 +23,6 @@ exec(open('setup-files/setup.py').read())
 
 :::
 
-## Libraries and functions
-
-::: {.callout-note collapse="true"}
-## Click to expand
-
-::: {.panel-tabset group="language"}
-## R
-
-### Libraries
-### Functions
-:::
-:::
-
 ## Purpose and aim
 
 Using a programming language to analyse, visualise and communicate your data has many advantages over point-and-click programmes.
@@ -140,6 +127,7 @@ because it will fail on someone else's computer.
 :::
 
 :::{.callout-important}
+## Exercise
 Complete [Exercise -@sec-exr_project].
 :::
 
@@ -168,6 +156,7 @@ command you can hit <kbd>Esc</kbd> and RStudio will give you back the `>` prompt
 :::
 
 :::{.callout-important}
+## Exercise
 Complete [Exercise -@sec-exr_calculations].
 :::
 
@@ -193,6 +182,7 @@ by pressing the shortcut <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
 :::
 
 :::{.callout-important}
+## Exercise
 Complete [Exercise -@sec-exr_scripts].
 :::
 
@@ -226,6 +216,7 @@ library(tidyverse)
 :::
 
 :::{.callout-important}
+## Exercise
 Complete [Exercise -@sec-exr_packages].
 :::
 

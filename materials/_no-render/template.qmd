@@ -63,6 +63,7 @@ Description
 :::
 
 :::{.callout-important}
+## Exercise
 Complete [Exercise -@sec-exr_title].
 :::
 
