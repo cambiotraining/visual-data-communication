@@ -117,7 +117,7 @@ age + phd_length
 
 :::
 
-:::{.callout-important}
+:::{.callout-note}
 ## Exercise
 Complete [Exercise -@sec-exr_objects].
 :::
@@ -203,14 +203,14 @@ c(vec_num, vec_mixed)
 
 :::
 
-:::{.callout-note}
-## Preferential treatment
+:::{.callout-warning}
+## Preferential treatment of data types
 Often, not all data types are equal. We won't go into too much detail here, but it's important to keep in mind that:
 
-* presence of text in a vector often leads to *all* the elements being converted to text
+the presence of text in a vector leads to *all* the elements being converted to text!
 :::
 
-:::{.callout-important}
+:::{.callout-note}
 ## Exercise
 Complete [Exercise -@sec-exr_vectors].
 :::

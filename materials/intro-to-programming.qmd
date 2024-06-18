@@ -126,7 +126,7 @@ because it will fail on someone else's computer.
 
 :::
 
-:::{.callout-important}
+:::{.callout-note}
 ## Exercise
 Complete [Exercise -@sec-exr_project].
 :::
@@ -155,7 +155,7 @@ command you can hit <kbd>Esc</kbd> and RStudio will give you back the `>` prompt
 
 :::
 
-:::{.callout-important}
+:::{.callout-note}
 ## Exercise
 Complete [Exercise -@sec-exr_calculations].
 :::
@@ -181,7 +181,7 @@ by pressing the shortcut <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
 
 :::
 
-:::{.callout-important}
+:::{.callout-note}
 ## Exercise
 Complete [Exercise -@sec-exr_scripts].
 :::
@@ -215,13 +215,16 @@ library(tidyverse)
 
 :::
 
-:::{.callout-important}
-## Exercise
-Complete [Exercise -@sec-exr_packages].
+:::{.callout-warning}
+## Loading vs installing
+Installation of library/package: you only need to do this once.
+
+Loading of library/package: every time you start an analysis.
 :::
 
-:::{.callout-important}
-Remember, we only need to **install** a library/package *once*. However, we need to **load** it every time we start an analysis.
+:::{.callout-note}
+## Exercise
+Complete [Exercise -@sec-exr_packages].
 :::
 
 
