@@ -55,13 +55,17 @@ exec(open('setup-files/setup.py').read())
 Description
 
 ::: {.callout-answer collapse=true}
-## Answer
 
 ::: {.panel-tabset group="language"}
 ## R
 :::
 :::
 :::
+
+:::{.callout-important}
+Complete [Exercise -@sec-exr_title].
+:::
+
 
 ## Key points
 

@@ -262,6 +262,7 @@ This gives us a 'wide' table, where the original data are split by the type of `
 Deciding which format to use can sometimes feel a bit tricky. Relating it to plotting can be helpful. Ask yourself the question: "what is going on the x and y axis?". Each variable that you want to plot on either the x or y axis needs to be in its own column.
 
 :::
+
 ## Exporting data
 
 It can be useful to save data sets you create throughout your analysis.

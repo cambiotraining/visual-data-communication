@@ -139,6 +139,10 @@ because it will fail on someone else's computer.
 
 :::
 
+:::{.callout-important}
+Complete [Exercise -@sec-exr_project].
+:::
+
 ## Writing code
 
 ::: {.panel-tabset group="language"}
@@ -163,6 +167,10 @@ command you can hit <kbd>Esc</kbd> and RStudio will give you back the `>` prompt
 
 :::
 
+:::{.callout-important}
+Complete [Exercise -@sec-exr_calculations].
+:::
+
 ## Creating scripts
 
 ::: {.panel-tabset group="language"}
@@ -182,6 +190,10 @@ does some syntax highlighting (it colours the code) to help read the code.
 As you're adding code to the script, you can run it interactively on the console 
 by pressing the shortcut <kbd>Ctrl</kbd>+<kbd>Enter</kbd>. 
 
+:::
+
+:::{.callout-important}
+Complete [Exercise -@sec-exr_scripts].
 :::
 
 ## Installing and loading packages
@@ -211,6 +223,115 @@ After this, you can then load the package to use it in your analysis. For the ex
 library(tidyverse)
 ```
 
+:::
+
+:::{.callout-important}
+Complete [Exercise -@sec-exr_packages].
+:::
+
+:::{.callout-important}
+Remember, we only need to **install** a library/package *once*. However, we need to **load** it every time we start an analysis.
+:::
+
+
+
+## Exercises
+
+### Setting up a project {#sec-exr_project}
+
+:::{.callout-exercise}
+
+{{< level 1 >}}
+
+Set up a project and make sure it's set as your working directory.
+
+:::
+
+### Calculations {#sec-exr_calculations}
+
+:::{.callout-exercise}
+
+{{< level 1 >}}
+
+Run the following calculations:
+
+* `2 + 23`
+* `23 * 4`
+* `314 - 82`
+* `(12 - 4) * (6 + 2)`
+* `3 ^ 2`
+
+::: {.callout-answer collapse=true}
+
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+2 + 23
+23 * 4
+314 - 82
+(12 - 4) * (6 + 2)
+3 ^ 2
+```
+
+:::
+:::
+:::
+
+### Creating scripts {#sec-exr_scripts}
+
+:::{.callout-exercise}
+
+{{< level 1 >}}
+
+Please do the following:
+
+1. Create a script called `session_01` in your working directory.
+2. Re-run the calculations from [Exercise -@sec-exr_calculations].
+3. Save the changes to the script.
+
+:::
+
+### Adding functionality {#sec-exr_packages}
+
+:::{.callout-exercise}
+
+{{< level 1 >}}
+
+It's important that you are comfortable with adding functionality.
+
+::: {.panel-tabset group="language"}
+## R
+
+Please install the `tidyverse` package *using the console*.
+
+Then, in the script you created in [Exercise -@sec-exr_scripts] load it into R.
+:::
+
+::: {.callout-answer collapse=true}
+
+::: {.panel-tabset group="language"}
+## R
+
+We can install the package as follows:
+
+```{r}
+#| eval: false
+install.packages("tidyverse")
+```
+
+Note that the title of the package needs to be in quotes (`" "`).
+
+We load the package by running the following line of code from our script:
+
+```{r}
+#| eval: false
+library(tidyverse)
+```
+
+Note that, rather inconsistently, we do *not* use quotes around the package name when loading it.
+:::
+:::
 :::
 
 
