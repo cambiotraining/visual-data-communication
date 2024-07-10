@@ -143,11 +143,11 @@ The logical values are binary: they're either true or false. In R these true/fal
 Missing values are specifically encoded as such in R. You'll find that this is a really useful feature, because it makes missing values explicit. They are encoded with `NA`.
 
 :::{.callout-note}
-## Special meanining
+## Special meaning
 
 You will notice that, in RStudio, the `TRUE`, `FALSE` and `NA` values are coloured light blue. This is because they have special meaning to R.
 
-This also means that we shouldn't use these in different context. For example, it's a bad idea to create an object named `TRUE`, since it would really confuse R.
+This also means that we shouldn't use these in a different context. For example, it's a bad idea to create an object named `TRUE`, since it would really confuse R.
 
 There are other names that have special meaning, but don't worry too much about it for now. Generally, if you accidentally choose a name for an object that has special meaning, it'll quickly becomes clear because your code might stop working.
 

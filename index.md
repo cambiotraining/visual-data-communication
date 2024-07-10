@@ -1,6 +1,6 @@
 ---
 title: "Preface"
-author: "Martin van Rongen, Hugo Tavares, Matt Castle"
+author: ["Martin van Rongen<sup>*</sup>, Hugo Tavares, Matt Castle"]
 date: today
 number-sections: false
 ---
@@ -41,17 +41,21 @@ These examples include icons with links to GitHub and Orcid.
 
 About the authors:
 
+- **Martin van Rongen**
+  <a href="https://orcid.org/0000-0002-1441-367X" target="_blank"><i class="fa-brands fa-orcid" style="color:#a6ce39"></i></a> 
+  <a href="https://github.com/mvanrongen" target="_blank"><i class="fa-brands fa-github" style="color:#4078c0"></i></a>
+  <a href="mailto:mv372[at]cam.ac.uk" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a> \
+  _Affiliation_: Bioinformatics Training Facility, University of Cambridge  
+  _Roles_: writing - review & editing; conceptualisation; coding
+  
 - **Hugo Tavares **
   <a href="https://orcid.org/0000-0001-9373-2726" target="_blank"><i class="fa-brands fa-orcid" style="color:#a6ce39"></i></a> 
   <a href="https://github.com/tavareshugo" target="_blank"><i class="fa-brands fa-github" style="color:#4078c0"></i></a>  
   _Affiliation_: Bioinformatics Training Facility, University of Cambridge  
   _Roles_: writing - original draft; conceptualisation; coding
-- **Martin van Rongen**
-  <a href="https://github.com/mvanrongen" target="_blank"><i class="fa-brands fa-github" style="color:#4078c0"></i></a>  
-  _Affiliation_: Bioinformatics Training Facility, University of Cambridge  
-  _Roles_: writing - review & editing; conceptualisation; coding
-- **Matt Castle**
-  _Affiliation_: Bioinformatics Training Facility, University of Cambridge  
+  
+- **Matt Castle** \
+  _Affiliation_: Bioinformatics Training Facility, University of Cambridge  \
   _Roles_: conceptualisation
 
 <!--
