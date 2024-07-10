@@ -42,7 +42,7 @@ Download and install all these using default options:
 
 ### Python
 
-For this course we'll be using [Visual Studio Code](https://code.visualstudio.com). This provides support for various programming languages (including Python and R). It works on Windows, MacOS and Linux. It's also open-source and free.
+If you're using Python, we recommend installing [Visual Studio Code](https://code.visualstudio.com). This provides support for various programming languages (including Python and R). It works on Windows, MacOS and Linux. It's also open-source and free.
 
 Please refer to the [installation instructions](https://code.visualstudio.com/docs/python/python-tutorial) and make sure that you verify that Python code will run.
 
