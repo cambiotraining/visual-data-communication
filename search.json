@@ -1,0 +1,1134 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Preface",
+    "section": "",
+    "text": "Overview\nCommunicating data effectively is an important skill in many scientific fields, and beyond. The ease at which large quantities of data are now generated, it becomes more important than ever to be able to get your message across clearly.\nThis course is intended to give you background on how to communicate effectively, using visualisations.\nThe course is split into different sections which are modular, but independent of each other. As such, they can be worked through in order, but also used as a reference.\nThere is a section Coding with purpose which provides a very short recap on some basic programming concepts. Although not intended as a replacement for a more in-depth programming course, it will provide you with the basic tools you need to get started. If you already have experience in programming, do skip this section!",
+    "crumbs": [
+      "Welcome",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#overview",
+    "href": "index.html#overview",
+    "title": "Preface",
+    "section": "",
+    "text": "Learning objectives\n\n\n\n\nGain insight into the visual design process\nUnderstand the basics of what makes a good and bad visualisation\nUse basic programming skills to create effective data visualisations\n\n\n\n\nTarget audience\nPeople who need to communicate their data, particularly in a scientific setting.\n\n\nPrerequisites\nWe expect people to have a basic understanding of programming, either in R or Python. Included in these materials is a quick guide to programming, which some of the basic techniques used in this course. This is not intended as a replacement for a proper introduction to programming and if you are a complete novice - don’t worry. Have a look at our course schedule to book your place on an Introduction to R or Python. These courses run several times each year.",
+    "crumbs": [
+      "Welcome",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#authors",
+    "href": "index.html#authors",
+    "title": "Preface",
+    "section": "Authors",
+    "text": "Authors\n\nAbout the authors:\n\nMartin van Rongen   \nAffiliation: Bioinformatics Training Facility, University of Cambridge\nRoles: writing - original draft; conceptualisation; coding\nHugo Tavares   \nAffiliation: Bioinformatics Training Facility, University of Cambridge\nRoles: writing - review & editing; coding\nMatt Castle\nAffiliation: Bioinformatics Training Facility, University of Cambridge\nRoles: conceptualisation",
+    "crumbs": [
+      "Welcome",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Data & setup",
+    "section": "",
+    "text": "Data\nThe data used in these materials are provided as a zip file. Download and unzip the folder to your Desktop to follow along with the materials.\nDownload",
+    "crumbs": [
+      "Welcome",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data & setup</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html#software",
+    "href": "setup.html#software",
+    "title": "Data & setup",
+    "section": "Software",
+    "text": "Software\n\nR and RStudio\n\n\nWindows\nDownload and install all these using default options:\n\nR\nRTools\nRStudio\n\n\n\nMac OS\nDownload and install all these using default options:\n\nR\nRStudio\n\n\n\nLinux\n\nGo to the R installation folder and look at the instructions for your distribution.\nDownload the RStudio installer for your distribution and install it using your package manager.\n\n\n\n\n\nPython\nIf you’re using Python, we recommend installing Visual Studio Code. This provides support for various programming languages (including Python and R). It works on Windows, MacOS and Linux. It’s also open-source and free.\nPlease refer to the installation instructions and make sure that you verify that Python code will run.\nA brief sequence of events:\n\nInstall Visual Studio Code\nInstall the VS Code Python extension\nInstall a Python interpreter\n\nWindows: install from Python.org or use the Microsoft Store\nMacOS: install the Homebrew package manager, then use this to install Python\nLinux: comes with Python 3, but needs pip to install additional packages",
+    "crumbs": [
+      "Welcome",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data & setup</span>"
+    ]
+  },
+  {
+    "objectID": "concepts.html",
+    "href": "concepts.html",
+    "title": "2  Design process",
+    "section": "",
+    "text": "A crucial part in the scientific process is creativity. Without new ideas, we’d struggle to further our understanding of any biological or physical process.\nThe same goes for the design process: this all starts somewhere. For example, you might be investigating a specific problem in your field, or you have inherited a data set from a colleague. Or perhaps you’re trying a more exploratory approach where you want to analyse existing results in a different way.\nAll of these starting points usually develop into a concept where you want to explain your thoughts or findings to somebody. Doing this visually is a great idea and it allows you to set a specific goal, often with an audience in mind.\nAn important part of defining your concept is to ensure that it does not raise many new questions: after all, you’re trying to convey something you’ve investigated. If all your graph does is raise more questions, then it’s probably not very effective. That said, data exploration is an important step in developing these concepts, so we’ll be focusing on this early on.\nThis process is very effectively coupled with further sketches and research by David McCandless, leading to very informative and beautiful design (McCandless 2024).\n\n\n\n\nMcCandless, David. 2024. “Information Is Beautiful.” Information Is Beautiful. https://informationisbeautiful.net/.",
+    "crumbs": [
+      "Welcome",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Design process</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-programming.html",
+    "href": "materials/intro-to-programming.html",
+    "title": "4  Getting started",
+    "section": "",
+    "text": "4.1 Purpose and aim\nUsing a programming language to analyse, visualise and communicate your data has many advantages over point-and-click programmes.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Getting started</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-programming.html#purpose-and-aim",
+    "href": "materials/intro-to-programming.html#purpose-and-aim",
+    "title": "4  Getting started",
+    "section": "",
+    "text": "it documents analysis steps with code, aiding reproducibility\nallows scaling to large data\ngenerates high quality graphics that can be adjusted",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Getting started</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-programming.html#introduction",
+    "href": "materials/intro-to-programming.html#introduction",
+    "title": "4  Getting started",
+    "section": "4.2 Introduction",
+    "text": "4.2 Introduction\n\nR\n\n\nThe term “R” is used to refer to both the programming language and the software that interprets the scripts written using it.\nRStudio is an additional software that makes it easier to interact with R by providing tools that make programming easier. To function correctly, RStudio needs R and therefore both need to be installed on your computer.\nSome advantages of using R for your data analysis include:\n\nAnalysis steps are documented with code, allowing for greater reproducibility.\nThere are thousands of packages (extensions) available, making R a very flexible and powerful tool, for a wide range of applications.\nAnalysis can be scaled to large data.\nCan generate a wide range of high-quality graphics for data visualisation.\nThere is a large community of contributors.\nIt’s free and open source.\n\n\n4.2.1 The RStudio Interface\nRStudio is divided into four “panes”, illustrated below. The default layout is:\n\nTop Left - Source: this is where you edit your R scripts (this panel might not appear until you create a script, which we demonstrate below).\nBottom Left - Console: where R will execute commands and print results.\nTop Right - Environment: this will show you which objects you create while working with R.\nBottom Right - Files/Plots/Packages/Help: several tabs that allow you to navigate your files, view plots, view installed packages and search help files.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Getting started</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-programming.html#getting-set-up",
+    "href": "materials/intro-to-programming.html#getting-set-up",
+    "title": "4  Getting started",
+    "section": "4.3 Getting set up",
+    "text": "4.3 Getting set up\n\nR\n\n\nIt is good practice to keep a set of related data, analyses, and text self-contained in a single folder called the working directory (usually a folder on your computer where you have all the files relating to a project you’re working on).\nThe working directory is an important concept to understand. It is the place where R will look for and save files.\nAll of the scripts within this folder can then use relative paths to files. Relative paths indicate where inside the project a file is located (as opposed to absolute paths, which point to where a file is on a specific computer). Working this way makes it a lot easier to move your project around on your computer and share it with others without having to directly modify file paths in the individual scripts.\nRStudio provides a helpful set of tools to do this through its Projects interface, which not only creates a working directory for you but also remembers its location (allowing you to quickly navigate to it). The interface also preserves custom settings and open files to make it easier to resume work after a break.\n\n4.3.1 Creating a new project\nUsually, you will already have a folder on your computer for your project, for example with some data you collected or downloaded from the web.\nTo create an R Project within the r-workshop directory:\n\nFrom the upper menu on RStudio click: File &gt; New project &gt; Existing directory.\nClick the browse… button and navigate and open your r-workshop folder.\nClick on Create project. This will initiate a fresh R session.\n\nFrom now on, whenever you want to work on this project, open the the Rproj file that was created in your r-workshop folder.\nThis will ensure your working directory is automatically set correctly. This also means that you can move the project folder to a different location or even different computer. As long as you open the Rproj file, your working directory will be set correctly.\nIf you need to check your working directory, you can run getwd() on the console. If for some reason your working directory is not what it should be, you can change it in the RStudio interface by navigating in the file browser (bottom-right panel) to where your working directory should be, clicking on the blue gear icon More &gt; Set As Working Directory.\nAlternatively, you can run setwd(\"/path/to/working/directory\") on the console to reset your working directory. However, your scripts should not include this line, because it will fail on someone else’s computer.\n\n\n\n\n\n\n\n\n\n\nExercise\n\n\n\nComplete Exercise 4.7.1.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Getting started</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-programming.html#writing-code",
+    "href": "materials/intro-to-programming.html#writing-code",
+    "title": "4  Getting started",
+    "section": "4.4 Writing code",
+    "text": "4.4 Writing code\n\nR\n\n\nNow that we have a project, let’s run our first commands in R.\nOn the console panel, type:\n\n1 + 100\n\nAnd R will print out the answer, with a preceding [1]. Don’t worry about this for now, we’ll explain that later. For now think of it as indicating output.\nAny time you hit return and the console shows a “+” instead of a “&gt;”, it means it’s waiting for you to complete the command. If you want to cancel a command you can hit Esc and RStudio will give you back the &gt; prompt.\n\n\n\n\n\n\n\n\n\nExercise\n\n\n\nComplete Exercise 4.7.2.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Getting started</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-programming.html#creating-scripts",
+    "href": "materials/intro-to-programming.html#creating-scripts",
+    "title": "4  Getting started",
+    "section": "4.5 Creating scripts",
+    "text": "4.5 Creating scripts\n\nR\n\n\nSo far, we’ve been typing these commands directly in the R console. However, if we closed RStudio and later wanted to recreate these operations, there would be no record of them anywhere.\nIn practice, we should always write our code in a script, which is a plain text document with our commands written in it. To create a new R script go to File &gt; New File &gt; R Script.\nThis will open a panel on the top-left. This is a text editor, which in RStudio does some syntax highlighting (it colours the code) to help read the code.\nAs you’re adding code to the script, you can run it interactively on the console by pressing the shortcut Ctrl+Enter.\n\n\n\n\n\n\n\n\n\nExercise\n\n\n\nComplete Exercise 4.7.3.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Getting started</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-programming.html#installing-and-loading-packages",
+    "href": "materials/intro-to-programming.html#installing-and-loading-packages",
+    "title": "4  Getting started",
+    "section": "4.6 Installing and loading packages",
+    "text": "4.6 Installing and loading packages\n\nR\n\n\nAdditional packages can be installed to extend the functionality of R. Most packages are available in a central repository called CRAN and can be installed from within R using the install.packages() function.\nFor example, to install (or update) the tidyverse package, you would run the following command on the console:\n\ninstall.packages(\"tidyverse\")\n\nBecause the install process accesses the CRAN repository, you will need an Internet connection to install packages.\nAfter this, you can then load the package to use it in your analysis. For the example above, we would do that as follows with the library() function:\n\nlibrary(tidyverse)\n\n\n\n\n\n\n\n\n\n\nLoading vs installing\n\n\n\nInstallation of library/package: you only need to do this once.\nLoading of library/package: every time you start an analysis.\n\n\n\n\n\n\n\n\nExercise\n\n\n\nComplete Exercise 4.7.4.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Getting started</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-programming.html#exercises",
+    "href": "materials/intro-to-programming.html#exercises",
+    "title": "4  Getting started",
+    "section": "4.7 Exercises",
+    "text": "4.7 Exercises\n\n4.7.1 Setting up a project\n\n\n\n\n\n\nExercise\n\n\n\n\n\n\n\nLevel: \nSet up a project and make sure it’s set as your working directory.\n\n\n\n\n\n\n\n4.7.2 Calculations\n\n\n\n\n\n\nExercise\n\n\n\n\n\n\n\nLevel: \nRun the following calculations:\n\n2 + 23\n23 * 4\n314 - 82\n(12 - 4) * (6 + 2)\n3 ^ 2\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\n\n\nR\n\n\n\n2 + 23\n\n[1] 25\n\n23 * 4\n\n[1] 92\n\n314 - 82\n\n[1] 232\n\n(12 - 4) * (6 + 2)\n\n[1] 64\n\n3 ^ 2\n\n[1] 9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4.7.3 Creating scripts\n\n\n\n\n\n\nExercise\n\n\n\n\n\n\n\nLevel: \nPlease do the following:\n\nCreate a script called session_01 in your working directory.\nRe-run the calculations from Exercise 4.7.2.\nSave the changes to the script.\n\n\n\n\n\n\n\n\n4.7.4 Adding functionality\n\n\n\n\n\n\nExercise\n\n\n\n\n\n\n\nLevel: \nIt’s important that you are comfortable with adding functionality.\n\nR\n\n\nPlease install the tidyverse package using the console.\nThen, in the script you created in Exercise 4.7.3 load it into R.\n\n\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\n\n\nR\n\n\nWe can install the package as follows:\n\ninstall.packages(\"tidyverse\")\n\nNote that the title of the package needs to be in quotes (\" \").\nWe load the package by running the following line of code from our script:\n\nlibrary(tidyverse)\n\nNote that, rather inconsistently, we do not use quotes around the package name when loading it.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Getting started</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-programming.html#summary",
+    "href": "materials/intro-to-programming.html#summary",
+    "title": "4  Getting started",
+    "section": "4.8 Summary",
+    "text": "4.8 Summary\n\n\n\n\n\n\nKey points\n\n\n\n\nWe use a working directory to organise our projects\nUsing scripts we’re able to keep a record of our code\nPackages or libraries give additional functionality",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Getting started</span>"
+    ]
+  },
+  {
+    "objectID": "materials/functions-and-objects.html",
+    "href": "materials/functions-and-objects.html",
+    "title": "5  Functions and objects",
+    "section": "",
+    "text": "5.1 Purpose and aim\nIn this section we’ll focus on functions and objects. We’ll learn how to use functions and how to create and access objects.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Functions and objects</span>"
+    ]
+  },
+  {
+    "objectID": "materials/functions-and-objects.html#functions",
+    "href": "materials/functions-and-objects.html#functions",
+    "title": "5  Functions and objects",
+    "section": "5.2 Functions",
+    "text": "5.2 Functions\nFunctions perform specific operations. A function usually gets one or more inputs called arguments and returns a value. You can see it as a predefined script.\nAn example is:\n\nR\n\n\n\nsqrt()\n\nThis function returns the square root of a number. As such, it can only have a number as input, for example:\n\nsqrt(9)\n\n[1] 3\n\n\n\n\n\nFunctions can take different arguments. In the example above there was only one, but many functions allow you to specify more than one input. For example, let’s say we wanted to round a number.\n\nR\n\n\nWe can use the round() function:\n\nround(10.232)\n\n[1] 10\n\n\nThis returns a whole number. But what if we wanted to round it to one decimal? The round() function has an argument called digits that allows you to do just that. We separate the input and the argument with a comma.\n\nround(10.232, digits = 1)\n\n[1] 10.2",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Functions and objects</span>"
+    ]
+  },
+  {
+    "objectID": "materials/functions-and-objects.html#objects",
+    "href": "materials/functions-and-objects.html#objects",
+    "title": "5  Functions and objects",
+    "section": "5.3 Objects",
+    "text": "5.3 Objects\nOften, you want to save the output of an operation for later use. In those cases we need to store that information somewhere. These are called objects. What happens is that we assign the output of the operation to an object.\n\nR\n\n\nTo create an object, we need to give it a name followed by the assignment operator &lt;-, and the value we want to give to it.\nFor example:\n\nage &lt;- 21\n\nWe can read the code as: the value 21 is assigned to the object age. When you run this line of code the object you just created appears in your Environment tab (top-right panel).\nWhen assigning a value to an object, R does not print anything on the console. You can print the value by typing the object name in the console or by running it from within your script.\n\nage\n\n[1] 21\n\n\n\n\n\n\n5.3.1 Using objects\nThe nice thing about storing values in objects is that you can use them for further operations. Look at the following example.\n\nR\n\n\nLet’s say we wanted to calculate double the age:\n\nage * 2\n\n[1] 42\n\n\nWe can also perform operations between variables:\n\nphd_length &lt;- 4\n\nage + phd_length\n\n[1] 25\n\n\n\n\n\n\n\n\n\n\n\nExercise\n\n\n\nComplete Exercise 5.4.1.\n\n\n\n\n5.3.2 Object types\nIn the example above we only used numbers - these are very useful, since we can do calculations with them.\nNumbers are just one type of data you may encounter. Although there are quite a few different types, the main ones include:\n\nnumbers (e.g. 62, 55, -27)\ntext (e.g. \"bunny\", \"greenhouse\", \"binder\")\nlogical (TRUE or FALSE)\nmissing values (NA)\n\n\nR\n\n\nYou might have noticed that the text values are in quotes (\" \"). R requires all text to be within quotation marks. That’s the way it recognises it as text (also sometimes referred to as a string).\nThe logical values are binary: they’re either true or false. In R these true/false designations are represented by TRUE and FALSE. Note that they are case-sensitive.\nMissing values are specifically encoded as such in R. You’ll find that this is a really useful feature, because it makes missing values explicit. They are encoded with NA.\n\n\n\n\n\n\nSpecial meaning\n\n\n\nYou will notice that, in RStudio, the TRUE, FALSE and NA values are coloured light blue. This is because they have special meaning to R.\nThis also means that we shouldn’t use these in a different context. For example, it’s a bad idea to create an object named TRUE, since it would really confuse R.\nThere are other names that have special meaning, but don’t worry too much about it for now. Generally, if you accidentally choose a name for an object that has special meaning, it’ll quickly becomes clear because your code might stop working.\n\n\n\n\n\n\n\n5.3.3 Vectors\nVectors are the building block of most programming languages. They are containers for a sequence of data elements. That may sound a bit cryptic, so let’s illustrate this with some examples.\n\nR\n\n\nIn the examples above we stored a single value in an object. But quite often we work with more than just one data point. The way that we group these together into a vector is by using the c() function.\nThe c() or concatenate / combine function does what it says on the tin: it combines multiple values together. Have a look at the following set of examples:\nNumbers:\n\nvec_num &lt;- c(12, 22, 98, 61)\n\nvec_num\n\n[1] 12 22 98 61\n\n\nText:\n\nvec_text &lt;- c(\"felsic\", \"intermediate\", \"mafic\", \"ultramafic\")\n\nvec_text\n\n[1] \"felsic\"       \"intermediate\" \"mafic\"        \"ultramafic\"  \n\n\nIn case you are wondering, these are different types of lava.\nMixed types:\n\nvec_mixed &lt;- c(\"tree\", \"leaf\", 31, NA, 22)\n\nvec_mixed\n\n[1] \"tree\" \"leaf\" \"31\"   NA     \"22\"  \n\n\n\n\n\nYou can also combine vectors together, for example:\n\nR\n\n\n\nc(vec_num, vec_mixed)\n\n[1] \"12\"   \"22\"   \"98\"   \"61\"   \"tree\" \"leaf\" \"31\"   NA     \"22\"  \n\n\n\n\n\n\n\n\n\n\n\nPreferential treatment of data types\n\n\n\nOften, not all data types are equal. We won’t go into too much detail here, but it’s important to keep in mind that:\nthe presence of text in a vector leads to all the elements being converted to text!\n\n\n\n\n\n\n\n\nExercise\n\n\n\nComplete Exercise 5.4.2.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Functions and objects</span>"
+    ]
+  },
+  {
+    "objectID": "materials/functions-and-objects.html#exercises",
+    "href": "materials/functions-and-objects.html#exercises",
+    "title": "5  Functions and objects",
+    "section": "5.4 Exercises",
+    "text": "5.4 Exercises\n\n5.4.1 Dealing with objects\n\n\n\n\n\n\nExercise\n\n\n\n\n\n\n\nLevel: \n\nCreate an object day_temp containing the current temperature (yes, you can guess!)\nCreate an object weather containing the values raining, cloudy, sunny\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\n\n\nR\n\n\n\nday_temp &lt;- 21\n\nweather &lt;- c(\"raining\", \"cloudy\", \"sunny\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5.4.2 Vectors\n\n\n\n\n\n\nExercise\n\n\n\n\n\n\n\nLevel: \nCreate the following vectors:\n\nA vector vec_1 containing 3 numbers\nA vector vec_2 with two numbers and two words\nA vector vec_3 with two numbers, a missing value, two words and a TRUE/FALSE outcome\n\nLook at the content of the vectors. Is there anything you notice?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\n\n\nR\n\n\n\nvec_1 &lt;- c(31, 8, 92)\n\nvec_2 &lt;- c(77, \"hedgehog\", \"cloud\", 33)\n\nvec_3 &lt;- c(23, 66, NA, \"bob\", \"jeff\", FALSE)\n\nYou might have noticed that in vec_2 and vec_3 every value is now within quotes. That’s because as soon as there is any text in a vector, R automatically converts all elements in the vector to text.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Functions and objects</span>"
+    ]
+  },
+  {
+    "objectID": "materials/functions-and-objects.html#summary",
+    "href": "materials/functions-and-objects.html#summary",
+    "title": "5  Functions and objects",
+    "section": "5.5 Summary",
+    "text": "5.5 Summary\n\n\n\n\n\n\nKey points\n\n\n\n\nFunctions perform a specific set of operations\nObjects allow you to store value that can be accessed later",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Functions and objects</span>"
+    ]
+  },
+  {
+    "objectID": "materials/working-with-data.html",
+    "href": "materials/working-with-data.html",
+    "title": "6  Working with data",
+    "section": "",
+    "text": "6.1 Libraries and functions",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Working with data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/working-with-data.html#libraries-and-functions",
+    "href": "materials/working-with-data.html#libraries-and-functions",
+    "title": "6  Working with data",
+    "section": "",
+    "text": "Click to expand\n\n\n\n\n\n\nR\n\n\n\n6.1.1 Libraries\n\nlibrary(tidyverse)\n\n\n\n6.1.2 Functions\nFunctions below are mostly shown in the following way:\npackage_name::name_of_function()\nThe reason why we’re doing this is two-fold:\n\nTo make it explicit that functions are often packaged together into ‘umbrella’ packages. Tidyverse is one of those - it contains many packages such as tidyr, ggplot2, readr. This way it’s clear which package each particular function is coming from.\nSometimes the same function name is used across different packages. We’ll see that later, where there is a filter() function in both the stats and dplyr packages. Throughout the course the correct one should be loaded automatically, but this way you can always check!\n\n\n# read in a .csv (comma-separated values) file\nreadr::read_csv()\n\n# show the first 6 rows of a table\nhead()\n\n# select columns in a table\ndplyr::select()\n\n# filter rows in a table\ndplyr::filter()",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Working with data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/working-with-data.html#purpose-and-aim",
+    "href": "materials/working-with-data.html#purpose-and-aim",
+    "title": "6  Working with data",
+    "section": "6.2 Purpose and aim",
+    "text": "6.2 Purpose and aim\nIn this section we’re covering the basics of reading in using tabular data.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Working with data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/working-with-data.html#darwins-finches",
+    "href": "materials/working-with-data.html#darwins-finches",
+    "title": "6  Working with data",
+    "section": "6.3 Darwin’s finches",
+    "text": "6.3 Darwin’s finches\nWe’ll look at some data that come from an analysis of gene flow across two finch species (Lamichhaney et al. 2020).\nThe data focus on two species, Geospiza fortis and G. scandens. The measurements are split by a uniquely timed event: a particularly strong El Niño event in 1983. This event changed the vegetation and food supply of the finches, allowing F1 hybrids of the two species to survive, whereas before 1983 they could not. The measurements are classed as early (pre-1983) and late (1983 onwards).",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Working with data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/working-with-data.html#reading-in-data",
+    "href": "materials/working-with-data.html#reading-in-data",
+    "title": "6  Working with data",
+    "section": "6.4 Reading in data",
+    "text": "6.4 Reading in data\n\nR\n\n\nThere are several functions to read data into R, we’re going to use one from the readr package, which is part of the tidyverse. As such, we first need to load the package into R’s memory, by using the library() function:\n\nlibrary(tidyverse)\n\nThis command has to be run every time you start a new R session. Typically you want to include the library() calls at the top of your script, so that a user knows which packages need to be installed to run the analysis.\nOur data is provided in CSV format (comma separated values). This format is a regular text file, where each value (or column of the table) is separated by a comma. To read such a file, we use the read_csv() function, which needs at least one input: the path of the file we want to read. It is also good practice to explicitly define how missing data is encoded in the file with the na option. In our case, missing data are encoded as an empty string (imagine this as an empty cell in a spreadsheet).\nHere’s the command:\n\nfinches &lt;- read_csv(\"data/finches.csv\")\n\nRows: 180 Columns: 12\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): species, group\ndbl (9): weight, wing, tarsus, blength, bdepth, bwidth, pc1_body, pc1_beak, ...\nlgl (1): is_early\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\nWe see a lot of output there, but this is not an error! It’s a message that read_csv() prints to inform us of what type of data it thinks each column of the data set is. We’ll discuss this in a while.\nIt’s always useful to have a glimpse at the first few rows of your data set, to see how it is structured. We can do that with the head() function.\n\nhead(finches)\n\n# A tibble: 6 × 12\n  species   group    weight  wing tarsus blength bdepth bwidth pc1_body pc1_beak\n  &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n1 G. fortis early_b…   15.8  67.1   19.6    10.3   8.95   8.32    0.382   -0.431\n2 G. fortis early_b…   15.2  66     18.3    10.4   8.7    8.4    -1.06    -0.452\n3 G. fortis early_b…   18.0  68     18.9    11.2   9.6    8.83    0.839    0.955\n4 G. fortis early_b…   18.5  70.3   19.7    11     9.7    8.73    2.16     0.824\n5 G. fortis early_b…   15.7  69     18.9    10.9   9.8    9       0.332    1.08 \n6 G. fortis early_b…   17.8  70.1   19.2    12.7  10.9    9.79    1.50     3.55 \n# ℹ 2 more variables: pc2_beak &lt;dbl&gt;, is_early &lt;lgl&gt;\n\n\n\n6.4.1 The data.frame object\nA data.frame is the basic type of object that stores tabular data. The readr package reads data in an “extended” version of a data frame that it calls tibble (tbl for short). The details of their differences are not very important unless you are a programmer, but tibbles offer some user conveniences such as a better printing method. For the rest of the course we’ll refer to “data frames” and “tibbles” interchangeably.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Working with data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/working-with-data.html#subsetting-data",
+    "href": "materials/working-with-data.html#subsetting-data",
+    "title": "6  Working with data",
+    "section": "6.5 Subsetting data",
+    "text": "6.5 Subsetting data\n\nR\n\n\nWe can subset the data in our finches table by column or row. The tidyverse package has a series of useful functions that allow you to do this.\n\n6.5.1 Subsetting by column\nWe can use the select() function to select certain columns, for example if we just wanted the country and year column. The first argument we give to the function is the data set, followed by the name of the columns we want:\n\nselect(finches, group, wing)\n\n# A tibble: 180 × 2\n   group        wing\n   &lt;chr&gt;       &lt;dbl&gt;\n 1 early_blunt  67.1\n 2 early_blunt  66  \n 3 early_blunt  68  \n 4 early_blunt  70.3\n 5 early_blunt  69  \n 6 early_blunt  70.1\n 7 early_blunt  69  \n 8 early_blunt  68.5\n 9 early_blunt  66.3\n10 early_blunt  69  \n# ℹ 170 more rows\n\n\n\n\n6.5.2 Subsetting by row\nNow let’s say we wanted to only keep certain observations - which are organised in rows. Here we can use the filter() function. For example, if we only wanted the data for the United Kingdom:\n\nfilter(finches, species == \"G. fortis\")\n\n# A tibble: 89 × 12\n   species   group   weight  wing tarsus blength bdepth bwidth pc1_body pc1_beak\n   &lt;chr&gt;     &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n 1 G. fortis early_…   15.8  67.1   19.6   10.3    8.95   8.32    0.382   -0.431\n 2 G. fortis early_…   15.2  66     18.3   10.4    8.7    8.4    -1.06    -0.452\n 3 G. fortis early_…   18.0  68     18.9   11.2    9.6    8.83    0.839    0.955\n 4 G. fortis early_…   18.5  70.3   19.7   11      9.7    8.73    2.16     0.824\n 5 G. fortis early_…   15.7  69     18.9   10.9    9.8    9       0.332    1.08 \n 6 G. fortis early_…   17.8  70.1   19.2   12.7   10.9    9.79    1.50     3.55 \n 7 G. fortis early_…   17.2  69     20.3   11.9    9.8    9       1.86     1.67 \n 8 G. fortis early_…   17.2  68.5   19.2   11.4    9.8    8.6     0.879    1.00 \n 9 G. fortis early_…   16.5  66.3   18.7    9.04   8.42   7.98   -0.227   -1.81 \n10 G. fortis early_…   19.4  69     18.7   11.3    9.6    8.8     1.39     1.00 \n# ℹ 79 more rows\n# ℹ 2 more variables: pc2_beak &lt;dbl&gt;, is_early &lt;lgl&gt;\n\n\nHere we’ve taken the finches data set and we asked R to give us the rows where species == \"G. fortis\" is TRUE. It goes through all the rows, in this case checking the species column. If the statement species == \"G. fortis\" is TRUE, it returns the row. Otherwise it doesn’t.\nWe could also use a different conditional statement, for example returning all the rows where the weight is larger than 18 grammes:\n\nfilter(finches, weight &gt; 18)\n\n# A tibble: 73 × 12\n   species   group   weight  wing tarsus blength bdepth bwidth pc1_body pc1_beak\n   &lt;chr&gt;     &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n 1 G. fortis early_…   18.5  70.3   19.7    11      9.7   8.73    2.16     0.824\n 2 G. fortis early_…   19.4  69     18.7    11.3    9.6   8.8     1.39     1.00 \n 3 G. fortis early_…   18.0  68.2   18.8    12.3   10.6   9.5     0.826    2.88 \n 4 G. fortis early_…   19.9  67     20      11     10     8.8     2.01     1.07 \n 5 G. fortis early_…   18.4  70.9   20.1    11.4   10.8  10.1     2.57     3.02 \n 6 G. fortis early_…   18.2  68     18.4    10.9    9.7   9.03    0.487    1.03 \n 7 G. fortis early_…   18.4  70     19.7    11.8   10.3   9.4     2.06     2.29 \n 8 G. fortis early_…   19.8  75.6   19.2    12.8    9.3   8.53    3.54     1.45 \n 9 G. fortis early_…   18.8  71     19.2    11.8    9.9   8.5     2.08     1.20 \n10 G. fortis late_b…   19.0  70     19.8    12     11.2   9.9     2.32     3.40 \n# ℹ 63 more rows\n# ℹ 2 more variables: pc2_beak &lt;dbl&gt;, is_early &lt;lgl&gt;",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Working with data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/working-with-data.html#chaining-commands",
+    "href": "materials/working-with-data.html#chaining-commands",
+    "title": "6  Working with data",
+    "section": "6.6 Chaining commands",
+    "text": "6.6 Chaining commands\nSometimes we need to perform many different operations before we have the right data in the correct format that we need. For example, we might want to filter for certain values and then only keep certain columns. We could perform these operations one by one and save the output of each into an object that we then use for the next operation.\nBut this is not very efficient. So it can be useful to chain certain operations together, performing them one by one.\n\nR\n\n\nIn R we can do this with the pipe. We’ll be using the pipe operator for tidyverse (%&gt;%). The pipe always starts with data, which it then “pipes through” to a function.\nLet’s look at an example, recreating the filter() operation we did earlier, but this time with a pipe:\n\nfinches %&gt;% \n  filter(weight &gt; 18)\n\n# A tibble: 73 × 12\n   species   group   weight  wing tarsus blength bdepth bwidth pc1_body pc1_beak\n   &lt;chr&gt;     &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n 1 G. fortis early_…   18.5  70.3   19.7    11      9.7   8.73    2.16     0.824\n 2 G. fortis early_…   19.4  69     18.7    11.3    9.6   8.8     1.39     1.00 \n 3 G. fortis early_…   18.0  68.2   18.8    12.3   10.6   9.5     0.826    2.88 \n 4 G. fortis early_…   19.9  67     20      11     10     8.8     2.01     1.07 \n 5 G. fortis early_…   18.4  70.9   20.1    11.4   10.8  10.1     2.57     3.02 \n 6 G. fortis early_…   18.2  68     18.4    10.9    9.7   9.03    0.487    1.03 \n 7 G. fortis early_…   18.4  70     19.7    11.8   10.3   9.4     2.06     2.29 \n 8 G. fortis early_…   19.8  75.6   19.2    12.8    9.3   8.53    3.54     1.45 \n 9 G. fortis early_…   18.8  71     19.2    11.8    9.9   8.5     2.08     1.20 \n10 G. fortis late_b…   19.0  70     19.8    12     11.2   9.9     2.32     3.40 \n# ℹ 63 more rows\n# ℹ 2 more variables: pc2_beak &lt;dbl&gt;, is_early &lt;lgl&gt;\n\n\nWhat it’s done is taken the finches data set and then sent this to the filter() function. The function doesn’t need the data set specified explicitly, because it knows it is coming from the pipe.\nWe can combine this with other functions:\n\nfinches %&gt;% \n  filter(weight &gt; 18) %&gt;% \n  select(species, weight)\n\n# A tibble: 73 × 2\n   species   weight\n   &lt;chr&gt;      &lt;dbl&gt;\n 1 G. fortis   18.5\n 2 G. fortis   19.4\n 3 G. fortis   18.0\n 4 G. fortis   19.9\n 5 G. fortis   18.4\n 6 G. fortis   18.2\n 7 G. fortis   18.4\n 8 G. fortis   19.8\n 9 G. fortis   18.8\n10 G. fortis   19.0\n# ℹ 63 more rows\n\n\nHere we’ve performed the filtering, and then selected the species and weight columns.\n\n\n\nChaining operations can be a very powerful tool, since it allows you to break down a complex operation into smaller steps. This often makes the analysis a lot less daunting!",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Working with data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/working-with-data.html#summary",
+    "href": "materials/working-with-data.html#summary",
+    "title": "6  Working with data",
+    "section": "6.7 Summary",
+    "text": "6.7 Summary\n\n\n\n\n\n\nKey points\n\n\n\n\nTabular data are an excellent format for programming languages\nHaving variables in columns and observations in rows makes analysis easier\nWe can subset data across columns and rows\n\n\n\n\n\n\n\nLamichhaney, Sangeet, Fan Han, Matthew T. Webster, B. Rosemary Grant, Peter R. Grant, and Leif Andersson. 2020. “Female-Biased Gene Flow Between Two Species of Darwin’s Finches.” Nature Ecology & Evolution 4 (7): 979–86. https://doi.org/10.1038/s41559-020-1183-9.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Working with data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html",
+    "href": "materials/intro-to-plotting.html",
+    "title": "7  Introduction to plotting",
+    "section": "",
+    "text": "7.1 Libraries and functions",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to plotting</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#libraries-and-functions",
+    "href": "materials/intro-to-plotting.html#libraries-and-functions",
+    "title": "7  Introduction to plotting",
+    "section": "",
+    "text": "Click to expand\n\n\n\n\n\n\nR\n\n\n\n7.1.1 Libraries\n\n\n7.1.2 Functions",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to plotting</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#purpose-and-aim",
+    "href": "materials/intro-to-plotting.html#purpose-and-aim",
+    "title": "7  Introduction to plotting",
+    "section": "7.2 Purpose and aim",
+    "text": "7.2 Purpose and aim\nBe able to create basic plots to explore your data.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to plotting</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#loading-data",
+    "href": "materials/intro-to-plotting.html#loading-data",
+    "title": "7  Introduction to plotting",
+    "section": "7.3 Loading data",
+    "text": "7.3 Loading data\nIf you haven’t done so yet, please load the data as follows:\n\nR\n\n\n\nfinches &lt;- read_csv(\"data/finches.csv\")",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to plotting</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#building-a-plot",
+    "href": "materials/intro-to-plotting.html#building-a-plot",
+    "title": "7  Introduction to plotting",
+    "section": "7.4 Building a plot",
+    "text": "7.4 Building a plot\n\nR\n\n\nHere we’ll learn how to build a plot, using the ggplot2 package. This package has a consistent set of grammer rules that allow you to create a plot. It needs 3 basic pieces of information:\n\nA data.frame with data to be plotted\nThe variables (columns of data.frame) that will be mapped to different aesthetics of the graph (e.g. axis, colours, shapes, etc.)\nthe geometry that will be drawn on the graph (e.g. points, lines, boxplots, violinplots, etc.)\n\nThis translates into the following basic syntax:\nggplot(data = &lt;data.frame&gt;, \n       mapping = aes(x = &lt;column of data.frame&gt;,\n                     y = &lt;column of data.frame&gt;)) +\n   geom_&lt;type of geometry&gt;()\nFor our first visualisation, let’s play around with our finches data.\nThe question we’re interested in is: how much separation is there between the two finch species in terms of beak length and beak depth?\nA scatterplot showing the relationship between bdepth and blength.\nLet’s do it step-by-step to see how ggplot2 works. Start by giving data to ggplot:\n\nggplot(data = finches)\n\n\n\n\n\n\n\n\nThat “worked” (as in, we didn’t get an error). But because we didn’t give ggplot() any variables to be mapped to aesthetic components of the graph, we just got an empty square.\nFor mappping columns to aesthetics, we use the aes() function:\n\nggplot(data = finches, \n       mapping = aes(x = bdepth,\n                     y = blength))\n\n\n\n\n\n\n\n\nThat’s better, now we have some axis. Notice how ggplot() defines the axis based on the range of data given. But it’s still not a very interesting graph, because we didn’t tell what it is we want to draw on the graph.\nThis is done by adding (literally +) geometries to our graph:\n\nggplot(data = finches, \n       mapping = aes(x = bdepth,\n                     y = blength)) +\n  geom_point()\n\n\n\n\n\n\n\n\nIf you have any missing values then geom_point() will warn you that it had to remove some missing values. After all, if the data is missing for at least one of the variables, then it cannot plot the points.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to plotting</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#changing-aesthetics",
+    "href": "materials/intro-to-plotting.html#changing-aesthetics",
+    "title": "7  Introduction to plotting",
+    "section": "7.5 Changing aesthetics",
+    "text": "7.5 Changing aesthetics\nLet’s say we’re not very happy with the default options we have been given here. The colour of the data points isn’t terribly exciting and there appears to be a bit of overlap as well.\nWe can define these attributes within ggplot(). For example, to change the colour of the data points we can do the following:\n\nR\n\n\n\nggplot(data = finches, \n       mapping = aes(x = bdepth,\n                     y = blength)) +\n  geom_point(colour = \"firebrick\")\n\n\n\n\n\n\n\n\n\n\n\nTo fix the issue with overlapping data points, we can change the level of transparency. This is set with the alpha argument, where alpha = 1 is no transparency at all and alpha = 0 is complete transparency. We’ll pick something in between 0 and 1.\n\nR\n\n\n\nggplot(data = finches, \n       mapping = aes(x = bdepth,\n                     y = blength)) +\n  geom_point(alpha = 0.6)",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to plotting</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#data-based-aesthetics",
+    "href": "materials/intro-to-plotting.html#data-based-aesthetics",
+    "title": "7  Introduction to plotting",
+    "section": "7.6 Data-based aesthetics",
+    "text": "7.6 Data-based aesthetics\nIn the plot above we lumped all the data together. We’ve ignored the fact that these measurements come from two different species. These species are also subdivided into different groups. We’ll explore the grouping later, but now we’re interested to see if there are clear differences between the species.\nA way to visualise this is by colouring the points based on a variable of interest, in our case species.\n\nR\n\n\nWe can do this by passing this information to the colour aesthetic inside the aes() function:\n\nggplot(data = finches, \n       mapping = aes(x = bdepth,\n                     y = blength,\n                     colour = species)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAesthetics: inside or outside aes()?\n\n\n\nThe previous examples illustrate an important distinction between aesthetics defined inside or outside of aes():\n\nif you want the aesthetic to change based on the data it goes inside aes()\nif you want to manually specify how the geometry should look like, it goes outside aes()",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to plotting</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#multiple-geometries",
+    "href": "materials/intro-to-plotting.html#multiple-geometries",
+    "title": "7  Introduction to plotting",
+    "section": "7.7 Multiple geometries",
+    "text": "7.7 Multiple geometries\nOften, we may want to overlay several geometries on top of each other. For example, we might want to visualise a box plot together with the data points.\nLet’s start by creating a plot that shows our data, split by species. In that case, species ends up on the x-axis, and the variable of interest is blength (beak length). This goes onto the y-axis.\nThat gives us the following:\n\nR\n\n\n\nggplot(finches, aes(x = species,\n                    y = blength)) +\n  geom_point()\n\n\n\n\n\n\n\n\nTo layer a boxplot on top of it we “add” (with +) another geometry to the graph:\n\nggplot(finches, aes(x = species,\n                    y = blength)) +\n  geom_point() +\n  geom_boxplot()\n\n\n\n\n\n\n\n\n\n\n\nThe order in which you add the geometries defines the order they are “drawn” on the graph. For example, try swapping their order and see what happens.\nNotice how we’ve shortened our code by omitting the names of the options data = and mapping = inside ggplot(). Because the data is always the first thing given to ggplot() and the mapping is always identified by the function aes(), this is often written in the more compact form as we just did.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to plotting</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#exercises",
+    "href": "materials/intro-to-plotting.html#exercises",
+    "title": "7  Introduction to plotting",
+    "section": "7.8 Exercises",
+    "text": "7.8 Exercises\n\n7.8.1 Finch weight\n\n\n\n\n\n\nExercise\n\n\n\n\n\n\n\nLevel: \nLet’s put this knowledge into practice. The finches data set contains multiple variables, among which weight measurements for individual birds.\nCreate a boxplot for these weight measurements, splitting the data by species.\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\n\n7.9 Answer\n\nR\n\n\n\nggplot(finches, aes(x = species,\n                    y = weight)) +\n  geom_boxplot()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7.9.1 Subgroup weight\n\n\n\n\n\n\nExercise\n\n\n\n\n\n\n\nLevel: \nThe measurements are not only recorded by species, but also by group (the originally named group variable in the data set). The grouping has been determined on basis of the shape of the beak (pointed or blunt) and a certain timed event (early/late). We’ll talk in more detail about this a bit later.\nFor now, I’d like you to create a boxplot for the weight measurements of G. scandens only, splitting the data by group.\nOverlay the data points on top of the boxplot, changing the colour to “blue”.\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\n\n7.10 Answer\n\nR\n\n\nThere are two options to approach this:\n\nYou can either filter out the G. scandens measurements and save it into a new object or\nYou can use the pipe to do filter first, sending the output directly to the ggplot() function.\n\nIn the latter case you do not need to provide a data = argument, because ggplot() knows that the data are coming from the pipe. We’ll use this method here:\n\nfinches %&gt;% \n  filter(species == \"G. scandens\") %&gt;% \n  ggplot(aes(x = group,\n             y = weight)) +\n  geom_boxplot() +\n  geom_point(colour = \"blue\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7.10.1 Separating data points\n\n\n\n\n\n\nExercise\n\n\n\n\n\n\n\nLevel: \nIn the previous exercise we’ve plotted finch weight for the different subgroups in G. scandens. You can see that all of the data points are in a line, causing quite some overlap. We could use transparency to solve this, but I’d like you to explore something different. Have a search for a phenomenon called jitter and replot the data.\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\n\n7.11 Answer\nIt’s often best when searching for these terms to also include phrases related to your function. For example, I searched for “jitter data ggplot”. The first hit showed the help page for geom_jitter(). At the bottom of a help page you can usually find some code examples. Reading through the text, geom_jitter() adds a tiny bit of random variation to each data point, to avoid overplotting. We can even combine that with adding some transparency.\nHere we can play around a bit with how wide we want the jittering to be. This is set with the width = argument, which takes a value between 0 and 1. We’ll set the width to 10% (= 0.1).\n\nR\n\n\n\nfinches %&gt;% \n  filter(species == \"G. scandens\") %&gt;% \n  ggplot(aes(x = group,\n             y = weight)) +\n  geom_boxplot() +\n  geom_jitter(colour = \"blue\",\n              width = 0.1,\n              alpha = 0.5)",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to plotting</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#answer",
+    "href": "materials/intro-to-plotting.html#answer",
+    "title": "7  Introduction to plotting",
+    "section": "7.9 Answer",
+    "text": "7.9 Answer\n\nR\n\n\n\nggplot(finches, aes(x = species,\n                    y = weight)) +\n  geom_boxplot()",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to plotting</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#answer-1",
+    "href": "materials/intro-to-plotting.html#answer-1",
+    "title": "7  Introduction to plotting",
+    "section": "7.10 Answer",
+    "text": "7.10 Answer\n\nR\n\n\nThere are two options to approach this:\n\nYou can either filter out the G. scandens measurements and save it into a new object or\nYou can use the pipe to do filter first, sending the output directly to the ggplot() function.\n\nIn the latter case you do not need to provide a data = argument, because ggplot() knows that the data are coming from the pipe. We’ll use this method here:\n\nfinches %&gt;% \n  filter(species == \"G. scandens\") %&gt;% \n  ggplot(aes(x = group,\n             y = weight)) +\n  geom_boxplot() +\n  geom_point(colour = \"blue\")",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to plotting</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#answer-2",
+    "href": "materials/intro-to-plotting.html#answer-2",
+    "title": "7  Introduction to plotting",
+    "section": "7.11 Answer",
+    "text": "7.11 Answer\nIt’s often best when searching for these terms to also include phrases related to your function. For example, I searched for “jitter data ggplot”. The first hit showed the help page for geom_jitter(). At the bottom of a help page you can usually find some code examples. Reading through the text, geom_jitter() adds a tiny bit of random variation to each data point, to avoid overplotting. We can even combine that with adding some transparency.\nHere we can play around a bit with how wide we want the jittering to be. This is set with the width = argument, which takes a value between 0 and 1. We’ll set the width to 10% (= 0.1).\n\nR\n\n\n\nfinches %&gt;% \n  filter(species == \"G. scandens\") %&gt;% \n  ggplot(aes(x = group,\n             y = weight)) +\n  geom_boxplot() +\n  geom_jitter(colour = \"blue\",\n              width = 0.1,\n              alpha = 0.5)",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to plotting</span>"
+    ]
+  },
+  {
+    "objectID": "materials/intro-to-plotting.html#summary",
+    "href": "materials/intro-to-plotting.html#summary",
+    "title": "7  Introduction to plotting",
+    "section": "7.12 Summary",
+    "text": "7.12 Summary\n\n\n\n\n\n\nKey points\n\n\n\n\nWe can build plots layer by layer\nAesthetics can be based on data",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to plotting</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-wrangling.html",
+    "href": "materials/data-wrangling.html",
+    "title": "8  Data wrangling",
+    "section": "",
+    "text": "8.1 Libraries and functions",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data wrangling</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-wrangling.html#libraries-and-functions",
+    "href": "materials/data-wrangling.html#libraries-and-functions",
+    "title": "8  Data wrangling",
+    "section": "",
+    "text": "Click to expand\n\n\n\n\n\n\nR\n\n\n\n8.1.1 Libraries\n\nlibrary(tidyverse)\n\n\n\n8.1.2 Functions\n\n# create / change columns\ndplyr::mutate()\n\n# move columns\ndplyr::relocate()\n\n# group values by one or more variables\ndplyr::group_by()\n\n# count number of unique observations\ndplyr::count()\n\n# summarises data; specify the type of summary within the function\ndplyr::summarise()\n\n# reshapes the data into a wide format\ntidyr::pivot_wider()\n\n# reshapes the data into a long format\ntidyr::pivot_longer()",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data wrangling</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-wrangling.html#purpose-and-aim",
+    "href": "materials/data-wrangling.html#purpose-and-aim",
+    "title": "8  Data wrangling",
+    "section": "8.2 Purpose and aim",
+    "text": "8.2 Purpose and aim\nOften, there is not one single data format that allows you to do all of your analysis. Getting comfortable with making changes to the way your data are organised is an important skill. This is sometimes referred to as ‘data wrangling’. In this section we’ll learn how we can change the organisation of columns, how to add new columns, manipulate rows and perform these operations on subgroups of the data.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data wrangling</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-wrangling.html#reading-in-data",
+    "href": "materials/data-wrangling.html#reading-in-data",
+    "title": "8  Data wrangling",
+    "section": "8.3 Reading in data",
+    "text": "8.3 Reading in data\n\nR\n\n\nWe’ll keep using our data set on Darwin’s finches. If you haven’t read these data in, please do so with the following:\n\nfinches &lt;- read_csv(\"data/finches.csv\")",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data wrangling</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-wrangling.html#creating-new-columns",
+    "href": "materials/data-wrangling.html#creating-new-columns",
+    "title": "8  Data wrangling",
+    "section": "8.4 Creating new columns",
+    "text": "8.4 Creating new columns\nSometimes you’ll have to create new columns in your data set. For example, you might have a column that records something in kilograms, but you need it in milligrams. You’d then have to either convert the original column or create a new one with the new data.\nLet’s see how to do this using the weight column from the finches data.\n\nR\n\n\nWe’ll use pipes to do this, so we can see what R is doing without immediately updating the data. This is generally a useful technique: check each step one-by-one and after you’re happy with the changes, then update the table.\nTo add a column, we use the mutate() function. We first define the name of the new column, then tell it what needs to go in it.\n\nfinches %&gt;% \n  mutate(weight_kg = weight / 1000)\n\n# A tibble: 180 × 13\n   species   group   weight  wing tarsus blength bdepth bwidth pc1_body pc1_beak\n   &lt;chr&gt;     &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n 1 G. fortis early_…   15.8  67.1   19.6   10.3    8.95   8.32    0.382   -0.431\n 2 G. fortis early_…   15.2  66     18.3   10.4    8.7    8.4    -1.06    -0.452\n 3 G. fortis early_…   18.0  68     18.9   11.2    9.6    8.83    0.839    0.955\n 4 G. fortis early_…   18.5  70.3   19.7   11      9.7    8.73    2.16     0.824\n 5 G. fortis early_…   15.7  69     18.9   10.9    9.8    9       0.332    1.08 \n 6 G. fortis early_…   17.8  70.1   19.2   12.7   10.9    9.79    1.50     3.55 \n 7 G. fortis early_…   17.2  69     20.3   11.9    9.8    9       1.86     1.67 \n 8 G. fortis early_…   17.2  68.5   19.2   11.4    9.8    8.6     0.879    1.00 \n 9 G. fortis early_…   16.5  66.3   18.7    9.04   8.42   7.98   -0.227   -1.81 \n10 G. fortis early_…   19.4  69     18.7   11.3    9.6    8.8     1.39     1.00 \n# ℹ 170 more rows\n# ℹ 3 more variables: pc2_beak &lt;dbl&gt;, is_early &lt;lgl&gt;, weight_kg &lt;dbl&gt;\n\n\nYou’ll probably notice that our new column isn’t visible on screen. This is because we have quite a few columns in our table. We can move the new column to directly after the weight column. We use the relocate() function for this.\nWe tell relocate() which column we want to move, then use the .after = argument to specify where we want to insert the column.\n\nfinches %&gt;% \n  mutate(weight_kg = weight / 1000) %&gt;% \n  relocate(weight_kg, .after = weight)\n\n# A tibble: 180 × 13\n   species   group  weight weight_kg  wing tarsus blength bdepth bwidth pc1_body\n   &lt;chr&gt;     &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;\n 1 G. fortis early…   15.8    0.0158  67.1   19.6   10.3    8.95   8.32    0.382\n 2 G. fortis early…   15.2    0.0152  66     18.3   10.4    8.7    8.4    -1.06 \n 3 G. fortis early…   18.0    0.0180  68     18.9   11.2    9.6    8.83    0.839\n 4 G. fortis early…   18.5    0.0185  70.3   19.7   11      9.7    8.73    2.16 \n 5 G. fortis early…   15.7    0.0157  69     18.9   10.9    9.8    9       0.332\n 6 G. fortis early…   17.8    0.0178  70.1   19.2   12.7   10.9    9.79    1.50 \n 7 G. fortis early…   17.2    0.0172  69     20.3   11.9    9.8    9       1.86 \n 8 G. fortis early…   17.2    0.0172  68.5   19.2   11.4    9.8    8.6     0.879\n 9 G. fortis early…   16.5    0.0165  66.3   18.7    9.04   8.42   7.98   -0.227\n10 G. fortis early…   19.4    0.0194  69     18.7   11.3    9.6    8.8     1.39 \n# ℹ 170 more rows\n# ℹ 3 more variables: pc1_beak &lt;dbl&gt;, pc2_beak &lt;dbl&gt;, is_early &lt;lgl&gt;\n\n\n\n\n\nWe can see that the new column indeed contains the new weight measurements, composed of the original weight values divided by 1,000.\nNow that we know this gives us the result we want, we can update the original table:\n\nR\n\n\n\nfinches &lt;- finches %&gt;% \n  mutate(weight_kg = weight / 1000) %&gt;% \n  relocate(weight_kg, .after = weight)",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data wrangling</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-wrangling.html#grouping-and-summarising",
+    "href": "materials/data-wrangling.html#grouping-and-summarising",
+    "title": "8  Data wrangling",
+    "section": "8.5 Grouping and summarising",
+    "text": "8.5 Grouping and summarising\nA very common technique used in data analysis is the “split-apply-combine”. This is a three-step process, where we:\n\nSplit the data into subgroups.\nApply a set of transformations / calculations / … to each subgroup.\nCombine the result into a single table.\n\n\n8.5.1 Groups\nI happen to know that there are two distinct species in this data set. Let’s say we’re interested in finding out how many observations we have for each species.\nThere are two steps to this process:\n\nWe need to split the data by species.\nWe need to count the number of rows (= observations) in each subgroup.\n\n\nR\n\n\nWe can use the group_by() function to group data by a given variable. Here, we will group the data by species:\n\nfinches %&gt;% \n  group_by(species)\n\n# A tibble: 180 × 13\n# Groups:   species [2]\n   species   group  weight weight_kg  wing tarsus blength bdepth bwidth pc1_body\n   &lt;chr&gt;     &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;\n 1 G. fortis early…   15.8    0.0158  67.1   19.6   10.3    8.95   8.32    0.382\n 2 G. fortis early…   15.2    0.0152  66     18.3   10.4    8.7    8.4    -1.06 \n 3 G. fortis early…   18.0    0.0180  68     18.9   11.2    9.6    8.83    0.839\n 4 G. fortis early…   18.5    0.0185  70.3   19.7   11      9.7    8.73    2.16 \n 5 G. fortis early…   15.7    0.0157  69     18.9   10.9    9.8    9       0.332\n 6 G. fortis early…   17.8    0.0178  70.1   19.2   12.7   10.9    9.79    1.50 \n 7 G. fortis early…   17.2    0.0172  69     20.3   11.9    9.8    9       1.86 \n 8 G. fortis early…   17.2    0.0172  68.5   19.2   11.4    9.8    8.6     0.879\n 9 G. fortis early…   16.5    0.0165  66.3   18.7    9.04   8.42   7.98   -0.227\n10 G. fortis early…   19.4    0.0194  69     18.7   11.3    9.6    8.8     1.39 \n# ℹ 170 more rows\n# ℹ 3 more variables: pc1_beak &lt;dbl&gt;, pc2_beak &lt;dbl&gt;, is_early &lt;lgl&gt;\n\n\nThis doesn’t seem to make much difference, since it’s still outputting all of the data. However, if you look closely, you will notice that next to the A tibble: 180 x 13 text in the top-left corner there is now a Groups: species [2] designation. What this means is that, behind the scenes, the table is now also split by the species variable and that there are two distinct groups in there.\nSo, if we want to see how many observations we have in each group we can use the very useful count() function. We don’t have to specify anything - in this case it just counts the number of rows.\n\nfinches %&gt;% \n  group_by(species) %&gt;% \n  count()\n\n# A tibble: 2 × 2\n# Groups:   species [2]\n  species         n\n  &lt;chr&gt;       &lt;int&gt;\n1 G. fortis      89\n2 G. scandens    91\n\n\n\n\n\nThere we are, we have two distinct species of finch in these data and they more or less have an equal number of observations.\n\n\n8.5.2 Summarising data\nQuite often you might find yourself in a situation where you want to get some summary statistics, based on subgroups within the data. Let’s see how that works with our data.\nWe now know there are two species in our data. Let’s imagine we wanted to know the average weight for each species.\n\nR\n\n\nWe can use the summarise() function to, well, summarise data. The first bit indicates the name of the new column that will contain the summarised values. The part after it determines what goes into this column.\nHere we want the average weight, so we use mean(weight) to calculate this. Let’s store this in a column called avg_weight.\n\nfinches %&gt;% \n  group_by(species) %&gt;% \n  summarise(avg_weight = mean(weight))\n\n# A tibble: 2 × 2\n  species     avg_weight\n  &lt;chr&gt;            &lt;dbl&gt;\n1 G. fortis         15.8\n2 G. scandens       19.5\n\n\n\n\n\nThis gives us a table where we have the average weight for each species. We can simply expand this for any other variables, for example:\n\nR\n\n\n\n# calculate mean, median, minimum and maximum weight per group\nfinches %&gt;% \n  group_by(species) %&gt;% \n  summarise(avg_weight = mean(weight),\n            median_weight = median(weight),\n            min_weight = min(weight),\n            max_weight = max(weight))\n\n# A tibble: 2 × 5\n  species     avg_weight median_weight min_weight max_weight\n  &lt;chr&gt;            &lt;dbl&gt;         &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;\n1 G. fortis         15.8          15.5       11.6       19.9\n2 G. scandens       19.5          19         15.4       24.4",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data wrangling</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-wrangling.html#reshaping-data",
+    "href": "materials/data-wrangling.html#reshaping-data",
+    "title": "8  Data wrangling",
+    "section": "8.6 Reshaping data",
+    "text": "8.6 Reshaping data\nWhen you’re analysing your data, you’ll often find that you will need to structure your data in different ways, for different purposes.\nIdeally, you always have the same starting point where:\n\nEach column contains a single variable (something you’re measuring).\nEach row is a single observation (all the measurements belonging to a single unit/person/plant etc).\n\nEven though you might still need to have your data in a different shape, having it like this as a starting point means you can always rework your data.\nLet’s illustrate this with the following example:\n\n\n# A tibble: 6 × 3\n  species     group             n\n  &lt;chr&gt;       &lt;chr&gt;         &lt;int&gt;\n1 G. fortis   early_blunt      30\n2 G. fortis   late_blunt       30\n3 G. fortis   late_pointed     29\n4 G. scandens early_pointed    31\n5 G. scandens late_blunt       30\n6 G. scandens late_pointed     30\n\n\nHere we have count data (number of observations) for each species and group. It’s quite a list and you can imagine that if you had many more species then it would become tricky to interpret. So, instead we’re going to reshape the this table and have a column for each unique group and a row for each species.\n\nR\n\n\nWe can obtain the data set above by using the count() function. Here we are counting by two variables: species and group.\nIf we want to reshape the data, we can use the pivot_* functions. There are two main ones:\n\npivot_longer() creates a ‘long’ format data set; here each observation is a single row and data is repeated in the first column.\npivot_wider() creates a ‘wide’ format data set; here data is not repeated in the first column.\n\nSo, here we are using the pivot_wider() function. We need to tell it where the new column names are going to come from (names_from =). We also need to specify where the values are coming from that are going to be used to populate the new table (values_from =):\n\nfinches_wide &lt;- finches %&gt;% \n  count(species, group) %&gt;% \n  pivot_wider(names_from = group, values_from = n)\n\nfinches_wide\n\n# A tibble: 2 × 5\n  species     early_blunt late_blunt late_pointed early_pointed\n  &lt;chr&gt;             &lt;int&gt;      &lt;int&gt;        &lt;int&gt;         &lt;int&gt;\n1 G. fortis            30         30           29            NA\n2 G. scandens          NA         30           30            31\n\n\n\n\n\nThis gives us a ‘wide’ table, where the original data are split by the type of group. We have 4 distinct groups, so we end up with one column for each group plus the original one for species.\n\n\n\n\n\n\nLong or wide?\n\n\n\nDeciding which format to use can sometimes feel a bit tricky. Relating it to plotting can be helpful. Ask yourself the question: “what is going on the x and y axis?”. Each variable that you want to plot on either the x or y axis needs to be in its own column.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data wrangling</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-wrangling.html#exporting-data",
+    "href": "materials/data-wrangling.html#exporting-data",
+    "title": "8  Data wrangling",
+    "section": "8.7 Exporting data",
+    "text": "8.7 Exporting data\nIt can be useful to save data sets you create throughout your analysis.\n\nR\n\n\nWe can do this using the write_csv() function. This will write a table to a .csv file (comma-separated values). The first part tells it which data set we’re saving. We’ll use the finches_wide as an example. The file = argument specifies where the file needs to be stored. Here, we are saving it in the data folder, under the name finches_wide.csv.\nNote: the filename needs to be in quotes and needs to have a file extension.\n\nwrite_csv(finches_wide, file = \"data/finches_wide.csv\")",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data wrangling</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-wrangling.html#summary",
+    "href": "materials/data-wrangling.html#summary",
+    "title": "8  Data wrangling",
+    "section": "8.8 Summary",
+    "text": "8.8 Summary\n\n\n\n\n\n\nKey points\n\n\n\n\nA 3-step process (split - apply - combine) allows you to apply transformations on subgroups of your data.\nThe result can be combined in a single table.\nWe reshape our data based on our type of analysis.\nOrganise your data so that each variable has its own column and each observation is a row.",
+    "crumbs": [
+      "**Coding with purpose**",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data wrangling</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-distributions.html",
+    "href": "materials/data-distributions.html",
+    "title": "9  Data distributions",
+    "section": "",
+    "text": "9.1 Libraries and functions",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Data distributions</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-distributions.html#libraries-and-functions",
+    "href": "materials/data-distributions.html#libraries-and-functions",
+    "title": "9  Data distributions",
+    "section": "",
+    "text": "Click to expand\n\n\n\n\n\n\nR\n\n\n\n9.1.1 Libraries\n\nlibrary(tidyverse)\nlibrary(visdat)\n\n\n\n9.1.2 Functions",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Data distributions</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-distributions.html#purpose-and-aim",
+    "href": "materials/data-distributions.html#purpose-and-aim",
+    "title": "9  Data distributions",
+    "section": "9.2 Purpose and aim",
+    "text": "9.2 Purpose and aim\nSometimes we’re dealing with large data sets, other times they might be small. Either way, gaining insight in how your data are distributed across the different variables will help you understand your data better. This is important, since it will affect how and which conclusions you may draw from your data at a later stage. In our case we’re using the finches data set.\nA good starting point of any analysis/exploration is to get a general sense of the data structure. Let’s look into how we can do this.",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Data distributions</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-distributions.html#loading-data",
+    "href": "materials/data-distributions.html#loading-data",
+    "title": "9  Data distributions",
+    "section": "9.3 Loading data",
+    "text": "9.3 Loading data\nIf you haven’t done so yet, please load the data as follows:\n\nR\n\n\n\nfinches &lt;- read_csv(\"data/finches.csv\")",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Data distributions</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-distributions.html#data-structure",
+    "href": "materials/data-distributions.html#data-structure",
+    "title": "9  Data distributions",
+    "section": "9.4 Data structure",
+    "text": "9.4 Data structure\nThere are different ways to gain insight into the structure of your data. You can do this numerically or visually.\n\nR\n\n\nIn R we can use a package called visdat to visualise the structure of our data. If you haven’t installed it yet, please run the following code in the console:\n\ninstall.packages(\"visdat\")\n\n# load the package\nlibrary(visdat)\n\nWe can then visualise our data structure with the vis_dat() function:\n\nvis_dat(finches)\n\n\n\n\n\n\n\n\nLooking at the y-axis, we can see that there are over 150 observations in this data set. The data are organised and coloured by type, with the column names (our variables) at the top.\nFrom this we can see that we have two character or text variables (species and group). There are also several numerical variables, such as weight and wing.\nThere is one variable which contains logical data (TRUE/FALSE), called is_early.\n\n\n\nThere is a wealth of data there! So where do we go from here? In this case we’re going to use one of the variables as an example. We’ll use bdepth (beak depth) to illustrate how you can get more insight into how certain parts of your data are distributed.",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Data distributions</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-distributions.html#box-plots",
+    "href": "materials/data-distributions.html#box-plots",
+    "title": "9  Data distributions",
+    "section": "9.5 Box plots",
+    "text": "9.5 Box plots\nAn easy way to get a sense of the data distribution is to create a box plot. For the bdepth variable we can do this as follows:\n\nR\n\n\n\nggplot(data = finches,\n       aes(x = 1,\n           y = bdepth)) +\n  geom_boxplot()\n\n\n\n\n\n\n\n\nSince we are plotting only one variable, we’re defining the x value as 1, but it doesn’t actually have any numerical meaning.\nBox plots give you some summary statistics, so therefore it’s often useful to plot them together with the actual data. We can do this quite easily by adding another layer to the plot that contains the data points. We’re also adding some transparency (alpha = 0.4 - which is 40% opacity) so we can still see the box plots themselves. We’re also defining the width = 0.1 so that the data points are not spread out over the entire width of the box plot, but are constrained a bit more.\n\nggplot(data = finches,\n       aes(x = 1,\n           y = bdepth)) +\n  geom_boxplot() +\n  geom_jitter(alpha = 0.4, width = 0.1)",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Data distributions</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-distributions.html#violin-plots",
+    "href": "materials/data-distributions.html#violin-plots",
+    "title": "9  Data distributions",
+    "section": "9.6 Violin plots",
+    "text": "9.6 Violin plots\nViolin plots are similar to box plots, but they give extra information on the distribution of the data. This can be particularly useful if your data is multi-modal, as in, it has more than one peak.\nThis can happen if your data splits into two or more discernible groups.\nLet’s say we wanted to look at the beak length across both species. Since we’ve got early and late time points it would not be fair to lump all the data together. So, let’s focus on just the early observations. We can filter these out using the is_early variable.\n\nR\n\n\nWe can use geom_violin() to create a violin plot in ggplot2:\n\nfinches %&gt;% \n  filter(is_early == TRUE) %&gt;% \n  ggplot(aes(x = species,\n             y = bdepth)) +\n  geom_violin()\n\n\n\n\n\n\n\n\n\n\n\nWe can see that in G. fortis the beak depth is more spread out than in G. scandens in these early observations (pre-1983). To illustrate this in more detail, we can overlay the actual data points - again avoiding overlap. We update our code as follows:\n\nR\n\n\n\nfinches %&gt;% \n  filter(is_early == TRUE) %&gt;% \n  ggplot(aes(x = species,\n           y = bdepth)) +\n  geom_violin() +\n  geom_jitter(width = 0.05,\n              alpha = 0.6)",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Data distributions</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-distributions.html#histograms",
+    "href": "materials/data-distributions.html#histograms",
+    "title": "9  Data distributions",
+    "section": "9.7 Histograms",
+    "text": "9.7 Histograms\nAnother way to look at how data is distributed is to create a histogram. Here we slice our beak depth data into intervals and count how many observations fall into each interval. This gives us a frequency for the number of observations into each interval group.\n\nR\n\n\nWe can do this quite straightforwardly by using geom_histogram():\n\nggplot(data = finches,\n       aes(x = bdepth)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nWhen you run this bit of code it gives you some information:\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\nWhat this means is that it chopped our data into 30 chunks/intervals and done the counting based on that. This might not be what we want and we can change this by changing the bins argument or using binwidth. The difference between the two is that with, for example, bins = 5 we’re saying “chop the data into 5 equal chunks” whereas with binwidth = 5 we’re saying “chop the data into chunks of 5 millimeters each”.\nTo illustrate that histograms can vary heavily depending on the bin size, look at the following plots:\n\nggplot(data = finches,\n       aes(x = bdepth)) +\n  geom_histogram(bins = 5) +\n  labs(title = \"bins = 5\")\n\n\n\n\n\n\n\nggplot(data = finches,\n       aes(x = bdepth)) +\n  geom_histogram(bins = 15) +\n  labs(title = \"bins = 15\")\n\n\n\n\n\n\n\n\n\n\n\nThis means that our interpretation can also change, depending on the number of bins we’ve specified. So we need to be aware of this when we’re using histograms!\nHowever we slice the data, a beak depth of around 9 mm appears to be most common.",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Data distributions</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-distributions.html#exercises",
+    "href": "materials/data-distributions.html#exercises",
+    "title": "9  Data distributions",
+    "section": "9.8 Exercises",
+    "text": "9.8 Exercises\n\n9.8.1 Late beak depth measurements\n\n\n\n\n\n\nExercise\n\n\n\n\n\n\n\nLevel: \nWe’ve looked at the beak depth of the finches that were recorded before the 1983 event. I’d like you to do the same for the observations post-1983, using a violin plot. Plot the data by species.\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\n\n9.9 Answer\n\nR\n\n\n\nfinches %&gt;% \n  filter(is_early == FALSE) %&gt;% \n  ggplot(aes(x = species,\n             y = bdepth)) +\n  geom_violin()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9.9.1 Beak depth over time\n\n\n\n\n\n\nExercise\n\n\n\n\n\n\n\nLevel: \nIn the previous exercise we’ve plotted the beak depth values for the post-1983 finches, for each species as a violin plot. If you haven’t done so yet, please plot them now and answer the following questions:\n\nAre there any clear visual differences between the early and late measurements?\nDepending on the answer in (1), is a violin plot the most appropriate type of plot? Explain why.\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\n\n9.10 Answer\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe spread of the data in the early G. scandens data is much less than in the later observations. This suggests that the beak depth in this species was less variable before 1983. The spread in G. fortis seems relatively comparable between the two time points. But the violin is wider at the lower beak depth range in the later time point, compared to the early one. This suggests a reduction in the overall beak depth over time.\nThe violin plot might not be the most suitable way of looking at these data. The width of the violins has information, but does make interpretation more complicated to the average reader.\n\nHow to improve? Well, I would start by looking at the actual data (see below). This seems to support the suggestion about the changes in G. fortis. If that’s a message we would like to focus on we could represent the data as averages and highlight the changes. We’ll practice this in the next exercise.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9.10.1 Changes in G. fortis beak depth\n\n\n\n\n\n\nExercise\n\n\n\n\n\n\n\nLevel: \nIn Section 9.9.1 we saw that using a violin plot may not be the most appropriate method of displaying changes across the two time points. If we want to focus on the beak depth change in G. fortis, we could also plot the average value at each time point. If we connect these averages with a line, then we can visualise the direction of change. We’ll cover this in more detail in a later chapter, but you can challenge yourself in advance!\nHints:\n\nIf you want to plot the average values, have a look at the stat_summary() function.\nIf you want to connect the means, Google for something along the lines of “connect means using stat_summary”\nIt’s useful to plot the original data as well!\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\n\n9.11 Answer\nThere are actually quite a few steps to get the plot we’d like. Thankfully, using ggplot(), this is quite modular. So we’ll do the following:\n\nKeep only the G. fortis data\nPlot the original data, perhaps adding some jitter/transparency to aid visual separation\nCalculate the mean value for each group (early/late) using stat_summary() and display this as a point\nConnect the two mean values. This is a bit trickier than it really ought to be, but in effect we need to tell ggplot() that the two mean values belong together. They do this through the species variable, since they both come from the same species.\nChange the colour of the points/line of the averages to stand out from the original data\n\n\nR\n\n\n\nfinches %&gt;% \n  filter(species == \"G. fortis\") %&gt;% \n  ggplot(aes(x = is_early,\n             y = bdepth)) +\n  geom_jitter(width = 0.05,\n              alpha = 0.6) +\n  stat_summary(fun = mean,\n               geom = \"point\",\n               size = 3,\n               colour = \"firebrick\") +\n  stat_summary(aes(group = species), fun = mean,\n               geom = \"line\",\n               linewidth = 1,\n               colour = \"firebrick\")\n\n\n\n\n\n\n\n\n\n\n\nWe can see that, on average, the beak depth is lower in the post-1983 measurements (is_early = FALSE). This is further emphasised through connecting the two averages: the slope of the line indicates the difference between them.\nI would personally prefer to see the early data on the left, and the later data on the right. That makes more sense chronologically. That is indeed possible, but includes something called factors, which we’ll cover later. So for now, we won’t worry about it.",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Data distributions</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-distributions.html#answer",
+    "href": "materials/data-distributions.html#answer",
+    "title": "9  Data distributions",
+    "section": "9.9 Answer",
+    "text": "9.9 Answer\n\nR\n\n\n\nfinches %&gt;% \n  filter(is_early == FALSE) %&gt;% \n  ggplot(aes(x = species,\n             y = bdepth)) +\n  geom_violin()",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Data distributions</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-distributions.html#answer-1",
+    "href": "materials/data-distributions.html#answer-1",
+    "title": "9  Data distributions",
+    "section": "9.10 Answer",
+    "text": "9.10 Answer\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe spread of the data in the early G. scandens data is much less than in the later observations. This suggests that the beak depth in this species was less variable before 1983. The spread in G. fortis seems relatively comparable between the two time points. But the violin is wider at the lower beak depth range in the later time point, compared to the early one. This suggests a reduction in the overall beak depth over time.\nThe violin plot might not be the most suitable way of looking at these data. The width of the violins has information, but does make interpretation more complicated to the average reader.\n\nHow to improve? Well, I would start by looking at the actual data (see below). This seems to support the suggestion about the changes in G. fortis. If that’s a message we would like to focus on we could represent the data as averages and highlight the changes. We’ll practice this in the next exercise.",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Data distributions</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-distributions.html#answer-2",
+    "href": "materials/data-distributions.html#answer-2",
+    "title": "9  Data distributions",
+    "section": "9.11 Answer",
+    "text": "9.11 Answer\nThere are actually quite a few steps to get the plot we’d like. Thankfully, using ggplot(), this is quite modular. So we’ll do the following:\n\nKeep only the G. fortis data\nPlot the original data, perhaps adding some jitter/transparency to aid visual separation\nCalculate the mean value for each group (early/late) using stat_summary() and display this as a point\nConnect the two mean values. This is a bit trickier than it really ought to be, but in effect we need to tell ggplot() that the two mean values belong together. They do this through the species variable, since they both come from the same species.\nChange the colour of the points/line of the averages to stand out from the original data\n\n\nR\n\n\n\nfinches %&gt;% \n  filter(species == \"G. fortis\") %&gt;% \n  ggplot(aes(x = is_early,\n             y = bdepth)) +\n  geom_jitter(width = 0.05,\n              alpha = 0.6) +\n  stat_summary(fun = mean,\n               geom = \"point\",\n               size = 3,\n               colour = \"firebrick\") +\n  stat_summary(aes(group = species), fun = mean,\n               geom = \"line\",\n               linewidth = 1,\n               colour = \"firebrick\")\n\n\n\n\n\n\n\n\n\n\n\nWe can see that, on average, the beak depth is lower in the post-1983 measurements (is_early = FALSE). This is further emphasised through connecting the two averages: the slope of the line indicates the difference between them.\nI would personally prefer to see the early data on the left, and the later data on the right. That makes more sense chronologically. That is indeed possible, but includes something called factors, which we’ll cover later. So for now, we won’t worry about it.",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Data distributions</span>"
+    ]
+  },
+  {
+    "objectID": "materials/data-distributions.html#summary",
+    "href": "materials/data-distributions.html#summary",
+    "title": "9  Data distributions",
+    "section": "9.12 Summary",
+    "text": "9.12 Summary\n\n\n\n\n\n\nKey points\n\n\n\n\nData distributions allows us to understand the structure of our data better\nBox and violin plots give us summary statistics\nHistograms displays the frequency of observations\nOnce you have a story to tell (or point to make), revisit your plots and choose the most appropriate one to convey that",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Data distributions</span>"
+    ]
+  },
+  {
+    "objectID": "materials/correlations.html",
+    "href": "materials/correlations.html",
+    "title": "10  Finding correlations",
+    "section": "",
+    "text": "10.1 Libraries and functions",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Finding correlations</span>"
+    ]
+  },
+  {
+    "objectID": "materials/correlations.html#libraries-and-functions",
+    "href": "materials/correlations.html#libraries-and-functions",
+    "title": "10  Finding correlations",
+    "section": "",
+    "text": "Click to expand\n\n\n\n\n\n\nR\n\n\n\n10.1.1 Libraries\n\nlibrary(tidyverse)\nlibrary(visdat)\n\n\n\n10.1.2 Functions",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Finding correlations</span>"
+    ]
+  },
+  {
+    "objectID": "materials/correlations.html#purpose-and-aim",
+    "href": "materials/correlations.html#purpose-and-aim",
+    "title": "10  Finding correlations",
+    "section": "10.2 Purpose and aim",
+    "text": "10.2 Purpose and aim\nWhen we set off to gather or explore data, we generally have a research question that we’re interested in. We then design an experiment to test this question - in that case our data helps us to find an answer.\nQuite often we gather a lot more data than we directly need to answer our research question. As such, it’s often very useful to explore our data and look for patterns or correlations.\nFor the next few sections we’re moving away from finches and instead are using the gapminder data set. The snippet of data we’re providing in data/gapminder_clean.csv contains socio-economic data for lots of different countries.",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Finding correlations</span>"
+    ]
+  },
+  {
+    "objectID": "materials/correlations.html#loading-data",
+    "href": "materials/correlations.html#loading-data",
+    "title": "10  Finding correlations",
+    "section": "10.3 Loading data",
+    "text": "10.3 Loading data\nThe first step to exploring our data is of course loading it in the first place.\n\nR\n\n\n\ngapminder &lt;- read_csv(\"data/gapminder_clean.csv\")\n\n\n\n\nThe gapminder data set that we’ve loaded has 13 different variables, with observations for over 150 different countries in the year 2010.",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Finding correlations</span>"
+    ]
+  },
+  {
+    "objectID": "materials/correlations.html#correlating-variables",
+    "href": "materials/correlations.html#correlating-variables",
+    "title": "10  Finding correlations",
+    "section": "10.4 Correlating variables",
+    "text": "10.4 Correlating variables\nTo illustrate how we can use correlate variables to one another, we’re going to focus on life_expectancy in different contexts.\nLet’s start off with a simple scatter plot that looks at life_expectancy against income_per_person:\n\nR\n\n\n\nggplot(data = gapminder,\n       aes(x = income_per_person,\n           y = life_expectancy)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\n\nIt seems that as the income per person increases, so does the life expectancy. We can also see that the life expectancy kind of plateaus - which is not very surprising, since it can’t go on indefinitely!\nLooking at this plot, it’s quite striking how there is quite a range of life expectancy values at the really low income countries. We know that there is information on different world regions in the data (world_region). Perhaps there are certain world regions that have particularly low income levels?\nThis is something we can easily check.\n\nR\n\n\nWe simply adjust the previous plot by colouring our data by world_region:\n\nggplot(data = gapminder,\n       aes(x = income_per_person,\n           y = life_expectancy,\n           colour = world_region)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\n\nLooking at this plot it appears that most of the low-income countries are in sub-Saharan Africa.\nWe could explore this even further by, for example, adding information on the population size to the plot:\n\nR\n\n\nWe can adjust the previous plot by adding size to our plot, based on population:\n\nggplot(data = gapminder,\n       aes(x = income_per_person,\n           y = life_expectancy,\n           colour = world_region,\n           size = population)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nIt’s easy to add too much information to a single plot. In the example above, we’re actually plotting four different variables in a single plot:\n\nincome_per_person on the x-axis\nlife_expectancy on the y-axis\nworld_region as colour\npopulation as size\n\nWhether this helps convey whatever message you have is not exactly clear. We’ll talk more about the purpose of a plot and the audience in the next section.\n\n\n\n10.4.1 Exercises\n\n\n\n\n\n\nIncome levels across main religions\n\n\n\nLevel:   \nPlot life expectancy vs income per person for the main religions.\nCan you see any trends?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\nR\n\n\n\nggplot(data = gapminder,\n       aes(x = income_per_person,\n           y = life_expectancy,\n           colour = main_religion)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\n\nThere are no clear trends in these data, apart from that the data are very spread out!\nWhat we can see in the plot is that the country with the highest income per person is a Muslim country, and the second-highest income country is Christian.\n\n\n\n\n\n\n\n\n\n\n\nIncome extremes\n\n\n\nLevel:   \nTry the following:\n\nFind the 5 highest income countries\nFind the 5 lowest income countries\nCreate a box plot with those data points\n\nHint: it might be easiest to save the results in two separate objects.\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\nR\n\n\nFirst, we get the 5 highest income countries:\n\ntop5_income &lt;- gapminder %&gt;% \n  arrange(desc(income_per_person)) %&gt;% \n  slice(1:5)\n\nNext, we get the 5 lowest income countries:\n\nbottom5_income &lt;- gapminder %&gt;% \n  arrange(income_per_person) %&gt;% \n  slice(1:5)\n\nLastly, we can plot this as follows:\n\nggplot(data = top5_income,\n       aes(x = \"top 5\", y = income_per_person)) +\n  geom_boxplot() +\n  # create new box using the bottom 5 data\n  geom_boxplot(data = bottom5_income,\n               aes(x = \"bottom 5\", y = income_per_person))",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Finding correlations</span>"
+    ]
+  },
+  {
+    "objectID": "materials/correlations.html#visualising-correlations",
+    "href": "materials/correlations.html#visualising-correlations",
+    "title": "10  Finding correlations",
+    "section": "10.5 Visualising correlations",
+    "text": "10.5 Visualising correlations\nA standard method of looking for correlations is to use a correlation matrix. These are often generated by using Pearson’s r - a measure of correlation. If you’re interested in finding out more, see Core statistics 3: correlations.\nThis is not a statistics course, but what we’re doing here is focussing on how we can visualise such a matrix. A matrix is simply a data frame with just numerical values. The reason why we can’t use the entire gapminder data set is because we can’t calculate correlations between groups. After all, it wouldn’t make sense to explore if world region is correlated with main religion, for example!\nBecause we’re only able to calculate correlations between numerical variables, we first need pull out only those columns that are numeric. We’re also not interested in the year variable, because we know there is only one value in that one anyway (the year 2010),\n\nR\n\n\n\ngapminder %&gt;% \n  select(where(is.numeric)) %&gt;% \n  select(-year)\n\n# A tibble: 167 × 7\n   children_per_woman life_expectancy income_per_person population\n                &lt;dbl&gt;           &lt;dbl&gt;             &lt;dbl&gt;      &lt;dbl&gt;\n 1               5.82            59.8              1672   29185511\n 2               6.16            59.9              6360   23356247\n 3               1.65            77.6              9928    2948029\n 4               1.87            72.9             55363    8549998\n 5               2.37            75.8             18912   40895751\n 6               1.55            74.0              6703    2877314\n 7               2.13            76.6             20660      88030\n 8               1.93            82.0             41530   22154687\n 9               1.44            80.6             43336    8409945\n10               1.96            69.3             16216    9032465\n# ℹ 157 more rows\n# ℹ 3 more variables: child_mortality &lt;dbl&gt;, life_expectancy_female &lt;dbl&gt;,\n#   life_expectancy_male &lt;dbl&gt;\n\n\n\n\n\nAfter this, we can calculate the correlation matrix.\n\nR\n\n\nOne of the ways we can do this is by using the cor() function:\n\ngapminder %&gt;% \n  select(where(is.numeric)) %&gt;% \n  select(-year) %&gt;% \n  cor(method = \"pearson\")\n\n                       children_per_woman life_expectancy income_per_person\nchildren_per_woman             1.00000000     -0.72197292       -0.49069393\nlife_expectancy               -0.72197292      1.00000000        0.57306921\nincome_per_person             -0.49069393      0.57306921        1.00000000\npopulation                    -0.08242701      0.02021798       -0.05518878\nchild_mortality                0.83205416     -0.87918658       -0.50622105\nlife_expectancy_female        -0.82605805      0.93001838        0.57434713\nlife_expectancy_male          -0.75909310      0.93125439        0.61432730\n                         population child_mortality life_expectancy_female\nchildren_per_woman     -0.082427010     0.832054159            -0.82605805\nlife_expectancy         0.020217982    -0.879186584             0.93001838\nincome_per_person      -0.055188782    -0.506221048             0.57434713\npopulation              1.000000000    -0.005857309             0.01509248\nchild_mortality        -0.005857309     1.000000000            -0.89127415\nlife_expectancy_female  0.015092483    -0.891274153             1.00000000\nlife_expectancy_male    0.032751043    -0.843957872             0.96776823\n                       life_expectancy_male\nchildren_per_woman              -0.75909310\nlife_expectancy                  0.93125439\nincome_per_person                0.61432730\npopulation                       0.03275104\nchild_mortality                 -0.84395787\nlife_expectancy_female           0.96776823\nlife_expectancy_male             1.00000000\n\n\n\n\n\nThis is of course a hideously large table, which is almost impossible to interpret. But that’s the point! It’s much easier to use a visual representation of these data. Well, once the data are in the right format, that is.\nDon’t worry if the data wrangling is a bit overwhelming, at this stage it’s not essential that you understand that bit of code - but more that you’re able to see how we can visualise these data.\n\nR\n\n\n\ngapminder_cor &lt;- gapminder %&gt;% \n  select(where(is.numeric)) %&gt;% \n  select(-year) %&gt;% \n  cor(method = \"pearson\") %&gt;% \n  as_tibble(rownames = \"var1\") %&gt;% \n  pivot_longer(cols = -var1,\n               names_to = \"var2\",\n               values_to = \"pearson_cor\") %&gt;% \n  mutate(pearson_cor = round(pearson_cor, digits = 3)) %&gt;% \n  drop_na()\n\nThis gives us a table with the following format:\n\nhead(gapminder_cor)\n\n# A tibble: 6 × 3\n  var1               var2                   pearson_cor\n  &lt;chr&gt;              &lt;chr&gt;                        &lt;dbl&gt;\n1 children_per_woman children_per_woman           1    \n2 children_per_woman life_expectancy             -0.722\n3 children_per_woman income_per_person           -0.491\n4 children_per_woman population                  -0.082\n5 children_per_woman child_mortality              0.832\n6 children_per_woman life_expectancy_female      -0.826\n\n\nWe can then plot the correlation matrix, plotting var1 on the x-axis and var2 on the y-axis. To aid visualisation, we’re using the geom_tile() geometry, which creates a tile plot. The colour of each tile depends on the value of the correlation coefficient (pearson_cor). Together, this creates a heatmap of the data, where the values are depicted by colour.\n\nggplot(data = gapminder_cor,\n       aes(x = var1, y = var2, fill = pearson_cor)) +\n  geom_tile()\n\n\n\n\n\n\n\n\nAnnoyingly, the x-axis labels are a bit obscured, so improve readability we rotate them 45 degrees. This is not entirely intuitive, but a quick Google search using the phrase “rotate text label ggplot” brings us to an answer on Stackoverflow that we can easily adapt.\n\nggplot(data = gapminder_cor,\n       aes(x = var1, y = var2, fill = pearson_cor)) +\n  geom_tile() +\n  theme(axis.text.x = element_text(angle = 45, hjust=1))\n\n\n\n\n\n\n\n\n\n\n\nThe variables across the diagonals are perfectly correlated (with a correlation coefficient of 1). This makes sense because, for example, child_mortality would be perfectly correlated with… itself!\nOther notable things are that the male/female life expectancy variables are quite highly correlated with overall life expectancy.\nThe correlation between life expectancy and income (which we explored previously using the scatter plot) is also reasonably strong and positive.\nSeveral variables are negatively correlated with one another, such as child mortality and life expectancy. This sad example makes sense, because if the child mortality rate in a country is high, it’s not inconceivable that this has an effect on the overall life expectancy in that country.",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Finding correlations</span>"
+    ]
+  },
+  {
+    "objectID": "materials/correlations.html#summary",
+    "href": "materials/correlations.html#summary",
+    "title": "10  Finding correlations",
+    "section": "10.6 Summary",
+    "text": "10.6 Summary\n\n\n\n\n\n\nKey points\n\n\n\n\nWe can find correlations by calculating correlation coefficients\nScatter plots allow us to visualise correlations between two variables\nTile plots or heatmaps are useful to visualise large numbers of correlations",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Finding correlations</span>"
+    ]
+  },
+  {
+    "objectID": "materials/changes.html",
+    "href": "materials/changes.html",
+    "title": "11  Looking for changes",
+    "section": "",
+    "text": "11.1 Libraries and functions",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Looking for changes</span>"
+    ]
+  },
+  {
+    "objectID": "materials/changes.html#libraries-and-functions",
+    "href": "materials/changes.html#libraries-and-functions",
+    "title": "11  Looking for changes",
+    "section": "",
+    "text": "Click to expand\n\n\n\n\n\n\nR\n\n\n\n11.1.1 Libraries\n\n\n11.1.2 Functions",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Looking for changes</span>"
+    ]
+  },
+  {
+    "objectID": "materials/changes.html#purpose-and-aim",
+    "href": "materials/changes.html#purpose-and-aim",
+    "title": "11  Looking for changes",
+    "section": "11.2 Purpose and aim",
+    "text": "11.2 Purpose and aim\nIn this section we’re going to look at dealing with data that changes. These can be changes over time or, for example, changes across treatments / regions / concentrations etc.",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Looking for changes</span>"
+    ]
+  },
+  {
+    "objectID": "materials/changes.html#loading-data",
+    "href": "materials/changes.html#loading-data",
+    "title": "11  Looking for changes",
+    "section": "11.3 Loading data",
+    "text": "11.3 Loading data\nWe’ll be using a new data set for this section - it contains similar information as the gapminder data set we’ve used so far, but it has data for different years. There is data from 1960 to 2010.\n\nR\n\n\n\ngapminder1960_2010 &lt;- read_csv(\"data/gapminder1960to2010_socioeconomic.csv\")",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Looking for changes</span>"
+    ]
+  },
+  {
+    "objectID": "materials/changes.html#changes-over-time",
+    "href": "materials/changes.html#changes-over-time",
+    "title": "11  Looking for changes",
+    "section": "11.4 Changes over time",
+    "text": "11.4 Changes over time\nLet’s say we’re interested in life expectancy. We now have data on this variable for 50 different years, so it’d be nice to see how life expectancy changed over time.\nThere are 193 countries in this data set, so it’s probably not a good idea to plot them all at once…\nLet’s focus close to home and see how life expectancy changed in the United Kingdom over these years.\n\nR\n\n\nTo do this, we first filter out all of the data of the United Kingdom, and then plot it.\n\ngapminder1960_2010 %&gt;% \n  filter(country == \"United Kingdom\") %&gt;% \n  ggplot(aes(x = year,\n             y = life_expectancy,\n             group = country)) +\n  geom_line()\n\n\n\n\n\n\n\n\n\n\n\nWe can see that life expectancy has increased markedly over the last 50 years. Notice that the y-axis is in a range of around 70 - 85! If we’d change that so that the y-axis started at zero, then our plot would look rather different.\n\nR\n\n\nWe can set the y-axis range or limits with ylim(), specifying the first and last value that we want in the plot:\n\ngapminder1960_2010 %&gt;% \n  filter(country == \"United Kingdom\") %&gt;% \n  ggplot(aes(x = year,\n             y = life_expectancy,\n             group = country)) +\n  geom_line() +\n  ylim(0, 90)\n\n\n\n\n\n\n\n\n\n\n\nThese two plots show the same data, but the clarity of the message is rather different.\n\n\n\n\n\n\nScale matters\n\n\n\nHow you scale and define your axes matters, as you might have derived from the plots above. Have a look at the graphs below, which are based on exactly the same data:\n\n\n\n\n\n\n\n\n\nLet’s assume that they were published in the campaign prospectus of the Republican and Democratic parties. Which one do you think ended up where?\n\n\nThese plots of course show only data for one country, so it doesn’t give us much context. How impressive is the increase in life expectancy in the United Kingdom, compared to other countries? We know that, for example, the United States and China have had a lot of economic growth in the past 50 year, so let’s compare the United Kingdom with them.\n\nR\n\n\nWe adjust the filter that we used earlier, to include the United States and China. We also colour the data by country, so that we can distinguish the three countries.\n\ngapminder1960_2010 %&gt;% \n  filter(country %in% c(\"China\", \"United Kingdom\", \"United States\")) %&gt;% \n  ggplot(aes(x = year,\n             y = life_expectancy,\n             colour = country,\n             group = country)) +\n  geom_line()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote on %in% syntax\n\n\n\n\n\nWe use %in% when we want to compare against a collection of values. Let’s look at a very simple data set called colours, which contains 5 different colour values:\n\ncolours\n\n# A tibble: 5 × 1\n  value \n  &lt;chr&gt; \n1 green \n2 yellow\n3 yellow\n4 red   \n5 purple\n\n\nIf we wanted to filter out the yellow and purple values, we could do that like this:\n\nfilter(colours, value %in% c(\"yellow\", \"purple\"))\n\n# A tibble: 3 × 1\n  value \n  &lt;chr&gt; \n1 yellow\n2 yellow\n3 purple\n\n\nWhat happens is that R goes through each item after %in% and checks if it can find it in the value column. So in this case it first checks yellow, followed by purple.\n\n\n\n\n\n\nFrom this plot we can see that the United Kingdom and United States show very similar increases in life expectancy, roughly increasing by 10 years.\nHowever, plotting this together with China’s life expectancy, it shows that China has seen a much larger increase over the past 50 years, since its life expectancy was only just above 30 year in 1960!\n\n11.4.1 Exercises\n\n\n\n\n\n\nHome country progress\n\n\n\nLevel:   \nPlot the life expectancy for your home country against Poland, Chile and Mexico. How does the life expectancy in your home country compare to these countries?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nFor example:\n\nR\n\n\n\ngapminder1960_2010 %&gt;% \n  filter(country %in% c(\"Netherlands\", \"Poland\", \"Chile\", \"Mexico\")) %&gt;% \n  ggplot(aes(x = year,\n             y = life_expectancy,\n             colour = country,\n             group = country)) +\n  geom_line()",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Looking for changes</span>"
+    ]
+  },
+  {
+    "objectID": "materials/changes.html#summary",
+    "href": "materials/changes.html#summary",
+    "title": "11  Looking for changes",
+    "section": "11.5 Summary",
+    "text": "11.5 Summary\n\n\n\n\n\n\nKey points\n\n\n\n\nVisualising changes over time is a powerful tool to detect trends\nDecisions on axis limits can dramatically change the message",
+    "crumbs": [
+      "**Exploring your data**",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Looking for changes</span>"
+    ]
+  },
+  {
+    "objectID": "materials/ranking.html",
+    "href": "materials/ranking.html",
+    "title": "12  Rank and order",
+    "section": "",
+    "text": "12.1 Libraries and functions",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Rank and order</span>"
+    ]
+  },
+  {
+    "objectID": "materials/ranking.html#libraries-and-functions",
+    "href": "materials/ranking.html#libraries-and-functions",
+    "title": "12  Rank and order",
+    "section": "",
+    "text": "Click to expand\n\n\n\n\n\n\nR\n\n\n\n12.1.1 Libraries\n\n\n12.1.2 Functions",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Rank and order</span>"
+    ]
+  },
+  {
+    "objectID": "materials/ranking.html#purpose-and-aim",
+    "href": "materials/ranking.html#purpose-and-aim",
+    "title": "12  Rank and order",
+    "section": "12.2 Purpose and aim",
+    "text": "12.2 Purpose and aim\nHierarchy in data can often be translated to hierarchy of our graph. It allows us to change the narrative of our visualisation and give it structure. This often involves us ordering or ranking our data. We’ll practice some examples of that here.",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Rank and order</span>"
+    ]
+  },
+  {
+    "objectID": "materials/ranking.html#loading-data",
+    "href": "materials/ranking.html#loading-data",
+    "title": "12  Rank and order",
+    "section": "12.3 Loading data",
+    "text": "12.3 Loading data\nIf you haven’t done so yet, please load the data as follows:\n\nR\n\n\n\ngapminder &lt;- read_csv(\"data/gapminder_clean.csv\")\n\n\n\n\nUsing the gapminder data set, let’s look at the following example.\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSo what happened here? Both plots show the average income across the countries within each world region. In panel A the different regions are ordered alphabetically, whereas in panel B they are displayed or ranked by average income.\nSame data, but a different purpose! When would we use one or the other?\nIf we simply wanted a look-up table, where we could easily find the average income for a specific world region, then we would want to use the representation in panel A. Let’s say we want to find the value for South Asia - we’d follow along the x-axis in alphabetical order. Doing the same in panel B is actually much harder.\nIf we’re interested in the world regions with particularly high average levels of income, then panel B would be more suitable. We’d simply look at the world regions that are displayed towards the right of the plot.",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Rank and order</span>"
+    ]
+  },
+  {
+    "objectID": "materials/ranking.html#reordering-data",
+    "href": "materials/ranking.html#reordering-data",
+    "title": "12  Rank and order",
+    "section": "12.4 Reordering data",
+    "text": "12.4 Reordering data\nThe process of reordering your data, depending on the purpose of your visualisation, can be a bit tricky.\nTo understand this a bit better it’s important to get our head round some different categorical data types, wonderfully illustrated by Allison Horst:\n\nThe type we are focusing on is the ordinal data. These are descriptions (so not numerical data) that have some kind of order.\nThis can be an inherent order, for example a range of emotions from good to bad. Using the illustration we’d expect the bee to feel awesome, ok and unhappy in that order.\nIt can also be an order that we are imposing ourselves. Again, using the illustration we can talk about turtle, snail and butterfly. These have no inherent order, but maybe we want to impose one, such as alphabetical order. If we’d do that, they would be arranged as butterfly, snail, turtle.\nThe way that programming languages deal with this kind of ordering is through factors. These are categorical data that have a fixed and known set of values.\nLet’s illustrate this with the bee example. Assume we followed a certain bee for 5 hours and recorded it emotional state once per hour. We could, hypothetically of course, end up with the following observations:\nok, awesome, unhappy, ok, unhappy\nThe bee was clearly not having the best of days. But I digress.\n\nR\n\n\nIf we wanted to code these states in R, then we would do the following:\n\nbee &lt;- c(\"ok\", \"awesome\", \"unhappy\", \"ok\", \"unhappy\")\n\nbee\n\n[1] \"ok\"      \"awesome\" \"unhappy\" \"ok\"      \"unhappy\"\n\n\nThey appear in the order that I observed them. Now let’s say that I want to impose a certain order on them, maybe alphabetically. I could take my bee object and convert it to a factor.\n\nbee_factor &lt;- factor(bee)\n\nbee_factor\n\n[1] ok      awesome unhappy ok      unhappy\nLevels: awesome ok unhappy\n\n\nThe first line still gives me the 5 observations in their original order, but below it there are Levels: awesome ok unhappy.\nWhat’s happened here is that R recognises that there are three distinct possible values in our data, awesome, ok and unhappy. And it’s ordered them alphabetically, which is the default.\nIf I’d want to change this order, I can specify the levels directly:\n\nfactor(bee_factor, levels = c(\"unhappy\", \"ok\", \"awesome\"))\n\n[1] ok      awesome unhappy ok      unhappy\nLevels: unhappy ok awesome\n\n\n\n\n\nNow let’s see how we translate this to our data set. Let’s create box plots for income_per_person for each main religion. We’ll look at the default order, and then change it.\n\nR\n\n\nIncome per person for each religion:\n\nggplot(data = gapminder,\n       aes(x = main_religion, y = income_per_person)) +\n  geom_boxplot()\n\n\n\n\n\n\n\n\nThis is in alphabetical order, by default.\nLet’s say we wanted to change it. One of the ways we could do this is by making the main_religion column a factor and changing its order. Let’s say we wanted to arrange them in order of average income. We could find this out by calculating the average income for each religion:\n\ngapminder %&gt;% \n  group_by(main_religion) %&gt;% \n  summarise(mean_income = mean(income_per_person)) %&gt;% \n  arrange(mean_income) %&gt;% \n  ungroup()\n\n# A tibble: 3 × 2\n  main_religion     mean_income\n  &lt;chr&gt;                   &lt;dbl&gt;\n1 eastern religions      14034.\n2 muslim                 16600.\n3 christian              17721.\n\n\nWe would then order the data as follows:\n\ngapminder %&gt;% \n  mutate(main_religion = factor(main_religion,\n                                levels = c(\"eastern religions\", \"muslim\", \"christian\"))) %&gt;% \n  ggplot(aes(x = main_religion, y = income_per_person)) +\n  geom_boxplot()\n\n\n\n\n\n\n\n\nThis works, but you can imagine that if you have lots of groups then doing this by manually specifying the levels becomes very (very!) tedious.\nThankfully there is another way of doing exactly the same, without manual specifying the order. This uses the fct_reorder() function to… reorder the factor (what’s in the name?!).\nThe way that it works is that you give it the data you want to reorder, then tell it what to reorder by. In our case we want to reorder by the mean income for each religion, so we need to calculate that first. After that we reorder the data directly within ggplot():\n\ngapminder %&gt;% \n  # group by main religion\n  group_by(main_religion) %&gt;% \n  # create a new column that contains the average\n  # income for that type of religion\n  mutate(mean_income = mean(income_per_person)) %&gt;% \n  # remove the grouping\n  ungroup() %&gt;% \n  # send the data to ggplot\n  # and fct_reorder the main_religion on the x-axis\n  # based on the calculated mean_income\n  ggplot(aes(x = fct_reorder(main_religion, mean_income),\n             y = income_per_person)) +\n  # create box plots\n  geom_boxplot()",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Rank and order</span>"
+    ]
+  },
+  {
+    "objectID": "materials/ranking.html#stem-plots",
+    "href": "materials/ranking.html#stem-plots",
+    "title": "12  Rank and order",
+    "section": "12.5 Stem plots",
+    "text": "12.5 Stem plots\nThe bar plot was useful when there weren’t too many observations. However, if we have lots of observations, then it can become a bit crowded. Have a look at the plot below, where we’re looking at the income per person for all the countries in the Middle East / North Africa region:\n\nR\n\n\n\ngapminder %&gt;% \n  filter(world_region == \"middle_east_north_africa\") %&gt;% \n  ggplot(aes(x = country, y = income_per_person)) +\n  geom_bar(stat = \"identity\") +\n  theme(axis.text.x = element_text(angle = 45, hjust=1))\n\n\n\n\n\n\n\n\n\n\n\nAnother way that we could display those data is by creating a stem plot (or lollipop plot).\n\nR\n\n\n\ngapminder %&gt;% \n  filter(world_region == \"middle_east_north_africa\") %&gt;% \n  ggplot(aes(x = country, y = income_per_person)) +\n  geom_point() +\n  geom_segment(aes(xend = country, yend = 0)) +\n  theme(axis.text.x = element_text(angle = 45, hjust=1))\n\n\n\n\n\n\n\n\n\n\n\nThis type of plot can be useful if you have lots of categories, since each category takes up a bit less space than a bar.\n\n12.5.1 Exercises\n\n\n\n\n\n\nReordering data FIXME\n\n\n\nLevel:   \nBelow is a chunk of code. In several places the code states &lt;FIXME&gt;. Try to make the necessary changes, so that you end up with a stem plot that displays the number of children per woman, for each country in Europe and Central Asia. Reorder the data by number of children per woman, from high to low.\nWhich country has the second highest number of children per woman?\n\nR\n\n\n\ngapminder %&gt;% \n  filter(world_region == &lt;FIXME&gt;) %&gt;% \n  ggplot(aes(x = fct_reorder(country,\n                             &lt;FIXME&gt;(children_per_woman)),\n             y = children_per_woman)) +\n  geom_point() +\n  geom_segment(aes(xend = &lt;FIXME&gt;, yend = 0)) +\n  theme(axis.text.x = element_text(angle = 45, hjust=1)) +\n  labs(x = \"Country\",\n       y = \"Children per woman\")\n\n\n\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\nR\n\n\n\ngapminder %&gt;% \n  filter(world_region == \"europe_central_asia\") %&gt;% \n  ggplot(aes(x = fct_reorder(country,\n                             desc(children_per_woman)),\n             y = children_per_woman)) +\n  geom_point() +\n  geom_segment(aes(xend = country, yend = 0)) +\n  theme(axis.text.x = element_text(angle = 45, hjust=1)) +\n  labs(x = \"Country\",\n       y = \"Children per woman\")\n\n\n\n\n\n\n\n\n\n\n\nThe country with the second highest number of children per woman is the Kyrgyz Republic (Kyrgyzstan).",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Rank and order</span>"
+    ]
+  },
+  {
+    "objectID": "materials/ranking.html#summary",
+    "href": "materials/ranking.html#summary",
+    "title": "12  Rank and order",
+    "section": "12.6 Summary",
+    "text": "12.6 Summary\n\n\n\n\n\n\nKey points\n\n\n\n\nRanking or ordering your data in a particular way can help tell a story\nProgramming languages use factors to deal with categories that have an inherent order",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Rank and order</span>"
+    ]
+  },
+  {
+    "objectID": "materials/popout.html",
+    "href": "materials/popout.html",
+    "title": "13  Making data stand out",
+    "section": "",
+    "text": "13.1 Libraries and functions",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Making data stand out</span>"
+    ]
+  },
+  {
+    "objectID": "materials/popout.html#libraries-and-functions",
+    "href": "materials/popout.html#libraries-and-functions",
+    "title": "13  Making data stand out",
+    "section": "",
+    "text": "Click to expand\n\n\n\n\n\n\nR\n\n\n\n13.1.1 Libraries\n\n\n13.1.2 Functions",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Making data stand out</span>"
+    ]
+  },
+  {
+    "objectID": "materials/popout.html#purpose-and-aim",
+    "href": "materials/popout.html#purpose-and-aim",
+    "title": "13  Making data stand out",
+    "section": "13.2 Purpose and aim",
+    "text": "13.2 Purpose and aim\nOften we have to deal with large amounts of data. But even more often we want to draw the reader’s attention to a particular property of the data that we’re displaying. In these cases it can be useful to visually let your data stand out.",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Making data stand out</span>"
+    ]
+  },
+  {
+    "objectID": "materials/popout.html#loading-data",
+    "href": "materials/popout.html#loading-data",
+    "title": "13  Making data stand out",
+    "section": "13.3 Loading data",
+    "text": "13.3 Loading data\nIf you haven’t done so yet, please load the data as follows:\n\nR\n\n\n\ngapminder &lt;- read_csv(\"data/gapminder_clean.csv\")",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Making data stand out</span>"
+    ]
+  },
+  {
+    "objectID": "materials/popout.html#the-popout",
+    "href": "materials/popout.html#the-popout",
+    "title": "13  Making data stand out",
+    "section": "13.4 The popout",
+    "text": "13.4 The popout\nTo be honest, I’m not entirely sure if this is a word, but it’s a technique that is often used in visualisation. Here we’re colouring our data of interest in a highly contrasting way to the rest of the data, to make them “pop out”.\nHave a look at the following plot, where we are plotting child mortality against the number of children per woman:\n\nR\n\n\n\nggplot(data = gapminder,\n       aes(x = children_per_woman,\n           y = child_mortality)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\n\nIt looks like there is a strong positive correlation between the number of children per women and child mortality, since child mortality seems to increase as the number of children per woman is higher.\nIn our data set we have a variable called is_oecd, which contains TRUE/FALSE statements on whether a country is part of the Organisation for Economic Co-operation and Development. This organisation stimulates economic progress and world trade and consists of primarily richer, Western countries.\nLet’s say we wanted to explore if this possible correlation has something to do with the economic status of the country. If that’s the case, it could be that child mortality rates in OECD countries is perhaps not linked to the number of children per women, whereas it is in non-OECD countries. Perhaps differences in the quality of healthcare lead to better survival rates for children in richer countries, even if a woman has many children.\nWe can visualise this.\n\nR\n\n\n\nggplot(data = gapminder,\n       aes(x = children_per_woman,\n           y = child_mortality,\n           colour = is_oecd)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\n\nIt looks like child mortality rates in non-OECD countries are much more variable than in OECD countries. There doesn’t appear to be enough spread in the OECD country data to draw conclusions about the OECD countries.\nWe’ve previously seen that life expectancy is poor in sub-Saharan Africa. It would therefore be interesting to investigate if that has anything to do with high levels of child mortality.\nTo visualise this we need to colour the data of the sub-Saharan Africa world_region a different colour than the rest of the data.\nWe can use a similar technique as we did for the OECD countries. We first need to create a column that contains information about whether a country is in sub-Saharan Africa and then colour the data accordingly.\nHere we also manually update the colours to increase data discriminability.\n\nR\n\n\n\ngapminder %&gt;% \n  mutate(is_sub_saharan_africa = world_region == \"sub_saharan_africa\") %&gt;%\n  ggplot(aes(x = children_per_woman,\n             y = child_mortality,\n             colour = is_sub_saharan_africa)) +\n  geom_point() +\n  scale_colour_manual(values = c(\"grey\", \"firebrick\"))\n\n\n\n\n\n\n\n\n\n\n\n\n13.4.1 Exercises\n\n\n\n\n\n\nIncome vs life expectancy in South Asia\n\n\n\nLevel:   \nPlot income (x-axis) against life expectancy for women (y-axis), colouring the data for South Asia differently from the rest of the data. Ensure that there is sufficient contrast between the two groups of data points.\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\nR\n\n\n\ngapminder %&gt;% \n  mutate(is_south_asia = world_region == \"south_asia\") %&gt;% \n  ggplot(aes(x = income_per_person,\n         y = life_expectancy_female,\n         colour = is_south_asia)) +\n  geom_point() +\n  scale_colour_manual(values = c(\"grey\", \"firebrick\"))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOrdering and emphasising groups\n\n\n\nLevel:   \nCreate a bar plot that contains the income per person, split by world region.\nEnsure that the data is arranged in ascending order (based on average income across each region) and highlight East-Asia Pacific.\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nWe’re combining some skills from the ordering/ranking section with the popout.\nFirst we need to find the average income for each region, and then colour East-Asia Pacific. To colour the inside of the bar plot we need to use the fill instead of the colour argument (see what happens if you do use colour!).\n\nR\n\n\n\ngapminder %&gt;% \n  group_by(world_region) %&gt;% \n  summarise(mean_income = mean(income_per_person)) %&gt;% \n  ungroup() %&gt;% \n  mutate(is_eap = world_region == \"east_asia_pacific\") %&gt;% \n  ggplot(aes(x = fct_reorder(world_region, mean_income),\n             y = mean_income,\n             fill = is_eap)) +\n  geom_bar(stat = \"identity\") +\n  theme(axis.text.x = element_text(angle = 45, hjust=1)) +\n  labs(x = \"World region\", y = \"Mean income\")",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Making data stand out</span>"
+    ]
+  },
+  {
+    "objectID": "materials/popout.html#summary",
+    "href": "materials/popout.html#summary",
+    "title": "13  Making data stand out",
+    "section": "13.5 Summary",
+    "text": "13.5 Summary\n\n\n\n\n\n\nKey points\n\n\n\n\nWe can use a popout to emphasise data",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Making data stand out</span>"
+    ]
+  },
+  {
+    "objectID": "materials/grey.html",
+    "href": "materials/grey.html",
+    "title": "14  Grey is great",
+    "section": "",
+    "text": "14.1 Libraries and functions",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Grey is great</span>"
+    ]
+  },
+  {
+    "objectID": "materials/grey.html#libraries-and-functions",
+    "href": "materials/grey.html#libraries-and-functions",
+    "title": "14  Grey is great",
+    "section": "",
+    "text": "Click to expand\n\n\n\n\n\n\nRPython\n\n\n\n14.1.1 Libraries\n\n\n14.1.2 Functions\n\n\n\n\n14.1.3 Libraries\n\n\n14.1.4 Functions",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Grey is great</span>"
+    ]
+  },
+  {
+    "objectID": "materials/grey.html#purpose-and-aim",
+    "href": "materials/grey.html#purpose-and-aim",
+    "title": "14  Grey is great",
+    "section": "14.2 Purpose and aim",
+    "text": "14.2 Purpose and aim\nWe have seen that pop-outs can be very powerful to highlight parts of your data. We already played a bit with greying out some of the data, which moves it to the background.\nGenerally, grey scales are a very useful way of layering your data and emphasis. It’s not just limited to your data points, but easily extends to any text annotations.\nWe’ll explore this more below using the socioeconomic data from 1960 - 2010. To reduce the number of countries, we’re only plotting data from country names contains “stan”.\nWe will build up a fictional narrative as we go along.\n\nR\n\n\n\ngapminder1960_2010 &lt;- read_csv(\"data/gapminder1960to2010_socioeconomic.csv\")\n\nLets first extract the ’stans:\n\nstans &lt;- gapminder1960_2010 %&gt;% \n  filter(str_detect(country, \"stan\"))\n\nWe’ve got 6 countries in this data set. Let’s say we wanted to build a narrative around Turkmenistan. There is quite some variability in the income data, indicating that perhaps there have been some economic events that have led to drops and rises in overall income.\nWe’ll give Turkmenistan it’s own category, so we can highlight it later.\n\nstans &lt;- stans %&gt;% \n  mutate(is_turkmenistan = country == \"Turkmenistan\")\n\nLet’s create a plot that illustrates the income per person over the period 1960 - 2010.\n\nggplot(stans, aes(x = year,\n                  y = income_per_person,\n                  colour = country,\n                  group = country)) +\n  geom_line()\n\n\n\n\n\n\n\n\n\n\n\nAs we mentioned earlier, Turkmenistan’s income varies a lot over the period we’re looking at here. So we delve into that a bit more.\nWe’ll use the concept of less is more. Let’s strip back as much of the information as we can and then build things up from there.\n\nR\n\n\n\nggplot(stans, aes(x = year, y = income_per_person, group = country)) +\n  geom_line(aes(colour = is_turkmenistan)) +\n  # remove background colour\n  # and gridlines\n  theme_classic() +\n  # change colour scheme\n  scale_colour_manual(values = c(\"grey\", \"firebrick\"))\n\n\n\n\n\n\n\n\nNext, we can remove the legend (we’ll add manual annotations later) and change the axis labels. We’ll store this plot, so we can make further changes without having the copy all of the code.\n\nturkmenistan &lt;- ggplot(stans, aes(x = year, y = income_per_person, group = country)) +\n  geom_line(aes(colour = is_turkmenistan)) +\n  # remove background colour\n  # and gridlines\n  theme_classic() +\n  # change colour scheme\n  scale_colour_manual(values = c(\"grey\", \"firebrick\")) +\n  # remove legend\n  theme(legend.position = \"none\") +\n  labs(title = \"Income per person (Turkmenistan)\",\n       x = \"Year\",\n       y = \"Annual income per person (USD)\")\n\nturkmenistan",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Grey is great</span>"
+    ]
+  },
+  {
+    "objectID": "materials/grey.html#plot-annotations",
+    "href": "materials/grey.html#plot-annotations",
+    "title": "14  Grey is great",
+    "section": "14.3 Plot annotations",
+    "text": "14.3 Plot annotations\nNow that we have a decent starting point for the plot, we’re going to annotate it further.\nThere is a marked decline in income between 1989 and 1995. Let’s say our story involved the effect of the collapse of the USSR on 26-December 1991. We would then want to mark this on the plot.\n\nR\n\n\n\nturkmenistan +\n  geom_vline(xintercept = 1991, linetype = \"dashed\")\n\n\n\n\n\n\n\n\n\n\n\nThis particular line would be helpful if we wanted to make comparisons across the various countries. But in this case we’re not and we are better off just indicating the point directly:\n\nR\n\n\nThis step is quite manual, so it’s helpful to have the actual data available.\n\nstans %&gt;%\n  filter(country == \"Turkmenistan\" & year == 1991) %&gt;% \n  select(income_per_person)\n\n# A tibble: 1 × 1\n  income_per_person\n              &lt;dbl&gt;\n1              7713\n\n\nWe can plot this point now. We probably want to adjust our title too, based on what we’re seeing!\n\nturkmenistan +\n  labs(title = \"Economic decline in Turkmenistan pre-dates fall of USSR\") +\n  # add a segment\n  annotate(geom = \"segment\", x = 1988, xend = 1991, y = 6400, yend = 7713,\n           arrow = arrow(type = \"closed\", length = unit(0.02, \"npc\"))) +\n  # add some text\n  annotate(geom = \"text\", x = 1984, y = 6600, label = \"Fall of USSR\")\n\n\n\n\n\n\n\n\n\n\n\nUsing grey values like this allows you to guide your audience through your plot. All the data is still there, but you are emphasising particular points and trends.",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Grey is great</span>"
+    ]
+  },
+  {
+    "objectID": "materials/grey.html#text-as-a-visual-component",
+    "href": "materials/grey.html#text-as-a-visual-component",
+    "title": "14  Grey is great",
+    "section": "14.4 Text as a visual component",
+    "text": "14.4 Text as a visual component\nText itself is a very important visual component and one you should not be afraid of using. A plot often doesn’t “speak for itself” and you want to make sure that people are not filling in the narrative themselves, but that they are directed by you!\nIf you are interested in how the plot is created, expand the section below.\n\n\n\n\n\n\nClick to expand\n\n\n\n\n\n\nR\n\n\n\ntajikistan_grey &lt;- stans %&gt;% \n  filter(country == \"Tajikistan\") %&gt;% \n  ggplot(aes(x = year, y = income_per_person, group = country)) +\n  geom_line(colour = \"firebrick\", linewidth = 1) +\n  theme_classic() +\n  # Fall of USSR\n  annotate(geom = \"segment\", x = 1988, xend = 1991, y = 2600, yend = 3328,\n           arrow = arrow(type = \"closed\", length = unit(0.02, \"npc\")),\n           colour = \"grey\") +\n  annotate(geom = \"text\", x = 1984, y = 2600, label = \"fall of USSR\",\n           colour = \"grey\") +\n  # Oil crisis 1973\n  annotate(geom = \"segment\", x = 1978, xend = 1973, y = 5800, yend = 5605,\n           arrow = arrow(type = \"closed\", length = unit(0.02, \"npc\")),\n           colour = \"grey\") +\n  annotate(geom = \"text\", x = 1983, y = 5800, label = \"oil crisis 1973\",\n           colour = \"grey\") +\n  # Oil crisis 1979\n  annotate(geom = \"text\", x = 1972, y = 4200, label = \"oil crisis 1979\",\n           colour = \"grey\") +\n  annotate(geom = \"segment\", x = 1976, xend = 1979, y = 4300, yend = 4825,\n           arrow = arrow(type = \"closed\", length = unit(0.02, \"npc\")),\n           colour = \"grey\") +\n  # Economic reforms\n  annotate(geom = \"segment\", x = 1995, xend = 2001, y = 1600, yend = 1600,\n           colour = \"grey\") +\n  annotate(geom = \"segment\", x = 1998, xend = 2003, y = 1600, yend = 2500,\n           colour = \"grey\") +\n  annotate(geom = \"text\", x = 2004, y = 3000, label = \"economic reform\",\n           colour = \"grey\") +\n  labs(x = \"year\", y = \"income (USD)\")\n\n\n\n\n\n\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nComparing the two plots (which, admittedly require hideous levels of code to create) shows you how changing the colour of the text labels to grey pushes the label to the background. This allows you to first follow the overall trend of the economic changes, then look in more detail into the individual events.",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Grey is great</span>"
+    ]
+  },
+  {
+    "objectID": "materials/grey.html#summary",
+    "href": "materials/grey.html#summary",
+    "title": "14  Grey is great",
+    "section": "14.5 Summary",
+    "text": "14.5 Summary\n\n\n\n\n\n\nKey points\n\n\n\n\nWe can use grey to send information to the background\nGrey allows us to layer our plot, guiding people through the plot",
+    "crumbs": [
+      "**Information hierarchy**",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Grey is great</span>"
+    ]
+  },
+  {
+    "objectID": "materials/space-and-layout.html",
+    "href": "materials/space-and-layout.html",
+    "title": "15  Space and layout",
+    "section": "",
+    "text": "15.1 Libraries and functions",
+    "crumbs": [
+      "**Construction concepts**",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Space and layout</span>"
+    ]
+  },
+  {
+    "objectID": "materials/space-and-layout.html#libraries-and-functions",
+    "href": "materials/space-and-layout.html#libraries-and-functions",
+    "title": "15  Space and layout",
+    "section": "",
+    "text": "Click to expand\n\n\n\n\n\n\nR\n\n\n\n15.1.1 Libraries\n\nlibrary(tidyverse)\n\nlibrary(patchwork)\n\n\n\n15.1.2 Functions",
+    "crumbs": [
+      "**Construction concepts**",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Space and layout</span>"
+    ]
+  },
+  {
+    "objectID": "materials/space-and-layout.html#purpose-and-aim",
+    "href": "materials/space-and-layout.html#purpose-and-aim",
+    "title": "15  Space and layout",
+    "section": "15.2 Purpose and aim",
+    "text": "15.2 Purpose and aim\nUsing space and layout in plots can have a huge impact on how your message comes across (or not!). For example, by composing multiple panels in a single plot you can walk the reader through a series of subplots to arrive at a point. It is of course possible to create multipanel plots using an imaging programme, copying/pasting individual images. However, this is not very reproducible and there are several ways to do this programmatically. Some of them are illustrated here.",
+    "crumbs": [
+      "**Construction concepts**",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Space and layout</span>"
+    ]
+  },
+  {
+    "objectID": "materials/space-and-layout.html#loading-data",
+    "href": "materials/space-and-layout.html#loading-data",
+    "title": "15  Space and layout",
+    "section": "15.3 Loading data",
+    "text": "15.3 Loading data\nIf you haven’t done so yet, please load the data as follows:\n\nR\n\n\n\ngapminder &lt;- read_csv(\"data/gapminder_clean.csv\")",
+    "crumbs": [
+      "**Construction concepts**",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Space and layout</span>"
+    ]
+  },
+  {
+    "objectID": "materials/space-and-layout.html#composing-plots",
+    "href": "materials/space-and-layout.html#composing-plots",
+    "title": "15  Space and layout",
+    "section": "15.4 Composing plots",
+    "text": "15.4 Composing plots\n\nR\n\n\nIn R, the patchwork package (check its documentation, which is full of excellent examples of its usage) is a really useful tool to create multi-panel plots.\nBefore we can use it, we need to install it. You can do this by running the following line of code in the console (there is no need to add it to your script, since you do not want to install it every time you run your script):\n\ninstall.packages(\"patchwork\")\n\nNext, we need to load it, so we can add this to our script (remember: packages need to be loaded every time you restart R, so we do add this to our script):\n\nlibrary(patchwork)\n\nThe easiest way to use the package is to first save the individual plots we want to assemble in different objects. Let’s create three plots to play with. The axis labels are not entirely complete, but it avoids them being too long for demonstration purposes:\n\np1 &lt;- ggplot(data = gapminder, \n             aes(x = child_mortality, y = children_per_woman)) +\n  geom_point(aes(colour = world_region, size = population)) +\n  scale_colour_brewer(palette = \"Dark2\") +\n  scale_size_continuous(trans = \"log10\") +\n  annotate(geom = \"rect\", xmin = 0, xmax = 25, ymin = 1, ymax = 3,\n           colour = \"grey\", fill = NA) +\n  labs(x = \"Child mortality\", y = \"Fertility rate\",\n       colour = \"Income\", size = \"Population\")\n\np2 &lt;- ggplot(data = gapminder, \n             aes(x = child_mortality, y = children_per_woman)) +\n  geom_point(aes(colour = world_region, size = population)) +\n  scale_colour_brewer(palette = \"Dark2\") +\n  scale_size_continuous(trans = \"log10\") +\n  coord_cartesian(xlim = c(0, 25), ylim = c(1, 3)) +\n  labs(x = \"Child mortality\", y = \"Fertility rate\",\n       colour = \"Income\", size = \"Population\")\n\np3 &lt;- ggplot(data = gapminder,\n             aes(x = world_region, y = income_per_person)) +\n  geom_boxplot(aes(fill = world_region)) +\n  scale_fill_brewer(palette = \"Dark2\") +\n  scale_y_continuous(trans = \"log10\") +\n  annotation_logticks(sides = \"l\") +\n  labs(x = \"World region\", y = \"Annual income\") +\n  theme(legend.position = \"none\",\n        axis.text.x = element_text(angle = 45, hjust = 1))\n\nThere are different ways in which you can specify how to put graphs together using patchwork, but the way we’re going to use in this lesson uses these two operators:\n\np1 | p2 puts the first plot on the left and the second on the right\np1 / p2 puts the first plot on the top and the second on the bottom\n\nHere is an example using the plots we’ve made:\n\n# side by side\np1 | p2\n\n\n\n\n\n\n\n# top and bottom\np1 / p2\n\n\n\n\n\n\n\n\nWe can combine these two operators for more complex arrangements, by wrapping different parts of the grid of plots with (). For example:\n\n# Put p1 and p2 side by side.\n# Then put those on the top and p3 on the bottom\n(p1 | p2) / p3\n\n\n\n\n\n\n\n\nFinally, you can customise these arrangements in several ways using the plot_layout() function. For example, we can “collect” the legends and define the relative height of each panel:\n\n((p1 | p2) / p3 ) + \n  plot_layout(guides = \"collect\", heights = c(2, 1))\n\n\n\n\n\n\n\n\nWe can use plot_spacer() to add an empty space to our graph, which can be useful if we want to add something else later on using another program (e.g. an image).\nFor example, let’s put a blank space where the second plot should be\n\n((p1 | plot_spacer()) / p3 ) + \n  plot_layout(guides = \"collect\", heights = c(2, 1))\n\n\n\n\n\n\n\n\nFinally, we can also add annotations, which is very useful to add automatic “tags” to each panel:\n\n((p1 | p2) / p3 ) + \n  plot_layout(guides = \"collect\", heights = c(2, 1)) + \n  plot_annotation(tag_levels = \"A\", \n                  title = \"Figure 1\")",
+    "crumbs": [
+      "**Construction concepts**",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Space and layout</span>"
+    ]
+  },
+  {
+    "objectID": "materials/space-and-layout.html#facetting",
+    "href": "materials/space-and-layout.html#facetting",
+    "title": "15  Space and layout",
+    "section": "15.5 Facetting",
+    "text": "15.5 Facetting\nIf you’re trying to visualise different groups in your data, then you can also create a multi-panel figure. Instead of saving each individual group to a plot and combining them afterwards, you can use facetting.\nThere are two types of facet functions:\nfacet_wrap() arranges a one-dimensional sequence of panels to fit on one page. facet_grid() allows you to form a matrix of rows and columns of panels.\nFor example, if we want to visualise a scatter plot, displaying the number of children_per_woman, against life_expectancy. We want to colour the data by world_region and split by income_groups.\n\nR\n\n\nBoth geometries allow to to specify faceting variables specified with vars(). In general:\nfacet_wrap(facets = vars(facet_variable))\nfacet_grid(rows = vars(row_variable), cols = vars(col_variable)).\n\nggplot(gapminder, \n       aes(x = children_per_woman, y = life_expectancy, colour = world_region)) +\n  geom_point() +\n  facet_wrap(facets = vars(income_groups))\n\n\n\n\n\n\n\n\n\n\n\nIf instead we want a matrix of facets to display income_groups and economic_organisation, then we use facet_grid():\n\nR\n\n\n\nggplot(gapminder, \n       aes(x = children_per_woman, y = life_expectancy, colour = world_region)) +\n  geom_point() +\n  facet_grid(rows = vars(income_groups), cols = vars(is_oecd))",
+    "crumbs": [
+      "**Construction concepts**",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Space and layout</span>"
+    ]
+  },
+  {
+    "objectID": "materials/space-and-layout.html#summary",
+    "href": "materials/space-and-layout.html#summary",
+    "title": "15  Space and layout",
+    "section": "15.6 Summary",
+    "text": "15.6 Summary\n\n\n\n\n\n\nKey points\n\n\n\n\nUse of white space helps readability and focus\nGrouping of related graphs can help navigating through complex data\nWe can split our data in groups using facetting",
+    "crumbs": [
+      "**Construction concepts**",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Space and layout</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "16  References",
+    "section": "",
+    "text": "Lamichhaney, Sangeet, Fan Han, Matthew T. Webster, B. Rosemary Grant,\nPeter R. Grant, and Leif Andersson. 2020. “Female-Biased Gene Flow\nBetween Two Species of Darwin’s Finches.” Nature Ecology\n& Evolution 4 (7): 979–86. https://doi.org/10.1038/s41559-020-1183-9.\n\n\nMcCandless, David. 2024. “Information Is Beautiful.”\nInformation Is Beautiful. https://informationisbeautiful.net/.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>References</span>"
+    ]
+  }
+]
